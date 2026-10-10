@@ -1,0 +1,35 @@
+name: Fetch the CWI logo
+
+# A one-off, run on this branch only: downloads the CWI logo from the address
+# Paul gave and adds it as images/cwi.png. Removed again before merging.
+
+on:
+  push:
+    branches: [claude/tidy]
+    paths: [".github/workflows/fetch-cwi-logo.yml"]
+
+permissions:
+  contents: write
+
+jobs:
+  fetch:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Download
+        run: |
+          set -euo pipefail
+          original='https://media.iamsterdam.com/ex_0,ey_0,eh_1020,h_1020,ew_1800,w_1800/14xd6is5psiq-cwi-logo.png'
+          as_given='https://www.iamsterdam.com/_next/image?url=https%3A%2F%2Fmedia.iamsterdam.com%2Fex_0%2Cey_0%2Ceh_1020%2Ch_1020%2Cew_1800%2Cw_1800%2F14xd6is5psiq-cwi-logo.png&w=3840&q=75'
+          curl -fsSL --retry 2 --max-time 60 -o images/cwi.png "$original" \
+            || curl -fsSL --retry 2 --max-time 60 -H 'Accept: image/png' -o images/cwi.png "$as_given"
+          kind=$(file -b --mime-type images/cwi.png)
+          echo "images/cwi.png: $kind, $(stat -c %s images/cwi.png) bytes, $(file -b images/cwi.png)"
+          [ "$kind" = "image/png" ] || { echo "::error::not a PNG: $kind"; exit 1; }
+      - name: Commit
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add images/cwi.png
+          git commit -m "Add the CWI logo"
+          git push
