@@ -133,7 +133,7 @@ section > h2, footer h2 { font-size: 1.62rem; }
 
 /* People and partners */
 .plate { background: #fff; border: 1px solid var(--line); border-radius: 12px; padding: 16px 20px; display: inline-flex; align-self: flex-start; }
-.plate img { max-width: 200px; max-height: 96px; width: auto; height: auto; display: block; }
+.plate img { max-width: min(340px, 100%); max-height: 140px; width: auto; height: auto; display: block; }
 .people { list-style: none; padding: 0; border-top: 1px solid var(--line-strong); }
 .people li { display: grid; grid-template-columns: 64px minmax(0, 1fr) minmax(0, 1fr); gap: 4px 20px; align-items: center; padding-block: 14px; border-bottom: 1px solid var(--line); }
 .people img { width: 64px; height: 64px; border-radius: 50%; object-fit: cover; background: var(--line); display: block; }
@@ -141,8 +141,12 @@ section > h2, footer h2 { font-size: 1.62rem; }
 .people span { display: block; font-size: .93rem; color: var(--muted); }
 .people .links { font-size: .93rem; }
 .logos { list-style: none; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(9.5rem, 1fr)); gap: 12px; }
-.logos li { background: #fff; border: 1px solid var(--line); border-radius: 10px; height: 92px; padding: 0 16px; display: flex; align-items: center; justify-content: center; }
-.logos img { max-height: 58px; max-width: 100%; width: auto; height: auto; display: block; }
+.logos li { background: #fff; border: 1px solid var(--line); border-radius: 10px; height: 112px; padding: 0 14px; display: flex; align-items: center; justify-content: center; }
+.logos img { max-height: 92px; max-width: 100%; width: auto; height: auto; display: block; }
+/* A partner whose logo file is not in images/ yet: its name, on the same white tile. */
+.logos .named { flex-direction: column; gap: 2px; color: #13232E; text-align: center; }
+.logos .named b { font-size: 1.9rem; line-height: 1; letter-spacing: .03em; }
+.logos .named span { font-size: .74rem; line-height: 1.25; color: #566873; }
 
 footer { border-top: 1px solid var(--line-strong); padding-block: 40px 64px; scroll-margin-top: 64px; }
 footer .page { display: grid; grid-template-columns: var(--margin-col) minmax(0, 1fr); gap: 20px 40px; }
@@ -327,7 +331,7 @@ footer .page { display: grid; grid-template-columns: var(--margin-col) minmax(0,
         <li>
           <img src="images/pe.jpg" alt="" width="64" height="64">
           <div><b>Paul Elbers, MD, PhD, EDIC</b><span>Intensivist, Amsterdam UMC</span></div>
-          <div><span>Leads Amsterdam Medical Data Science and AmsterdamUMCdb</span><span class="links"><a href="https://www.linkedin.com/in/paulelbersmdphd/">LinkedIn</a></span></div>
+          <div><span>Co-founder and lead of AmsterdamUMCdb</span><span>Leads Amsterdam Medical Data Science</span><span class="links"><a href="https://www.linkedin.com/in/paulelbersmdphd/">LinkedIn</a></span></div>
         </li>
         <li>
           <img src="images/mh.jpg" alt="" width="64" height="64">
@@ -336,29 +340,29 @@ footer .page { display: grid; grid-template-columns: var(--margin-col) minmax(0,
         </li>
         <li>
           <img src="images/pt.png" alt="" width="64" height="64">
-          <div><b>Patrick Thoral, MD</b><span>Intensivist, Amsterdam UMC</span></div>
-          <div><span>Leads AmsterdamUMCdb</span><span class="links"><a href="https://www.linkedin.com/in/patrickthoral/">LinkedIn</a></span></div>
+          <div><b>Patrick Thoral, MD</b><span>Intensivist, OLVG, Amsterdam</span></div>
+          <div><span>Co-founder of AmsterdamUMCdb</span><span class="links"><a href="https://www.linkedin.com/in/patrickthoral/">LinkedIn</a></span></div>
         </li>
       </ul>
       <h3>Partners</h3>
-      <p>Amsterdam Medical Data Science is funded by Amsterdam UMC, Vrije Universiteit Amsterdam and Amsterdam Economic Board. It is supported by the Right Data Right Now consortium of Amsterdam UMC, OLVG, Vrije Universiteit, Pacmed and Amsterdam Economic Board.</p>
+      <p>Amsterdam Medical Data Science is funded by Amsterdam UMC, Vrije Universiteit Amsterdam and Amsterdam Economic Board. It is supported by the Right Data Right Now consortium.</p>
       <ul class="logos">
         <li><img src="images/aumc.jpg" alt="Amsterdam UMC"></li>
         <li><img src="images/vu.png" alt="Vrije Universiteit Amsterdam"></li>
         <li><img src="images/uva.png" alt="University of Amsterdam"></li>
         <li><img src="images/olvg.png" alt="OLVG"></li>
-        <li><img src="images/pacmed.jpg" alt="Pacmed"></li>
+        <li class="named"><b>CWI</b><span>Centrum Wiskunde &amp; Informatica</span></li>
         <li><img src="images/aeb.png" alt="Amsterdam Economic Board"></li>
       </ul>
       <h3>Acknowledgements</h3>
-      <p>We thank the project leaders of AmsterdamUMCdb, Paul Elbers and Patrick Thoral, and all intensive care professionals of the Department of Intensive Care Medicine, led by Prof. dr. Armand Girbes and Hans van der Spoel. We thank the clinical IT specialists Jan Peppink, Ronald Driessen and Dagmar Ouweneel for their essential contributions. We are grateful to PhysioNet for creating the <a href="https://physionet.org/content/mimiciv/">MIMIC</a> and <a href="https://physionet.org/content/eicu-crd/2.0/">eICU</a> databases, which were a major source of inspiration.</p>
+      <p>We thank the founders of AmsterdamUMCdb, Paul Elbers and Patrick Thoral, and all intensive care professionals of the Department of Intensive Care Medicine, led by Prof. dr. Armand Girbes and Hans van der Spoel. We thank the clinical IT specialists Jan Peppink, Ronald Driessen and Dagmar Ouweneel for their essential contributions. We are grateful to PhysioNet for creating the <a href="https://physionet.org/content/mimiciv/">MIMIC</a> and <a href="https://physionet.org/content/eicu-crd/2.0/">eICU</a> databases, which were a major source of inspiration.</p>
     </div>
   </section>
 
   <section id="ddw">
     <h2>Dutch Data Warehouse against COVID-19</h2>
     <div class="body">
-      <p>During the pandemic, intensive care units across the Netherlands combined their records of COVID-19 patients in one warehouse, coordinated by Amsterdam UMC and supported by the Dutch Society for Intensive Care Medicine and our partner Pacmed. More than 60 units took part. Thirty-five of them shared more than 400 million data points from more than 1,500 critically ill patients.</p>
+      <p>During the pandemic, intensive care units across the Netherlands combined their records of COVID-19 patients in one warehouse, coordinated by Amsterdam UMC and supported by the Dutch Society for Intensive Care Medicine and Pacmed. More than 60 units took part. Thirty-five of them shared more than 400 million data points from more than 1,500 critically ill patients.</p>
       <p>The warehouse is open to collaboration, within privacy law, regulations and ethical considerations. Write to <a href="mailto:ddw@amsterdammedicaldatascience.nl">ddw@amsterdammedicaldatascience.nl</a>.</p>
     </div>
   </section>
