@@ -16,12 +16,9 @@ index.html        the whole page: text, styles and the opening drawing
 images/           logos and portraits
 press/            the press release of November 2019, in six languages
 tools/skyline.py  draws the opening picture (see below)
+tools/check.py    looks for missing files and broken links on the page
 .nojekyll         tells GitHub to publish the files exactly as they are
 ```
-
-`tools/copy-assets.sh` and `.github/workflows/copy-assets.yml` are a one-off:
-they copied the images and PDFs from the site's previous host into this
-repository. They can be removed once the domain points to GitHub Pages.
 
 ## Changing the site
 
@@ -30,6 +27,10 @@ Edit `index.html` and propose the change as a pull request. Merging into
 
 To look at a change before proposing it, open `index.html` in a browser. The
 images and PDFs load because their paths are relative.
+
+Every proposal is checked by `tools/check.py`: a picture or PDF the page
+refers to must be in the repository, and a link to a place on the page must
+have that place. Run it yourself with `python3 tools/check.py`.
 
 ## Facts on the page, and where they come from
 
