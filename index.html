@@ -1,0 +1,380 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AmsterdamUMCdb: intensive care data, free for research | Amsterdam Medical Data Science</title>
+<meta name="description" content="AmsterdamUMCdb is the first freely accessible European intensive care database. Read what it holds and request access. Hosted by Amsterdam Medical Data Science.">
+<meta name="author" content="Amsterdam UMC">
+<meta name="google-site-verification" content="YtB_UMvt4zepVSBJYvO3Wv5HMCCh9zBAt22EY16Mjsw">
+<link rel="canonical" href="https://amsterdammedicaldatascience.nl/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Amsterdam Medical Data Science">
+<meta property="og:title" content="AmsterdamUMCdb: intensive care data, free for research">
+<meta property="og:description" content="The first freely accessible European intensive care database. Read what it holds and request access.">
+<meta property="og:url" content="https://amsterdammedicaldatascience.nl/">
+<meta property="og:image" content="https://amsterdammedicaldatascience.nl/images/amdslogonew.png">
+<meta name="twitter:card" content="summary">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23000'/%3E%3Cg fill='%23fff'%3E%3Cpath id='x' d='M3.2 12.2 4.4 11 6 12.6 7.600 11 8.800 12.2 7.200 13.8 8.800 15.4 7.600 16.6 6 15 4.400 16.6 3.200 15.4 4.800 13.8z' transform='translate(-.4 2.2)'/%3E%3Cuse href='%23x' x='10'/%3E%3Cuse href='%23x' x='20'/%3E%3C/g%3E%3C/svg%3E">
+<style>
+/* One page, no scripts, nothing loaded from another site.
+   Teal and the typefaces come from the access portal. Red, black and the
+   three crosses come from the flag of Amsterdam. */
+:root {
+  --ground: #F1F5F7; --surface: #FFFFFF; --ink: #13232E; --muted: #566873;
+  --line: #D6DEE3; --line-strong: #AEBBC3;
+  --accent: #0A5F70; --accent-ink: #FFFFFF; --accent-soft: #E0EEF1;
+  --red: #D2111C;
+  --display: "Iowan Old Style", "Palatino Linotype", Palatino, "Book Antiqua", Georgia, serif;
+  --body: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --page: 68rem; --gutter: clamp(16px, 4vw, 40px); --margin-col: 13rem;
+  color-scheme: light;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --ground: #0E161B; --surface: #162129; --ink: #E5ECF0; --muted: #9BACB7;
+    --line: #2A3943; --line-strong: #465863;
+    --accent: #5FC3D5; --accent-ink: #06222A; --accent-soft: #17343C;
+    --red: #F04A53;
+    color-scheme: dark;
+  }
+}
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+@media (prefers-reduced-motion: no-preference) { html { scroll-behavior: smooth; } }
+body { margin: 0; background: var(--ground); color: var(--ink); font-family: var(--body); font-size: 1.0625rem; line-height: 1.6; }
+h1, h2, h3 { font-family: var(--display); font-weight: 600; line-height: 1.15; margin: 0; text-wrap: balance; }
+p, ul, ol, dl, dd, figure { margin: 0; }
+a { color: var(--accent); text-underline-offset: .18em; }
+a:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; border-radius: 3px; }
+img, svg { max-width: 100%; }
+.page { max-width: var(--page); margin-inline: auto; padding-inline: var(--gutter); }
+.skip { position: absolute; left: -999px; top: 8px; background: var(--surface); padding: 8px 12px; border-radius: 6px; z-index: 5; }
+.skip:focus { left: 8px; }
+.crosses { fill: currentColor; display: block; }
+
+/* Top bar */
+.bar { position: sticky; top: 0; z-index: 4; background: var(--surface); border-bottom: 1px solid var(--line); }
+.bar .page { display: flex; align-items: center; justify-content: space-between; gap: 8px 24px; flex-wrap: wrap; padding-block: 10px; }
+.wordmark { font-family: var(--display); font-weight: 600; font-size: 1.05rem; color: var(--ink); text-decoration: none; white-space: nowrap; display: flex; align-items: center; gap: 10px; }
+.wordmark .crosses { width: 38px; height: 11px; color: var(--red); }
+.bar nav { display: flex; flex-wrap: wrap; gap: 4px 20px; font-size: .92rem; }
+.bar nav a { color: var(--ink); text-decoration: none; padding-block: 4px; border-bottom: 2px solid transparent; }
+.bar nav a:hover { border-bottom-color: var(--red); }
+.bar nav a.go { color: var(--accent); font-weight: 600; }
+
+/* Opening */
+.opening { padding-top: clamp(40px, 7vw, 84px); }
+.opening h1 { font-size: clamp(2.4rem, 6.4vw, 4.6rem); letter-spacing: -.018em; line-height: 1.04; }
+.opening h1 span { display: block; }
+.opening .lead { margin-top: 24px; font-size: 1.2rem; color: var(--muted); max-width: 39rem; }
+.opening .actions { margin-top: 28px; }
+.skyline { margin-top: clamp(20px, 4vw, 44px); overflow: hidden; }
+.skyline svg { display: block; width: max(100%, 780px); max-width: none; height: auto; }
+.sky-detail { opacity: .5; }
+.sky-water { opacity: .3; }
+@media (prefers-reduced-motion: no-preference) {
+  .sky-line { stroke-dasharray: 1; stroke-dashoffset: 1; animation: draw 2.6s cubic-bezier(.45, .05, .25, 1) .15s forwards; }
+  .sky-detail { opacity: 0; animation: appear 1s ease-out 2s forwards; }
+  .sky-water { opacity: 0; animation: ripple 1.2s ease-out 2.3s forwards; }
+  @keyframes draw { to { stroke-dashoffset: 0; } }
+  @keyframes appear { to { opacity: .5; } }
+  @keyframes ripple { to { opacity: .3; } }
+}
+.credo { display: grid; grid-template-columns: var(--margin-col) minmax(0, 1fr); gap: 16px 40px; padding-block: clamp(28px, 5vw, 52px) clamp(40px, 6vw, 72px); align-items: start; }
+.credo .crosses { width: 120px; height: 34px; color: var(--red); margin-top: .5rem; }
+.credo p { font-family: var(--display); font-size: clamp(1.3rem, 2.5vw, 1.72rem); line-height: 1.38; max-width: 37rem; }
+
+/* Sections: the heading stands in the margin, the text beside it */
+section { padding-block: clamp(36px, 6vw, 68px); border-top: 1px solid var(--line-strong); scroll-margin-top: 64px; display: grid; grid-template-columns: var(--margin-col) minmax(0, 1fr); gap: 20px 40px; }
+section > h2, footer h2 { font-size: 1.62rem; }
+.body { display: flex; flex-direction: column; gap: 18px; min-width: 0; }
+.body > * { max-width: 43rem; }
+.body > .logos, .body > .figures { max-width: none; }
+.body h3 { font-size: 1.2rem; margin-top: 14px; }
+.body ul:not([class]), .needs ul { padding-left: 1.15em; display: flex; flex-direction: column; gap: 8px; }
+.small { font-size: .92rem; color: var(--muted); }
+
+/* The database in figures */
+.figures { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); border-top: 2px solid var(--ink); border-bottom: 1px solid var(--line-strong); margin-block: 8px; }
+.figures div { padding: 16px 20px 18px 0; display: flex; flex-direction: column-reverse; justify-content: flex-end; gap: 2px; }
+.figures div + div { border-left: 1px solid var(--line); padding-left: 20px; }
+.figures dt { color: var(--muted); font-size: .93rem; line-height: 1.35; }
+.figures dd { font-family: var(--display); font-weight: 600; font-size: clamp(1.55rem, 2.7vw, 2.05rem); line-height: 1.1; font-variant-numeric: lining-nums; white-space: nowrap; }
+.facts { display: grid; grid-template-columns: max-content minmax(0, 1fr); }
+.facts dt, .facts dd { padding-block: 8px; border-bottom: 1px solid var(--line); }
+.facts dt { color: var(--muted); padding-right: 32px; }
+.facts dd span { color: var(--muted); }
+.cite { border-left: 3px solid var(--red); padding: 4px 0 4px 18px; font-size: .97rem; }
+.langs { list-style: none; padding: 0; display: flex; flex-wrap: wrap; gap: 6px 20px; }
+
+/* Requesting access */
+.needs { background: var(--accent-soft); border: 1px solid var(--line-strong); border-radius: 10px; padding: 18px 20px; display: flex; flex-direction: column; gap: 10px; }
+.needs h3 { margin: 0; }
+.steps { list-style: none; padding: 0; counter-reset: step; display: flex; flex-direction: column; }
+.steps li { counter-increment: step; display: grid; grid-template-columns: 2.1rem minmax(0, 1fr); gap: 12px; padding-block: 11px; border-bottom: 1px solid var(--line); }
+.steps li:first-child { border-top: 1px solid var(--line); }
+.steps li::before { content: counter(step); font-family: var(--display); font-weight: 600; font-size: 1.15rem; color: var(--accent); width: 2.1rem; height: 2.1rem; border: 1px solid var(--line-strong); border-radius: 50%; display: grid; place-items: center; background: var(--surface); line-height: 1; }
+.steps li > span { padding-top: .2rem; }
+.actions { display: flex; flex-wrap: wrap; gap: 12px 24px; align-items: center; }
+.btn { display: inline-block; background: var(--accent); color: var(--accent-ink); font-weight: 600; text-decoration: none; padding: 12px 22px; border-radius: 8px; border: 1px solid var(--accent); }
+.btn:hover { filter: brightness(1.08); }
+.btn:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; }
+
+/* The meetup: the black band of the Amsterdam flag, with its three crosses */
+.band { background: #000; color: #fff; scroll-margin-top: 56px; }
+.band .page { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 28px 56px; align-items: center; padding-block: clamp(40px, 7vw, 76px); }
+.band h2 { font-size: clamp(2rem, 4.6vw, 3.1rem); letter-spacing: -.012em; }
+.band p { max-width: 35rem; margin-top: 14px; color: #D9DEE1; }
+.band .actions { margin-top: 24px; }
+.band .btn { background: #fff; color: #000; border-color: #fff; }
+.band a:focus-visible, .band .btn:focus-visible { outline-color: #fff; }
+.band .crosses { width: clamp(170px, 26vw, 300px); height: auto; color: #fff; }
+
+/* People and partners */
+.plate { background: #fff; border: 1px solid var(--line); border-radius: 12px; padding: 16px 20px; display: inline-flex; align-self: flex-start; }
+.plate img { max-width: 200px; max-height: 96px; width: auto; height: auto; display: block; }
+.people { list-style: none; padding: 0; border-top: 1px solid var(--line-strong); }
+.people li { display: grid; grid-template-columns: 64px minmax(0, 1fr) minmax(0, 1fr); gap: 4px 20px; align-items: center; padding-block: 14px; border-bottom: 1px solid var(--line); }
+.people img { width: 64px; height: 64px; border-radius: 50%; object-fit: cover; background: var(--line); display: block; }
+.people b { display: block; font-family: var(--display); font-size: 1.12rem; line-height: 1.25; }
+.people span { display: block; font-size: .93rem; color: var(--muted); }
+.people .links { font-size: .93rem; }
+.logos { list-style: none; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(9.5rem, 1fr)); gap: 12px; }
+.logos li { background: #fff; border: 1px solid var(--line); border-radius: 10px; height: 92px; padding: 0 16px; display: flex; align-items: center; justify-content: center; }
+.logos img { max-height: 58px; max-width: 100%; width: auto; height: auto; display: block; }
+
+footer { border-top: 1px solid var(--line-strong); padding-block: 40px 64px; scroll-margin-top: 64px; }
+footer .page { display: grid; grid-template-columns: var(--margin-col) minmax(0, 1fr); gap: 20px 40px; }
+.contact { display: grid; grid-template-columns: max-content minmax(0, 1fr); gap: 8px 28px; }
+.contact dt { color: var(--muted); }
+.contact dd { overflow-wrap: anywhere; }
+
+@media (max-width: 760px) {
+  section, footer .page, .credo { grid-template-columns: minmax(0, 1fr); gap: 14px; }
+  .bar { position: static; }
+  .bar nav { gap: 2px 16px; }
+  section, .band, footer { scroll-margin-top: 12px; }
+  .credo .crosses { width: 84px; height: 24px; margin-top: 0; }
+  .figures { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .figures div:nth-child(3) { border-left: 0; padding-left: 0; }
+  .figures div:nth-child(n+3) { border-top: 1px solid var(--line); }
+  .band .page { grid-template-columns: minmax(0, 1fr); }
+  .band .crosses { width: 150px; order: -1; }
+  .people li { grid-template-columns: 64px minmax(0, 1fr); }
+  .people li > div:last-child { grid-column: 2; }
+  .facts dt { padding-right: 18px; }
+}
+@media (max-width: 420px) {
+  .contact, .facts { grid-template-columns: minmax(0, 1fr); }
+  .contact dd { margin-bottom: 8px; }
+  .facts dt { border-bottom: 0; padding-bottom: 0; }
+  .facts dd { padding-top: 0; }
+}
+@media print { .bar { position: static; } .btn { color: #000; background: none; } .band { background: none; color: #000; } }
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><symbol id="xxx" viewBox="0 0 38 10"><path id="x1" d="M1.6 0 5 3.4 8.4 0 10 1.6 6.6 5 10 8.4 8.4 10 5 6.6 1.6 10 0 8.4 3.4 5 0 1.6z"/><use href="#x1" x="14"/><use href="#x1" x="28"/></symbol></svg>
+<a class="skip" href="#amsterdamumcdb">Skip to the database</a>
+
+<header class="bar">
+  <div class="page">
+    <a class="wordmark" href="#top"><svg class="crosses" viewBox="0 0 38 10" aria-hidden="true"><use href="#xxx"/></svg>Amsterdam Medical Data Science</a>
+    <nav aria-label="On this page">
+      <a href="#amsterdamumcdb">The database</a>
+      <a class="go" href="#access">Request access</a>
+      <a href="#safeguards">Privacy and ethics</a>
+      <a href="#meetup">Data and Pizza</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+<div class="page">
+
+  <div class="opening">
+    <h1><span>Intensive care data,</span> <span>free for research.</span></h1>
+    <p class="lead">AmsterdamUMCdb is the first freely accessible European intensive care database. It holds the de-identified records of 23,106 admissions to the intensive care of Amsterdam UMC. Researchers anywhere can request access.</p>
+    <div class="actions">
+      <a class="btn" href="#access">Request access</a>
+      <a href="#amsterdamumcdb">See what it holds</a>
+    </div>
+    <div class="skyline">
+      <svg viewBox="0 0 1200 304" role="img" aria-labelledby="sky-t" xmlns="http://www.w3.org/2000/svg">
+        <title id="sky-t">A single line: a heartbeat on the left that becomes a row of Amsterdam canal houses.</title>
+        <defs><linearGradient id="sky-g" gradientUnits="userSpaceOnUse" x1="0" y1="0" x2="1200" y2="0"><stop offset="0" stop-color="var(--red)"/><stop offset=".235" stop-color="var(--red)"/><stop offset=".29" stop-color="var(--ink)"/><stop offset="1" stop-color="var(--ink)"/></linearGradient></defs>
+        <g fill="none" stroke-linecap="round" stroke-linejoin="round">
+          <path class="sky-water" d="M352 264 h70 M470 264 h120 M640 264 h60 M760 264 h150 M950 264 h80 M1068 264 h70 M400 275 h90 M560 275 h50 M700 275 h110 M880 275 h70 M1000 275 h40 M1080 275 h60 M450 286 h60 M610 286 h100 M820 286 h60 M940 286 h80" stroke="var(--ink)" stroke-width="1.4"/>
+          <path class="sky-detail" d="M400 128 V252 M348.3 140 h10 v18 h-10 z M371.7 140 h10 v18 h-10 z M348.3 170 h10 v18 h-10 z M371.7 170 h10 v18 h-10 z M347.3 252 v-27 h12 v27 M371.7 242 v-22 h10 v22 z M361 109.5 h8 v12 h-8 z M365 91 v7 M458 140 V252 M414.3 112 h10 v18 h-10 z M433.7 112 h10 v18 h-10 z M414.3 142 h10 v18 h-10 z M433.7 142 h10 v18 h-10 z M414.3 172 h10 v18 h-10 z M433.7 172 h10 v18 h-10 z M413.3 252 v-27 h12 v27 M433.7 242 v-22 h10 v22 z M425 79 h8 v12 h-8 z M429 42 v7 M538 140 V252 M473 152 h10 v18 h-10 z M493 152 h10 v18 h-10 z M513 152 h10 v18 h-10 z M473 182 h10 v18 h-10 z M493 182 h10 v18 h-10 z M513 182 h10 v18 h-10 z M472 252 v-27 h12 v27 M493 242 v-22 h10 v22 z M513 242 v-22 h10 v22 z M494 120.7 h8 v12 h-8 z M498 101 v7 M604 118 V252 M555 104 h10 v18 h-10 z M577 104 h10 v18 h-10 z M555 134 h10 v18 h-10 z M577 134 h10 v18 h-10 z M555 164 h10 v18 h-10 z M577 164 h10 v18 h-10 z M555 194 h10 v18 h-10 z M577 194 h10 v18 h-10 z M554 252 v-27 h12 v27 M577 242 v-22 h10 v22 z M567 75.2 h8 v12 h-8 z M571 59.8 v7 M688 118 V252 M620 130 h10 v18 h-10 z M641 130 h10 v18 h-10 z M662 130 h10 v18 h-10 z M620 160 h10 v18 h-10 z M641 160 h10 v18 h-10 z M662 160 h10 v18 h-10 z M620 190 h10 v18 h-10 z M641 190 h10 v18 h-10 z M662 190 h10 v18 h-10 z M619 252 v-27 h12 v27 M641 242 v-22 h10 v22 z M662 242 v-22 h10 v22 z M642 97 h8 v12 h-8 z M646 75 v7 M744 126 V252 M701.7 94 h10 v18 h-10 z M720.3 94 h10 v18 h-10 z M701.7 124 h10 v18 h-10 z M720.3 124 h10 v18 h-10 z M701.7 154 h10 v18 h-10 z M720.3 154 h10 v18 h-10 z M701.7 184 h10 v18 h-10 z M720.3 184 h10 v18 h-10 z M700.7 252 v-27 h12 v27 M720.3 242 v-22 h10 v22 z M712 62.7 h8 v12 h-8 z M716 28 v7 M818 126 V252 M763.7 138 h10 v18 h-10 z M788.3 138 h10 v18 h-10 z M763.7 168 h10 v18 h-10 z M788.3 168 h10 v18 h-10 z M762.7 252 v-27 h12 v27 M788.3 242 v-22 h10 v22 z M777 107.5 h8 v12 h-8 z M781 89.9 v7 M884 134 V252 M835 118 h10 v18 h-10 z M857 118 h10 v18 h-10 z M835 148 h10 v18 h-10 z M857 148 h10 v18 h-10 z M835 178 h10 v18 h-10 z M857 178 h10 v18 h-10 z M834 252 v-27 h12 v27 M857 242 v-22 h10 v22 z M847 89.2 h8 v12 h-8 z M851 73 v7 M962 134 V252 M898.5 146 h10 v18 h-10 z M918 146 h10 v18 h-10 z M937.5 146 h10 v18 h-10 z M898.5 176 h10 v18 h-10 z M918 176 h10 v18 h-10 z M937.5 176 h10 v18 h-10 z M897.5 252 v-27 h12 v27 M918 242 v-22 h10 v22 z M937.5 242 v-22 h10 v22 z M919 115.5 h8 v12 h-8 z M923 97 v7 M977 106 h10 v18 h-10 z M997 106 h10 v18 h-10 z M977 136 h10 v18 h-10 z M997 136 h10 v18 h-10 z M977 166 h10 v18 h-10 z M997 166 h10 v18 h-10 z M976 252 v-27 h12 v27 M997 242 v-22 h10 v22 z M988 73.8 h8 v12 h-8 z M992 38 v7 M1076 252 c6 -12 16 -18 30 -18 s24 6 30 18" stroke="var(--ink)" stroke-width="1.15"/>
+          <path class="sky-line" pathLength="1" d="M0 252 H92 q11 -16 22 0 h14 l7 10 l13 -150 l14 186 l9 -46 h18 q17 -30 34 0 H330 V128 v-11 h6.8 v-11 h6.8 v-11 h6.8 v-11 h6.8 h16 h6.8 v11 h6.8 v11 h6.8 v11 h6.8 v11 V100 Q415.7 100 415.7 78 V50 h-4 L429 35 L446.3 50 h-4 V78 Q442.3 100 458 100 V140 L493 94 H503 L538 140 V92 C540.6 72 557.8 80 558.5 60.8 Q571 44 583.5 60.8 C584.2 80 601.4 72 604 92 V118 v-12.5 h8.5 v-12.5 h8.5 v-12.5 h8.5 v-12.5 h8.5 h16 h8.5 v12.5 h8.5 v12.5 h8.5 v12.5 h8.5 v12.5 V82 Q703.1 82 703.1 60 V36 h-4 L716 21 L732.9 36 h-4 V60 Q728.9 82 744 82 V126 C747 104 766.2 112.8 766.9 91.7 Q781 73.2 795.1 91.7 C795.8 112.8 815 104 818 126 V106 L846 66 H856 L884 106 V134 v-11 h7.8 v-11 h7.8 v-11 h7.8 v-11 h7.8 h16 h7.8 v11 h7.8 v11 h7.8 v11 h7.8 v11 V94 Q978.2 94 978.2 72 V46 h-4 L992 31 L1009.8 46 h-4 V72 Q1005.8 94 1022 94 V252 H1056 c22 -15 34 -19 50 -19 s28 4 50 19 H1200" stroke="url(#sky-g)" stroke-width="2.6"/>
+        </g>
+      </svg>
+    </div>
+  </div>
+
+  <div class="credo">
+    <svg class="crosses" viewBox="0 0 38 10" role="img" aria-label="The three crosses of Amsterdam"><use href="#xxx"/></svg>
+    <p>Amsterdam has long been a city where knowledge travels freely. In the seventeenth century its printers published books that could not appear elsewhere in Europe. We share intensive care data in that tradition: openly, and with the privacy of patients protected.</p>
+  </div>
+
+  <section id="amsterdamumcdb">
+    <h2>The database</h2>
+    <div class="body">
+      <p>AmsterdamUMCdb holds de-identified health records of adult patients admitted to the intensive care and high-dependency units of Amsterdam UMC: demographics, vital signs, laboratory tests, medication and more. It is the first intensive care database in the European Union that is freely accessible for research.</p>
+      <dl class="figures">
+        <div><dt>admissions to intensive care and high-dependency</dt><dd>23,106</dd></div>
+        <div><dt>adult patients</dt><dd>20,109</dd></div>
+        <div><dt>years of care</dt><dd>2003–2016</dd></div>
+        <div><dt>clinical observations</dt><dd>~1 billion</dd></div>
+      </dl>
+      <dl class="facts">
+        <dt>Medication records</dt><dd>nearly 5 million</dd>
+        <dt>Format</dt><dd>OMOP Common Data Model 5.4</dd>
+        <dt>Current version</dt><dd>1.5.0, May 2024. <span>A new version is in preparation; this one stays available.</span></dd>
+        <dt>Available from</dt><dd><a href="https://lifesciences.datastations.nl">DANS Data Station Life Sciences</a>, <span>after approval</span></dd>
+      </dl>
+      <p>Amsterdam UMC made it together with the Dutch Society for Intensive Care Medicine (<a href="https://www.nvic.nl">NVIC</a>) and its research network RCCnet. It is part of the data sharing initiative of the European Society of Intensive Care Medicine (<a href="https://www.esicm.org">ESICM</a>), which promotes responsible sharing of intensive care data across Europe. The aim is that algorithms developed on such data reach the bedside and improve care for future critically ill patients.</p>
+      <p>The description of every table, example code and a notebook to get started are on <a href="https://github.com/AmsterdamUMC/AmsterdamUMCdb">GitHub</a>.</p>
+
+      <h3>How to cite</h3>
+      <p class="cite">Thoral PJ, Peppink JM, Driessen RH, et al. Sharing ICU Patient Data Responsibly Under the Society of Critical Care Medicine/European Society of Intensive Care Medicine Joint Data Science Collaboration: The Amsterdam University Medical Centers Database (AmsterdamUMCdb) Example. <i>Crit Care Med</i> 2021;49(6):e563–e577. <a href="https://doi.org/10.1097/CCM.0000000000004916">doi:10.1097/CCM.0000000000004916</a></p>
+
+      <h3>Press release</h3>
+      <p>Amsterdam UMC, ESICM and NVIC announced AmsterdamUMCdb together on 17 November 2019.</p>
+      <ul class="langs">
+        <li><a href="press/en.pdf" hreflang="en">English</a></li>
+        <li><a href="press/nl.pdf" hreflang="nl" lang="nl">Nederlands</a></li>
+        <li><a href="press/de.pdf" hreflang="de" lang="de">Deutsch</a></li>
+        <li><a href="press/fr.pdf" hreflang="fr" lang="fr">Français</a></li>
+        <li><a href="press/es.pdf" hreflang="es" lang="es">Español</a></li>
+        <li><a href="press/cn.pdf" hreflang="zh" lang="zh">中文</a></li>
+        <li><a href="press/all.pdf">All languages in one file</a></li>
+        <li><a href="press/contacts.pdf">Press contacts</a></li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="access">
+    <h2>Request access</h2>
+    <div class="body">
+      <p>The records are de-identified, but they still describe the care of real patients in detail. Access is therefore personal and bound to an End User License, which you and an intensivist reference both accept in the access portal.</p>
+      <div class="needs">
+        <h3>What you need</h3>
+        <ul>
+          <li><b>An institutional email address.</b> The one your university or hospital issued. Addresses at gmail.com, outlook.com, qq.com, 163.com and other free providers are not accepted.</li>
+          <li><b>The CITI course.</b> Data or Specimens Only Research (DSOR), completed with that same address. Other courses are not accepted. It is the course that MIMIC and eICU ask for as well; <a href="https://physionet.org/about/citi-course/">PhysioNet explains how to register</a>, and registering as an independent learner costs money.</li>
+          <li><b>A reference who is a practicing intensivist.</b> A physician who treats patients in an intensive care unit today, and who is willing to support you with clinical expertise. A computer scientist, data scientist, statistician or research supervisor cannot be your reference.</li>
+        </ul>
+      </div>
+      <h3>How it goes</h3>
+      <ol class="steps">
+        <li><span>Enter your institutional address in the access portal and open the link we send you.</span></li>
+        <li><span>Fill in who you are and what you plan to do, the verify link of your CITI completion report, and who your reference is.</span></li>
+        <li><span>Accept the terms of the End User License. Your reference then accepts the same terms from their own mailbox.</span></li>
+        <li><span>The administrators check your training and your reference, normally within five business days.</span></li>
+        <li><span>You and your reference receive the agreement as a PDF.</span></li>
+        <li><span>Create an account at <a href="https://lifesciences.datastations.nl">DANS Data Station Life Sciences</a> with the same address and request the files there.</span></li>
+      </ol>
+      <div class="actions">
+        <a class="btn" href="https://access.amsterdammedicaldatascience.nl">Open the access portal</a>
+        <span class="small">Already started? Enter the same address there to continue.</span>
+      </div>
+      <p class="small">The license covers lawful, non-commercial scientific research. Do you have another lawful use in mind? Write to <a href="mailto:access@amsterdammedicaldatascience.nl">access@amsterdammedicaldatascience.nl</a>.</p>
+    </div>
+  </section>
+
+  <section id="safeguards">
+    <h2>Privacy, ethics and support</h2>
+    <div class="body">
+      <p>Amsterdam UMC complies with European and Dutch law, including the General Data Protection Regulation (GDPR). Three things were done before the data was shared.</p>
+      <ul>
+        <li>A Data Privacy Impact Analysis was carried out.</li>
+        <li>Independent experts, led by Prof. Sijbrands of Erasmus MC and the Netherlands Federation of University Medical Centers (NFU), assessed the risk of re-identification. They concluded that, taking into account all means reasonably likely to be used, re-identification is not reasonably likely, so that the database can be regarded as anonymous information under the GDPR.</li>
+        <li>Dr. Erwin Kompanje, a clinical ethicist and an expert in the ethics of intensive care, reviewed the project independently. He concluded that using de-identified medical data in this way is ethically sound, given the minimal risk and the principles of duty of easy rescue and charitable contribution, and that the benefits of responsible data sharing outweigh the possible drawbacks.</li>
+      </ul>
+      <h3>Support in the Netherlands</h3>
+      <p>The NVIC and its research network RCCnet strongly support the ESICM initiative. UMC Utrecht, Maastricht UMC+, Radboudumc, OLVG and Erasmus MC have publicly stated their intention to share data of their own intensive care patients.</p>
+      <h3>Patients</h3>
+      <p>The Dutch patient organisation IC Connect and the foundation Family and Patient Centered Intensive Care (FCIC) endorse AmsterdamUMCdb and responsible data sharing for future patients, given the privacy safeguards in place.</p>
+    </div>
+  </section>
+
+</div>
+
+<div class="band" id="meetup">
+  <div class="page">
+    <div>
+      <h2>Data and Pizza</h2>
+      <p>The meetup where doctors meet data scientists, and the other way round. The subjects cover the whole of medical data science, and more than 2,200 people have joined. Come along if you like data, pizza or both.</p>
+      <div class="actions"><a class="btn" href="https://www.meetup.com/amsterdam-medical-data-science/">Join the group on Meetup.com</a></div>
+    </div>
+    <svg class="crosses" viewBox="0 0 38 10" aria-hidden="true"><use href="#xxx"/></svg>
+  </div>
+</div>
+
+<div class="page">
+
+  <section id="about" style="border-top: 0">
+    <h2>Amsterdam Medical Data Science</h2>
+    <div class="body">
+      <div class="plate"><img src="images/amdslogonew.png" alt="Amsterdam Medical Data Science"></div>
+      <p>Medical data is abundant, and it could improve care for future patients. Using it well is hard. There are technical, administrative, legal and organisational obstacles. Above all, doctors and data scientists often understand each other poorly, or not at all.</p>
+      <p>Amsterdam Medical Data Science wants to change that. We connect healthcare professionals and data scientists in the Amsterdam area, organise the Data and Pizza meetups, and host AmsterdamUMCdb.</p>
+      <ul class="people">
+        <li>
+          <img src="images/pe.jpg" alt="" width="64" height="64">
+          <div><b>Paul Elbers, MD, PhD, EDIC</b><span>Intensivist, Amsterdam UMC</span></div>
+          <div><span>Leads Amsterdam Medical Data Science and AmsterdamUMCdb</span><span class="links"><a href="https://www.linkedin.com/in/paulelbersmdphd/">LinkedIn</a></span></div>
+        </li>
+        <li>
+          <img src="images/mh.jpg" alt="" width="64" height="64">
+          <div><b>Mark Hoogendoorn, PhD</b><span>Professor of Artificial Intelligence, Vrije Universiteit Amsterdam</span></div>
+          <div><span>Leads Amsterdam Medical Data Science</span><span class="links"><a href="https://www.cs.vu.nl/~mhoogen/">Website</a>, <a href="https://www.linkedin.com/in/mark-hoogendoorn-0640bb5/">LinkedIn</a></span></div>
+        </li>
+        <li>
+          <img src="images/pt.png" alt="" width="64" height="64">
+          <div><b>Patrick Thoral, MD</b><span>Intensivist, Amsterdam UMC</span></div>
+          <div><span>Leads AmsterdamUMCdb</span><span class="links"><a href="https://www.linkedin.com/in/patrickthoral/">LinkedIn</a></span></div>
+        </li>
+      </ul>
+      <h3>Partners</h3>
+      <p>Amsterdam Medical Data Science is funded by Amsterdam UMC, Vrije Universiteit Amsterdam and Amsterdam Economic Board. It is supported by the Right Data Right Now consortium of Amsterdam UMC, OLVG, Vrije Universiteit, Pacmed and Amsterdam Economic Board.</p>
+      <ul class="logos">
+        <li><img src="images/aumc.jpg" alt="Amsterdam UMC"></li>
+        <li><img src="images/vu.png" alt="Vrije Universiteit Amsterdam"></li>
+        <li><img src="images/uva.png" alt="University of Amsterdam"></li>
+        <li><img src="images/olvg.png" alt="OLVG"></li>
+        <li><img src="images/pacmed.jpg" alt="Pacmed"></li>
+        <li><img src="images/aeb.png" alt="Amsterdam Economic Board"></li>
+      </ul>
+      <h3>Acknowledgements</h3>
+      <p>We thank the project leaders of AmsterdamUMCdb, Paul Elbers and Patrick Thoral, and all intensive care professionals of the Department of Intensive Care Medicine, led by Prof. dr. Armand Girbes and Hans van der Spoel. We thank the clinical IT specialists Jan Peppink, Ronald Driessen and Dagmar Ouweneel for their essential contributions. We are grateful to PhysioNet for creating the <a href="https://physionet.org/content/mimiciv/">MIMIC</a> and <a href="https://physionet.org/content/eicu-crd/2.0/">eICU</a> databases, which were a major source of inspiration.</p>
+    </div>
+  </section>
+
+  <section id="ddw">
+    <h2>Dutch Data Warehouse against COVID-19</h2>
+    <div class="body">
+      <p>During the pandemic, intensive care units across the Netherlands combined their records of COVID-19 patients in one warehouse, coordinated by Amsterdam UMC and supported by the Dutch Society for Intensive Care Medicine and our partner Pacmed. More than 60 units took part. Thirty-five of them shared more than 400 million data points from more than 1,500 critically ill patients.</p>
+      <p>The warehouse is open to collaboration, within privacy law, regulations and ethical considerations. Write to <a href="mailto:ddw@amsterdammedicaldatascience.nl">ddw@amsterdammedicaldatascience.nl</a>.</p>
+    </div>
+  </section>
+
+</div>
+</main>
+
+<footer id="contact">
+  <div class="page">
+    <h2>Contact</h2>
+    <dl class="contact">
+      <dt>Access to AmsterdamUMCdb</dt><dd><a href="mailto:access@amsterdammedicaldatascience.nl">access@amsterdammedicaldatascience.nl</a></dd>
+      <dt>COVID-19 data warehouse</dt><dd><a href="mailto:ddw@amsterdammedicaldatascience.nl">ddw@amsterdammedicaldatascience.nl</a></dd>
+      <dt>Everything else</dt><dd><a href="mailto:info@amsterdammedicaldatascience.nl">info@amsterdammedicaldatascience.nl</a></dd>
+    </dl>
+  </div>
+</footer>
+</body>
+</html>
