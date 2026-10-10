@@ -1,0 +1,36 @@
+name: Copy images and PDFs from the current site
+
+# A one-off. The page uses logos, portraits and press PDFs that still live on
+# the site's current host. This copies them into this repository, under the
+# same names. It runs once when this file reaches main, and can be run again
+# by hand from the Actions tab. Remove this file once the domain points to
+# GitHub Pages: from then on it would copy the site from itself.
+
+on:
+  push:
+    branches: [main]
+    paths: [".github/workflows/copy-assets.yml"]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  copy:
+    runs-on: ubuntu-latest
+    env:
+      SOURCE: https://amsterdammedicaldatascience.nl
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Download every image and PDF the page refers to
+        run: bash tools/copy-assets.sh "$SOURCE"
+
+      - name: Commit them
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add images press
+          if git diff --cached --quiet; then echo "Nothing new to add."; exit 0; fi
+          git commit -m "Add images and press PDFs copied from the current site"
+          git push

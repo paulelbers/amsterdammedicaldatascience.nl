@@ -19,6 +19,10 @@ tools/skyline.py  draws the opening picture (see below)
 .nojekyll         tells GitHub to publish the files exactly as they are
 ```
 
+`tools/copy-assets.sh` and `.github/workflows/copy-assets.yml` are a one-off:
+they copied the images and PDFs from the site's previous host into this
+repository. They can be removed once the domain points to GitHub Pages.
+
 ## Changing the site
 
 Edit `index.html` and propose the change as a pull request. Merging into
