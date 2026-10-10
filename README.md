@@ -14,6 +14,9 @@ site: no fonts, no trackers, no cookies.
 index.html        the whole page: text, styles and the opening drawing
 404.html          shown for an address that does not exist
 images/           logos and portraits
+                  amds-emblem.png is the stethoscope cut out of the AMDS logo
+                  (amdslogonew.png), without the white behind it; the full
+                  logo is still the picture shown when the site is shared
 press/            the press release of November 2019, in six languages
 tools/skyline.py  draws the opening picture (see below)
 tools/check.py    looks for missing files and broken links on the page

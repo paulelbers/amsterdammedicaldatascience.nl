@@ -79,7 +79,7 @@ if __name__ == "__main__":
     line, detail, water = build()
     print(f'''<svg viewBox="0 0 1200 304" role="img" aria-labelledby="sky-t" xmlns="http://www.w3.org/2000/svg">
   <title id="sky-t">A single line: a heartbeat on the left that becomes a row of Amsterdam canal houses.</title>
-  <defs><linearGradient id="sky-g" gradientUnits="userSpaceOnUse" x1="0" y1="0" x2="1200" y2="0"><stop offset="0" stop-color="var(--red)"/><stop offset=".235" stop-color="var(--red)"/><stop offset=".29" stop-color="var(--ink)"/><stop offset="1" stop-color="var(--ink)"/></linearGradient></defs>
+  <defs><linearGradient id="sky-g" gradientUnits="userSpaceOnUse" x1="0" y1="0" x2="1200" y2="0"><stop offset="0" stop-color="var(--brand)"/><stop offset=".235" stop-color="var(--brand)"/><stop offset=".29" stop-color="var(--ink)"/><stop offset="1" stop-color="var(--ink)"/></linearGradient></defs>
   <g fill="none" stroke-linecap="round" stroke-linejoin="round">
     <path class="sky-water" d="{water}" stroke="var(--ink)" stroke-width="1.4"/>
     <path class="sky-detail" d="{detail}" stroke="var(--ink)" stroke-width="1.15"/>
