@@ -18,13 +18,13 @@
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23000'/%3E%3Cg fill='%23fff'%3E%3Cpath id='x' d='M3.2 12.2 4.4 11 6 12.6 7.600 11 8.800 12.2 7.200 13.8 8.800 15.4 7.600 16.6 6 15 4.400 16.6 3.200 15.4 4.800 13.8z' transform='translate(-.4 2.2)'/%3E%3Cuse href='%23x' x='10'/%3E%3Cuse href='%23x' x='20'/%3E%3C/g%3E%3C/svg%3E">
 <style>
 /* One page, no scripts, nothing loaded from another site.
-   Teal and the typefaces come from the access portal. Red, black and the
-   three crosses come from the flag of Amsterdam. */
+   Teal and the typefaces come from the access portal, orange from the
+   AMDS logo, black and the three crosses from the flag of Amsterdam. */
 :root {
   --ground: #F1F5F7; --surface: #FFFFFF; --ink: #13232E; --muted: #566873;
   --line: #D6DEE3; --line-strong: #AEBBC3;
   --accent: #0A5F70; --accent-ink: #FFFFFF; --accent-soft: #E0EEF1;
-  --red: #D2111C;
+  --brand: #F57625;
   --display: "Iowan Old Style", "Palatino Linotype", Palatino, "Book Antiqua", Georgia, serif;
   --body: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
   --page: 68rem; --gutter: clamp(16px, 4vw, 40px); --margin-col: 13rem;
@@ -35,7 +35,6 @@
     --ground: #0E161B; --surface: #162129; --ink: #E5ECF0; --muted: #9BACB7;
     --line: #2A3943; --line-strong: #465863;
     --accent: #5FC3D5; --accent-ink: #06222A; --accent-soft: #17343C;
-    --red: #F04A53;
     color-scheme: dark;
   }
 }
@@ -57,14 +56,16 @@ img, svg { max-width: 100%; }
 .bar { position: sticky; top: 0; z-index: 4; background: var(--surface); border-bottom: 1px solid var(--line); }
 .bar .page { display: flex; align-items: center; justify-content: space-between; gap: 8px 24px; flex-wrap: wrap; padding-block: 10px; }
 .wordmark { font-family: var(--display); font-weight: 600; font-size: 1.05rem; color: var(--ink); text-decoration: none; white-space: nowrap; display: flex; align-items: center; gap: 10px; }
-.wordmark .crosses { width: 38px; height: 11px; color: var(--red); }
+.wordmark img { height: 30px; width: auto; display: block; }
 .bar nav { display: flex; flex-wrap: wrap; gap: 4px 20px; font-size: .92rem; }
 .bar nav a { color: var(--ink); text-decoration: none; padding-block: 4px; border-bottom: 2px solid transparent; }
-.bar nav a:hover { border-bottom-color: var(--red); }
+.bar nav a:hover { border-bottom-color: var(--brand); }
 .bar nav a.go { color: var(--accent); font-weight: 600; }
 
 /* Opening */
-.opening { padding-top: clamp(40px, 7vw, 84px); }
+.opening { padding-top: clamp(36px, 6vw, 72px); }
+.opening-top { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 24px clamp(24px, 5vw, 64px); align-items: center; }
+.emblem { width: clamp(170px, 22vw, 270px); height: auto; display: block; }
 .opening h1 { font-size: clamp(2.4rem, 6.4vw, 4.6rem); letter-spacing: -.018em; line-height: 1.04; }
 .opening h1 span { display: block; }
 .opening .lead { margin-top: 24px; font-size: 1.2rem; color: var(--muted); max-width: 39rem; }
@@ -82,7 +83,7 @@ img, svg { max-width: 100%; }
   @keyframes ripple { to { opacity: .3; } }
 }
 .credo { display: grid; grid-template-columns: var(--margin-col) minmax(0, 1fr); gap: 16px 40px; padding-block: clamp(28px, 5vw, 52px) clamp(40px, 6vw, 72px); align-items: start; }
-.credo .crosses { width: 120px; height: 34px; color: var(--red); margin-top: .5rem; }
+.credo .crosses { width: 120px; height: 34px; color: var(--ink); margin-top: .5rem; }
 .credo p { font-family: var(--display); font-size: clamp(1.3rem, 2.5vw, 1.72rem); line-height: 1.38; max-width: 37rem; }
 
 /* Sections: the heading stands in the margin, the text beside it */
@@ -105,7 +106,7 @@ section > h2, footer h2 { font-size: 1.62rem; }
 .facts dt, .facts dd { padding-block: 8px; border-bottom: 1px solid var(--line); }
 .facts dt { color: var(--muted); padding-right: 32px; }
 .facts dd span { color: var(--muted); }
-.cite { border-left: 3px solid var(--red); padding: 4px 0 4px 18px; font-size: .97rem; }
+.cite { border-left: 3px solid var(--brand); padding: 4px 0 4px 18px; font-size: .97rem; }
 .langs { list-style: none; padding: 0; display: flex; flex-wrap: wrap; gap: 6px 20px; }
 
 /* Requesting access */
@@ -132,8 +133,7 @@ section > h2, footer h2 { font-size: 1.62rem; }
 .band .crosses { width: clamp(170px, 26vw, 300px); height: auto; color: #fff; }
 
 /* People and partners */
-.plate { background: #fff; border: 1px solid var(--line); border-radius: 12px; padding: 16px 20px; display: inline-flex; align-self: flex-start; }
-.plate img { max-width: min(340px, 100%); max-height: 140px; width: auto; height: auto; display: block; }
+.tagline { font-family: var(--display); font-size: 1.4rem; line-height: 1.3; }
 .people { list-style: none; padding: 0; border-top: 1px solid var(--line-strong); }
 .people li { display: grid; grid-template-columns: 64px minmax(0, 1fr) minmax(0, 1fr); gap: 4px 20px; align-items: center; padding-block: 14px; border-bottom: 1px solid var(--line); }
 .people img { width: 64px; height: 64px; border-radius: 50%; object-fit: cover; background: var(--line); display: block; }
@@ -143,10 +143,6 @@ section > h2, footer h2 { font-size: 1.62rem; }
 .logos { list-style: none; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(9.5rem, 1fr)); gap: 12px; }
 .logos li { background: #fff; border: 1px solid var(--line); border-radius: 10px; height: 112px; padding: 0 14px; display: flex; align-items: center; justify-content: center; }
 .logos img { max-height: 92px; max-width: 100%; width: auto; height: auto; display: block; }
-/* A partner whose logo file is not in images/ yet: its name, on the same white tile. */
-.logos .named { flex-direction: column; gap: 2px; color: #13232E; text-align: center; }
-.logos .named b { font-size: 1.9rem; line-height: 1; letter-spacing: .03em; }
-.logos .named span { font-size: .74rem; line-height: 1.25; color: #566873; }
 
 footer { border-top: 1px solid var(--line-strong); padding-block: 40px 64px; scroll-margin-top: 64px; }
 footer .page { display: grid; grid-template-columns: var(--margin-col) minmax(0, 1fr); gap: 20px 40px; }
@@ -157,6 +153,9 @@ footer .page { display: grid; grid-template-columns: var(--margin-col) minmax(0,
 @media (max-width: 760px) {
   section, footer .page, .credo { grid-template-columns: minmax(0, 1fr); gap: 14px; }
   .bar { position: static; }
+  .opening-top { grid-template-columns: minmax(0, 1fr); }
+  .emblem { width: 118px; order: -1; }
+  .wordmark img { display: none; }
   .bar nav { gap: 2px 16px; }
   section, .band, footer { scroll-margin-top: 12px; }
   .credo .crosses { width: 84px; height: 24px; margin-top: 0; }
@@ -184,7 +183,7 @@ footer .page { display: grid; grid-template-columns: var(--margin-col) minmax(0,
 
 <header class="bar">
   <div class="page">
-    <a class="wordmark" href="#top"><svg class="crosses" viewBox="0 0 38 10" aria-hidden="true"><use href="#xxx"/></svg>Amsterdam Medical Data Science</a>
+    <a class="wordmark" href="#top"><img src="images/amds-emblem.png" alt="" width="32" height="30">Amsterdam Medical Data Science</a>
     <nav aria-label="On this page">
       <a href="#amsterdamumcdb">The database</a>
       <a class="go" href="#access">Request access</a>
@@ -200,16 +199,21 @@ footer .page { display: grid; grid-template-columns: var(--margin-col) minmax(0,
 <div class="page">
 
   <div class="opening">
-    <h1><span>Intensive care data,</span> <span>free for research.</span></h1>
-    <p class="lead">AmsterdamUMCdb is the first freely accessible European intensive care database. It holds the de-identified records of 23,106 admissions to the intensive care of Amsterdam UMC. Researchers anywhere can request access.</p>
-    <div class="actions">
-      <a class="btn" href="#access">Request access</a>
-      <a href="#amsterdamumcdb">See what it holds</a>
+    <div class="opening-top">
+      <div>
+        <h1><span>Intensive care data,</span> <span>free for research.</span></h1>
+        <p class="lead">AmsterdamUMCdb is the first freely accessible European intensive care database. It holds the de-identified records of 23,106 admissions to the intensive care of Amsterdam UMC. Researchers anywhere can request access.</p>
+        <div class="actions">
+          <a class="btn" href="#access">Request access</a>
+          <a href="#amsterdamumcdb">See what it holds</a>
+        </div>
+      </div>
+      <img class="emblem" src="images/amds-emblem.png" width="350" height="330" alt="The emblem of Amsterdam Medical Data Science: a stethoscope around a figure made of ones and zeros">
     </div>
     <div class="skyline">
       <svg viewBox="0 0 1200 304" role="img" aria-labelledby="sky-t" xmlns="http://www.w3.org/2000/svg">
         <title id="sky-t">A single line: a heartbeat on the left that becomes a row of Amsterdam canal houses.</title>
-        <defs><linearGradient id="sky-g" gradientUnits="userSpaceOnUse" x1="0" y1="0" x2="1200" y2="0"><stop offset="0" stop-color="var(--red)"/><stop offset=".235" stop-color="var(--red)"/><stop offset=".29" stop-color="var(--ink)"/><stop offset="1" stop-color="var(--ink)"/></linearGradient></defs>
+        <defs><linearGradient id="sky-g" gradientUnits="userSpaceOnUse" x1="0" y1="0" x2="1200" y2="0"><stop offset="0" stop-color="var(--brand)"/><stop offset=".235" stop-color="var(--brand)"/><stop offset=".29" stop-color="var(--ink)"/><stop offset="1" stop-color="var(--ink)"/></linearGradient></defs>
         <g fill="none" stroke-linecap="round" stroke-linejoin="round">
           <path class="sky-water" d="M352 264 h70 M470 264 h120 M640 264 h60 M760 264 h150 M950 264 h80 M1068 264 h70 M400 275 h90 M560 275 h50 M700 275 h110 M880 275 h70 M1000 275 h40 M1080 275 h60 M450 286 h60 M610 286 h100 M820 286 h60 M940 286 h80" stroke="var(--ink)" stroke-width="1.4"/>
           <path class="sky-detail" d="M400 128 V252 M348.3 140 h10 v18 h-10 z M371.7 140 h10 v18 h-10 z M348.3 170 h10 v18 h-10 z M371.7 170 h10 v18 h-10 z M347.3 252 v-27 h12 v27 M371.7 242 v-22 h10 v22 z M361 109.5 h8 v12 h-8 z M365 91 v7 M458 140 V252 M414.3 112 h10 v18 h-10 z M433.7 112 h10 v18 h-10 z M414.3 142 h10 v18 h-10 z M433.7 142 h10 v18 h-10 z M414.3 172 h10 v18 h-10 z M433.7 172 h10 v18 h-10 z M413.3 252 v-27 h12 v27 M433.7 242 v-22 h10 v22 z M425 79 h8 v12 h-8 z M429 42 v7 M538 140 V252 M473 152 h10 v18 h-10 z M493 152 h10 v18 h-10 z M513 152 h10 v18 h-10 z M473 182 h10 v18 h-10 z M493 182 h10 v18 h-10 z M513 182 h10 v18 h-10 z M472 252 v-27 h12 v27 M493 242 v-22 h10 v22 z M513 242 v-22 h10 v22 z M494 120.7 h8 v12 h-8 z M498 101 v7 M604 118 V252 M555 104 h10 v18 h-10 z M577 104 h10 v18 h-10 z M555 134 h10 v18 h-10 z M577 134 h10 v18 h-10 z M555 164 h10 v18 h-10 z M577 164 h10 v18 h-10 z M555 194 h10 v18 h-10 z M577 194 h10 v18 h-10 z M554 252 v-27 h12 v27 M577 242 v-22 h10 v22 z M567 75.2 h8 v12 h-8 z M571 59.8 v7 M688 118 V252 M620 130 h10 v18 h-10 z M641 130 h10 v18 h-10 z M662 130 h10 v18 h-10 z M620 160 h10 v18 h-10 z M641 160 h10 v18 h-10 z M662 160 h10 v18 h-10 z M620 190 h10 v18 h-10 z M641 190 h10 v18 h-10 z M662 190 h10 v18 h-10 z M619 252 v-27 h12 v27 M641 242 v-22 h10 v22 z M662 242 v-22 h10 v22 z M642 97 h8 v12 h-8 z M646 75 v7 M744 126 V252 M701.7 94 h10 v18 h-10 z M720.3 94 h10 v18 h-10 z M701.7 124 h10 v18 h-10 z M720.3 124 h10 v18 h-10 z M701.7 154 h10 v18 h-10 z M720.3 154 h10 v18 h-10 z M701.7 184 h10 v18 h-10 z M720.3 184 h10 v18 h-10 z M700.7 252 v-27 h12 v27 M720.3 242 v-22 h10 v22 z M712 62.7 h8 v12 h-8 z M716 28 v7 M818 126 V252 M763.7 138 h10 v18 h-10 z M788.3 138 h10 v18 h-10 z M763.7 168 h10 v18 h-10 z M788.3 168 h10 v18 h-10 z M762.7 252 v-27 h12 v27 M788.3 242 v-22 h10 v22 z M777 107.5 h8 v12 h-8 z M781 89.9 v7 M884 134 V252 M835 118 h10 v18 h-10 z M857 118 h10 v18 h-10 z M835 148 h10 v18 h-10 z M857 148 h10 v18 h-10 z M835 178 h10 v18 h-10 z M857 178 h10 v18 h-10 z M834 252 v-27 h12 v27 M857 242 v-22 h10 v22 z M847 89.2 h8 v12 h-8 z M851 73 v7 M962 134 V252 M898.5 146 h10 v18 h-10 z M918 146 h10 v18 h-10 z M937.5 146 h10 v18 h-10 z M898.5 176 h10 v18 h-10 z M918 176 h10 v18 h-10 z M937.5 176 h10 v18 h-10 z M897.5 252 v-27 h12 v27 M918 242 v-22 h10 v22 z M937.5 242 v-22 h10 v22 z M919 115.5 h8 v12 h-8 z M923 97 v7 M977 106 h10 v18 h-10 z M997 106 h10 v18 h-10 z M977 136 h10 v18 h-10 z M997 136 h10 v18 h-10 z M977 166 h10 v18 h-10 z M997 166 h10 v18 h-10 z M976 252 v-27 h12 v27 M997 242 v-22 h10 v22 z M988 73.8 h8 v12 h-8 z M992 38 v7 M1076 252 c6 -12 16 -18 30 -18 s24 6 30 18" stroke="var(--ink)" stroke-width="1.15"/>
@@ -324,7 +328,7 @@ footer .page { display: grid; grid-template-columns: var(--margin-col) minmax(0,
   <section id="about" style="border-top: 0">
     <h2>Amsterdam Medical Data Science</h2>
     <div class="body">
-      <div class="plate"><img src="images/amdslogonew.png" alt="Amsterdam Medical Data Science"></div>
+      <p class="tagline">Connecting healthcare and data science.</p>
       <p>Medical data is abundant, and it could improve care for future patients. Using it well is hard. There are technical, administrative, legal and organisational obstacles. Above all, doctors and data scientists often understand each other poorly, or not at all.</p>
       <p>Amsterdam Medical Data Science wants to change that. We connect healthcare professionals and data scientists in the Amsterdam area, organise the Data and Pizza meetups, and host AmsterdamUMCdb.</p>
       <ul class="people">
@@ -351,7 +355,7 @@ footer .page { display: grid; grid-template-columns: var(--margin-col) minmax(0,
         <li><img src="images/vu.png" alt="Vrije Universiteit Amsterdam"></li>
         <li><img src="images/uva.png" alt="University of Amsterdam"></li>
         <li><img src="images/olvg.png" alt="OLVG"></li>
-        <li class="named"><b>CWI</b><span>Centrum Wiskunde &amp; Informatica</span></li>
+        <li><img src="images/cwi.png" alt="CWI, Centrum Wiskunde &amp; Informatica"></li>
         <li><img src="images/aeb.png" alt="Amsterdam Economic Board"></li>
       </ul>
       <h3>Acknowledgements</h3>
