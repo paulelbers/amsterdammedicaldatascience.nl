@@ -11,15 +11,16 @@ site: no fonts, no trackers, no cookies.
 ## What is where
 
 ```
-index.html        the whole page: text, styles and the opening drawing
+index.html        the whole page: text, styles, the emblem and the opening drawing
 404.html          shown for an address that does not exist
 images/           logos and portraits
-                  amds-emblem.png is the stethoscope cut out of the AMDS logo
-                  (amdslogonew.png), without the white behind it; the full
-                  logo is still the picture shown when the site is shared
+                  amdslogonew.png, the full AMDS logo, is the picture shown
+                  when the site is shared
 press/            the press release of November 2019, in six languages
 tools/skyline.py  draws the opening picture (see below)
-tools/check.py    looks for missing files and broken links on the page
+tools/emblem.py   draws the emblem (see below)
+tools/check.py    looks for missing files and broken links on the page, and
+                  checks that the two drawings are what the scripts draw
 .nojekyll         tells GitHub to publish the files exactly as they are
 ```
 
@@ -63,6 +64,22 @@ python3 tools/skyline.py
 
 and paste what it prints over the `<svg>` inside `<div class="skyline">` in
 `index.html`.
+
+The windows on the upper floors are ones and zeros. Read from left to right,
+floor by floor and house by house, they spell "AmsterdamUMCdb" in eight-bit
+ASCII. The text is `MESSAGE` at the top of the script.
+
+## The emblem
+
+The stethoscope around a figure of ones and zeros is the emblem of the AMDS
+logo, redrawn by `tools/emblem.py` so that its two parts can have their own
+colour: the stethoscope in the orange of the logo, the same as the heartbeat,
+and the figure in the colour of the text, like the houses. On a dark screen
+the figure turns light with the text.
+
+The script prints two symbols, the figure and the stethoscope. They stand in
+the hidden `<svg>` at the top of `<body>`, after the three crosses. The bar at
+the top of the page shows the stethoscope alone; the opening shows both.
 
 The three crosses are those of the flag of Amsterdam, side by side as on the
 flag. They are not the logo of the municipality, which stacks them.

@@ -1,7 +1,13 @@
 """Draws the opening picture: one line that is a heartbeat on the left and
-becomes a row of Amsterdam canal houses. Prints an inline SVG."""
+becomes a row of Amsterdam canal houses. Prints an inline SVG.
+
+The windows on the upper floors are ones and zeros, like the figure in the
+emblem. Read from left to right, floor by floor and house by house, they spell
+MESSAGE in eight-bit ASCII, as often as there are windows."""
 Q = 252  # the quay, and the baseline of the heartbeat
 X0 = 330
+MESSAGE = "AmsterdamUMCdb"
+FONT = "'Times New Roman', Times, 'Liberation Serif', serif"  # the typeface of the digits in the emblem
 
 # width, wall height up to the eaves, kind of gable, height of the gable
 HOUSES = [
@@ -38,6 +44,7 @@ def build():
     # The heartbeat: a small wave, the spike, a rounder wave, then the flat line that becomes the quay.
     line = [f"M0 {Q} H92 q11 -16 22 0 h14 l7 10 l13 -150 l14 186 l9 -46 h18 q17 -30 34 0 H{X0}"]
     detail, x = [], X0
+    digits = []  # one (y, [x, ...]) per floor of each house
     eaves = [Q - h for _, h, _, _ in HOUSES]
     for i, (w, h, kind, gh) in enumerate(HOUSES):
         ye = Q - h
@@ -56,8 +63,7 @@ def build():
         gap = w / (cols + 1)
         y = ye + 12
         while y + 18 <= Q - 40:
-            for c in range(cols):
-                detail.append(f"M{f(x+gap*(c+1)-5)} {f(y)} h10 v18 h-10 z")
+            digits.append((y + 17, [x + gap * (c + 1) for c in range(cols)]))
             y += 30
         # ground floor: a door and tall windows
         detail.append(f"M{f(x+gap-6)} {Q} v-27 h12 v27")
@@ -73,16 +79,25 @@ def build():
     water = [f"M{a} {Q+12} h{b}" for a, b in ((352, 70), (470, 120), (640, 60), (760, 150), (950, 80), (1068, 70))]
     water += [f"M{a} {Q+23} h{b}" for a, b in ((400, 90), (560, 50), (700, 110), (880, 70), (1000, 40), (1080, 60))]
     water += [f"M{a} {Q+34} h{b}" for a, b in ((450, 60), (610, 100), (820, 60), (940, 80))]
-    return " ".join(line), " ".join(detail), " ".join(water)
+    bits = "".join(f"{ord(ch):08b}" for ch in MESSAGE)
+    rows, n = [], 0
+    for y, xs in digits:
+        row = "".join(bits[(n + k) % len(bits)] for k in range(len(xs)))
+        n += len(xs)
+        rows.append(f'<text y="{f(y)}" x="{" ".join(f(v) for v in xs)}">{row}</text>')
+    return " ".join(line), " ".join(detail), " ".join(water), "".join(rows)
 
 if __name__ == "__main__":
-    line, detail, water = build()
+    line, detail, water, windows = build()
     print(f'''<svg viewBox="0 0 1200 304" role="img" aria-labelledby="sky-t" xmlns="http://www.w3.org/2000/svg">
   <title id="sky-t">A single line: a heartbeat on the left that becomes a row of Amsterdam canal houses.</title>
   <defs><linearGradient id="sky-g" gradientUnits="userSpaceOnUse" x1="0" y1="0" x2="1200" y2="0"><stop offset="0" stop-color="var(--brand)"/><stop offset=".235" stop-color="var(--brand)"/><stop offset=".29" stop-color="var(--ink)"/><stop offset="1" stop-color="var(--ink)"/></linearGradient></defs>
   <g fill="none" stroke-linecap="round" stroke-linejoin="round">
     <path class="sky-water" d="{water}" stroke="var(--ink)" stroke-width="1.4"/>
-    <path class="sky-detail" d="{detail}" stroke="var(--ink)" stroke-width="1.15"/>
+    <g class="sky-detail">
+      <path d="{detail}" stroke="var(--ink)" stroke-width="1.15"/>
+      <g fill="var(--ink)" stroke="none" font-family="{FONT}" font-size="25" text-anchor="middle">{windows}</g>
+    </g>
     <path class="sky-line" pathLength="1" d="{line}" stroke="url(#sky-g)" stroke-width="2.6"/>
   </g>
 </svg>''')

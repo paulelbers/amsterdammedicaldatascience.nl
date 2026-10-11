@@ -3,7 +3,8 @@
 - every picture, PDF and page that index.html and 404.html refer to is in
   the repository;
 - every link to a place on the page ("#access") has that place;
-- the opening picture in index.html is what tools/skyline.py draws.
+- the opening picture and the emblem in index.html are what tools/skyline.py
+  and tools/emblem.py draw.
 
 Run it from the top of the repository:  python3 tools/check.py
 """
@@ -47,10 +48,12 @@ def problems_in(name: str) -> list[str]:
 
 def main() -> int:
     found = problems_in("index.html") + problems_in("404.html")
-    drawn = subprocess.run([sys.executable, str(ROOT / "tools" / "skyline.py")], capture_output=True, text=True, check=True).stdout
     squeeze = lambda text: re.sub(r"\s+", " ", text).strip()
-    if squeeze(drawn) not in squeeze((ROOT / "index.html").read_text(encoding="utf-8")):
-        found.append("index.html: the opening picture differs from what tools/skyline.py draws")
+    page = squeeze((ROOT / "index.html").read_text(encoding="utf-8"))
+    for script, what in (("skyline.py", "opening picture"), ("emblem.py", "emblem")):
+        drawn = subprocess.run([sys.executable, str(ROOT / "tools" / script)], capture_output=True, text=True, check=True).stdout
+        if squeeze(drawn) not in page:
+            found.append(f"index.html: the {what} differs from what tools/{script} draws")
     for problem in found:
         print(problem)
     print("Nothing wrong found." if not found else f"{len(found)} problem(s).")
