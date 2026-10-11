@@ -42,7 +42,7 @@ Check these when something changes, so the page does not go stale again.
 | On the page | Source |
 | --- | --- |
 | Van Gogh: locations, years, vocabularies, and the four rounded figures | The administrators. The figures are provisional: replace them with the final ones, and "In preparation" with "Available", on the day Van Gogh is released |
-| Rembrandt: admissions, patients, years, observations, and the release months of 1.0.2 and 1.5.0 | The README of [AmsterdamUMC/AmsterdamUMCdb](https://github.com/AmsterdamUMC/AmsterdamUMCdb) |
+| Rembrandt: admissions, patients, years, medication records, and the release months of 1.0.2 and 1.5.0. Its number of observations is left out on purpose: Van Gogh is less granular, and the two totals would be compared | The README of [AmsterdamUMC/AmsterdamUMCdb](https://github.com/AmsterdamUMC/AmsterdamUMCdb) |
 | The names Van Gogh and Rembrandt | The administrators. The earlier versions keep their numbers as "also known as" |
 | One request covers every version | The administrators; the access portal must not say otherwise |
 | Who reviewed privacy and ethics | The reviews of the Rembrandt versions; add those of Van Gogh at its release |
