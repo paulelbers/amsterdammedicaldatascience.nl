@@ -65,7 +65,7 @@ Check these when something changes, so the page does not go stale again.
 | C4I: mission, how it works, who it brings together, collaborations, funders | The academic profile that Paul Elbers supplied, and the center's vacancy of May 2025 |
 | C4I: what each study found | The abstracts on PubMed of the papers under "Selected publications" |
 | C4I: twelve hospitals in ICUdata, seven hospitals using the discharge support | Supplied by Paul Elbers in 2026; these numbers grow, so check them once a year |
-| C4I: people | Only the director is named. Add others when they agree to be listed |
+| C4I: people | The director and the alumni named by Paul Elbers. Add current members when they agree to be listed |
 
 ## The opening picture
 
