@@ -41,7 +41,10 @@ Check these when something changes, so the page does not go stale again.
 
 | On the page | Source |
 | --- | --- |
-| Admissions, patients, years, observations, format, version | The README of [AmsterdamUMC/AmsterdamUMCdb](https://github.com/AmsterdamUMC/AmsterdamUMCdb) |
+| Admissions, patients, years, observations, and versions 1.0.2 and 1.5.0 | The README of [AmsterdamUMC/AmsterdamUMCdb](https://github.com/AmsterdamUMC/AmsterdamUMCdb) |
+| Van Gogh: locations, years, size, and that it is in preparation | The administrators. Change "In preparation" to "Available", and add its figures, on the day it is released |
+| One request covers every version | The administrators; the access portal must not say otherwise |
+| Who reviewed privacy and ethics | The reviews of versions 1.0.2 and 1.5.0; add those of Van Gogh at its release |
 | How to cite | PubMed, [doi:10.1097/CCM.0000000000004916](https://doi.org/10.1097/CCM.0000000000004916) |
 | What an applicant needs, and the steps | The access portal at `access.amsterdammedicaldatascience.nl`; the two must say the same |
 | Number of meetup members | [Meetup.com](https://www.meetup.com/amsterdam-medical-data-science/), October 2026 |

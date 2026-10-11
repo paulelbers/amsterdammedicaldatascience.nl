@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>AmsterdamUMCdb: intensive care data, free for research | Amsterdam Medical Data Science</title>
-<meta name="description" content="AmsterdamUMCdb is the first freely accessible European intensive care database. Read what it holds and request access. Hosted by Amsterdam Medical Data Science.">
+<meta name="description" content="AmsterdamUMCdb is the first freely accessible European intensive care database. Read what it holds and request access: one request covers every version. Hosted by Amsterdam Medical Data Science.">
 <meta name="author" content="Amsterdam UMC">
 <meta name="google-site-verification" content="YtB_UMvt4zepVSBJYvO3Wv5HMCCh9zBAt22EY16Mjsw">
 <link rel="canonical" href="https://amsterdammedicaldatascience.nl/">
@@ -45,6 +45,7 @@ body { margin: 0; background: var(--ground); color: var(--ink); font-family: var
 h1, h2, h3 { font-family: var(--display); font-weight: 600; line-height: 1.15; margin: 0; text-wrap: balance; }
 p, ul, ol, dl, dd, figure { margin: 0; }
 a { color: var(--accent); text-underline-offset: .18em; }
+a[href^="mailto:"] { overflow-wrap: anywhere; }
 a:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; border-radius: 3px; }
 img, svg { max-width: 100%; }
 .page { max-width: var(--page); margin-inline: auto; padding-inline: var(--gutter); }
@@ -92,7 +93,7 @@ section > h2, footer h2 { font-size: 1.62rem; }
 .body { display: flex; flex-direction: column; gap: 18px; min-width: 0; }
 .body > * { max-width: 43rem; }
 .body > .logos, .body > .figures { max-width: none; }
-.body h3 { font-size: 1.2rem; margin-top: 14px; }
+.body h3 { font-size: 1.2rem; margin-top: 14px; scroll-margin-top: 72px; }
 .body ul:not([class]), .needs ul { padding-left: 1.15em; display: flex; flex-direction: column; gap: 8px; }
 .small { font-size: .92rem; color: var(--muted); }
 
@@ -106,6 +107,15 @@ section > h2, footer h2 { font-size: 1.62rem; }
 .facts dt, .facts dd { padding-block: 8px; border-bottom: 1px solid var(--line); }
 .facts dt { color: var(--muted); padding-right: 32px; }
 .facts dd span { color: var(--muted); }
+.versions { list-style: none; padding: 0; border-top: 1px solid var(--line-strong); }
+.versions li { display: grid; grid-template-columns: 9rem minmax(0, 1fr) max-content; grid-template-areas: "name text state"; gap: 6px 20px; align-items: start; padding-block: 14px; border-bottom: 1px solid var(--line); }
+.versions .name { grid-area: name; }
+.versions p { grid-area: text; }
+.versions b { display: block; font-family: var(--display); font-size: 1.12rem; line-height: 1.25; }
+.versions .name span { display: block; font-size: .93rem; color: var(--muted); }
+.versions .state { grid-area: state; font-size: .85rem; font-weight: 600; line-height: 1.3; padding: 3px 10px; border-radius: 999px; border: 1px solid var(--line-strong); white-space: nowrap; margin-top: .1rem; }
+.versions .now { background: var(--accent-soft); color: var(--accent); border-color: transparent; }
+.versions .soon { color: var(--muted); }
 .cite { border-left: 3px solid var(--brand); padding: 4px 0 4px 18px; font-size: .97rem; }
 .langs { list-style: none; padding: 0; display: flex; flex-wrap: wrap; gap: 6px 20px; }
 
@@ -164,6 +174,7 @@ footer .page { display: grid; grid-template-columns: var(--margin-col) minmax(0,
   .figures div:nth-child(n+3) { border-top: 1px solid var(--line); }
   .band .page { grid-template-columns: minmax(0, 1fr); }
   .band .crosses { width: 150px; order: -1; }
+  .versions li { grid-template-columns: minmax(0, 1fr) max-content; grid-template-areas: "name state" "text text"; }
   .people li { grid-template-columns: 64px minmax(0, 1fr); }
   .people li > div:last-child { grid-column: 2; }
   .facts dt { padding-right: 18px; }
@@ -202,7 +213,7 @@ footer .page { display: grid; grid-template-columns: var(--margin-col) minmax(0,
     <div class="opening-top">
       <div>
         <h1><span>Intensive care data,</span> <span>free for research.</span></h1>
-        <p class="lead">AmsterdamUMCdb is the first freely accessible European intensive care database. It holds the de-identified records of 23,106 admissions to the intensive care of Amsterdam UMC. Researchers anywhere can request access.</p>
+        <p class="lead">AmsterdamUMCdb is the first freely accessible European intensive care database. It holds the de-identified records of 23,106 admissions to the intensive care of Amsterdam UMC. Researchers anywhere can request access, and one request covers every version.</p>
         <div class="actions">
           <a class="btn" href="#access">Request access</a>
           <a href="#amsterdamumcdb">See what it holds</a>
@@ -238,14 +249,33 @@ footer .page { display: grid; grid-template-columns: var(--margin-col) minmax(0,
         <div><dt>years of care</dt><dd>2003–2016</dd></div>
         <div><dt>clinical observations</dt><dd>~1 billion</dd></div>
       </dl>
+      <p class="small">These figures describe <a href="#versions">versions</a> 1.0.2 and 1.5.0. Van Gogh, which is in preparation, adds the second location of Amsterdam UMC and the years up to 2023.</p>
       <dl class="facts">
         <dt>Medication records</dt><dd>nearly 5 million</dd>
-        <dt>Format</dt><dd>OMOP Common Data Model 5.4</dd>
-        <dt>Current version</dt><dd>1.5.0, May 2024. <span>A new version is in preparation; this one stays available.</span></dd>
-        <dt>Available from</dt><dd><a href="https://lifesciences.datastations.nl">DANS Data Station Life Sciences</a>, <span>after approval</span></dd>
+        <dt>Available from</dt><dd><a href="https://lifesciences.datastations.nl">DANS Data Station Life Sciences</a>, <span>every version, after approval</span></dd>
       </dl>
       <p>Amsterdam UMC made it together with the Dutch Society for Intensive Care Medicine (<a href="https://www.nvic.nl">NVIC</a>) and its research network RCCnet. It is part of the data sharing initiative of the European Society of Intensive Care Medicine (<a href="https://www.esicm.org">ESICM</a>), which promotes responsible sharing of intensive care data across Europe. The aim is that algorithms developed on such data reach the bedside and improve care for future critically ill patients.</p>
       <p>The description of every table, example code and a notebook to get started are on <a href="https://github.com/AmsterdamUMC/AmsterdamUMCdb">GitHub</a>.</p>
+
+      <h3 id="versions">Versions</h3>
+      <p>AmsterdamUMCdb comes in three versions. One approved request gives access to all of them: you do not apply per version.</p>
+      <ul class="versions">
+        <li>
+          <div class="name"><b>1.0.2</b><span>March 2020</span></div>
+          <p>The original release, in its own table structure: 23,106 admissions of 20,109 patients at location AMC, 2003–2016.</p>
+          <span class="state now">Available</span>
+        </li>
+        <li>
+          <div class="name"><b>1.5.0 OMOP</b><span>May 2024</span></div>
+          <p>The same admissions, converted to the OMOP Common Data Model 5.4 for standardised and reproducible analysis.</p>
+          <span class="state now">Available</span>
+        </li>
+        <li>
+          <div class="name"><b>Van Gogh</b><span>OMOP</span></div>
+          <p>Both locations of Amsterdam UMC, 2002–2023, with about three times as many patients. Your approval covers it from the day it is released.</p>
+          <span class="state soon">In preparation</span>
+        </li>
+      </ul>
 
       <h3>How to cite</h3>
       <p class="cite">Thoral PJ, Peppink JM, Driessen RH, et al. Sharing ICU Patient Data Responsibly Under the Society of Critical Care Medicine/European Society of Intensive Care Medicine Joint Data Science Collaboration: The Amsterdam University Medical Centers Database (AmsterdamUMCdb) Example. <i>Crit Care Med</i> 2021;49(6):e563–e577. <a href="https://doi.org/10.1097/CCM.0000000000004916">doi:10.1097/CCM.0000000000004916</a></p>
@@ -268,7 +298,7 @@ footer .page { display: grid; grid-template-columns: var(--margin-col) minmax(0,
   <section id="access">
     <h2>Request access</h2>
     <div class="body">
-      <p>The records are de-identified, but they still describe the care of real patients in detail. Access is therefore personal and bound to an End User License, which you and an intensivist reference both accept in the access portal.</p>
+      <p>The records are de-identified, but they still describe the care of real patients in detail. Access is therefore personal and bound to an End User License, which you and an intensivist reference both accept in the access portal. One request covers every <a href="#versions">version</a>: 1.0.2, 1.5.0 in OMOP, and Van Gogh once it is released.</p>
       <div class="needs">
         <h3>What you need</h3>
         <ul>
@@ -284,7 +314,7 @@ footer .page { display: grid; grid-template-columns: var(--margin-col) minmax(0,
         <li><span>Accept the terms of the End User License. Your reference then accepts the same terms from their own mailbox.</span></li>
         <li><span>The administrators check your training and your reference, normally within five business days.</span></li>
         <li><span>You and your reference receive the agreement as a PDF.</span></li>
-        <li><span>Create an account at <a href="https://lifesciences.datastations.nl">DANS Data Station Life Sciences</a> with the same address and request the files there.</span></li>
+        <li><span>Create an account at <a href="https://lifesciences.datastations.nl">DANS Data Station Life Sciences</a> with the same address and request the files of the version you need there.</span></li>
       </ol>
       <div class="actions">
         <a class="btn" href="https://access.amsterdammedicaldatascience.nl">Open the access portal</a>
