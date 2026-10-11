@@ -1,10 +1,10 @@
 """Checks the site before a change is merged.
 
-- every picture, PDF and page that index.html and 404.html refer to is in
-  the repository;
-- every link to a place on the page ("#access") has that place;
-- the opening picture and the emblem in index.html are what tools/skyline.py
-  and tools/emblem.py draw.
+- every picture, PDF and page that a page refers to is in the repository;
+- every link to a place on a page ("#access", "../#access") has that place;
+- the drawings on the pages are what the scripts in tools/ draw;
+- the C4I page has the same stylesheet and the same symbols as the front
+  page, so the two cannot drift apart.
 
 Run it from the top of the repository:  python3 tools/check.py
 """
@@ -15,6 +15,14 @@ import sys
 from html.parser import HTMLParser
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
+PAGES = ["index.html", "404.html", "c4i/index.html"]
+# script, page, what it draws
+DRAWINGS = [
+    ("skyline.py", "index.html", "opening picture"),
+    ("emblem.py", "index.html", "emblem"),
+    ("emblem.py", "c4i/index.html", "emblem"),
+    ("pulse.py", "c4i/index.html", "opening picture"),
+]
 
 
 class Page(HTMLParser):
@@ -31,29 +39,57 @@ class Page(HTMLParser):
                 self.links.append(attrs[name])
 
 
-def problems_in(name: str) -> list[str]:
+def read(name: str) -> Page:
     page = Page()
     page.feed((ROOT / name).read_text(encoding="utf-8"))
-    found = []
+    return page
+
+
+def problems_in(name: str) -> list[str]:
+    page, found = read(name), []
+    here = (ROOT / name).parent
     for link in page.links:
         if link.startswith(("http://", "https://", "mailto:", "data:")) or link == "/":
             continue
-        if link.startswith("#"):
-            if link[1:] not in page.ids:
+        path, _, place = link.partition("#")
+        if not path:
+            if place not in page.ids:
                 found.append(f"{name}: links to {link}, but nothing on the page has that name")
-        elif not (ROOT / link.split("#")[0].lstrip("/")).is_file():
+            continue
+        target = (ROOT / path.lstrip("/")) if path.startswith("/") else (here / path)
+        target = target.resolve()
+        if target.is_dir():
+            target = target / "index.html"
+        if not target.is_file() or ROOT not in target.parents:
             found.append(f"{name}: refers to {link}, which is not in the repository")
+        elif place and target.suffix == ".html" and place not in read(str(target.relative_to(ROOT))).ids:
+            found.append(f"{name}: links to {link}, but nothing on that page has that name")
     return found
 
 
+def squeeze(text: str) -> str:
+    return re.sub(r"\s+", " ", text).strip()
+
+
+def shared(name: str) -> tuple[str, str]:
+    """The first stylesheet and the hidden block of symbols of a page."""
+    text = (ROOT / name).read_text(encoding="utf-8")
+    style = re.search(r"<style>.*?</style>", text, re.S)
+    symbols = re.search(r'<svg width="0" height="0".*?</svg>', text, re.S)
+    return (style.group(0) if style else "", symbols.group(0) if symbols else "")
+
+
 def main() -> int:
-    found = problems_in("index.html") + problems_in("404.html")
-    squeeze = lambda text: re.sub(r"\s+", " ", text).strip()
-    page = squeeze((ROOT / "index.html").read_text(encoding="utf-8"))
-    for script, what in (("skyline.py", "opening picture"), ("emblem.py", "emblem")):
-        drawn = subprocess.run([sys.executable, str(ROOT / "tools" / script)], capture_output=True, text=True, check=True).stdout
-        if squeeze(drawn) not in page:
-            found.append(f"index.html: the {what} differs from what tools/{script} draws")
+    found = [problem for name in PAGES for problem in problems_in(name)]
+    for script, name, what in DRAWINGS:
+        drawn = subprocess.run([sys.executable, "-B", str(ROOT / "tools" / script)], capture_output=True, text=True, check=True).stdout
+        if squeeze(drawn) not in squeeze((ROOT / name).read_text(encoding="utf-8")):
+            found.append(f"{name}: the {what} differs from what tools/{script} draws")
+    front, center = shared("index.html"), shared("c4i/index.html")
+    if not front[0] or front[0] != center[0]:
+        found.append("c4i/index.html: its first stylesheet differs from the one in index.html; copy it over")
+    if not front[1] or front[1] != center[1]:
+        found.append("c4i/index.html: its hidden symbols differ from those in index.html; copy them over")
     for problem in found:
         print(problem)
     print("Nothing wrong found." if not found else f"{len(found)} problem(s).")

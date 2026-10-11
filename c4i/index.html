@@ -1,0 +1,362 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Center for Critical Care Computational Intelligence (C4I) | Amsterdam UMC</title>
+<meta name="description" content="The Center for Critical Care Computational Intelligence (C4I) at Amsterdam UMC uses intensive care data and artificial intelligence to improve the care of critically ill patients, from bytes to bedside.">
+<meta name="author" content="Amsterdam UMC">
+<link rel="canonical" href="https://amsterdammedicaldatascience.nl/c4i/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Amsterdam Medical Data Science">
+<meta property="og:title" content="Center for Critical Care Computational Intelligence (C4I)">
+<meta property="og:description" content="Intensive care data and artificial intelligence, from bytes to bedside. The research group behind AmsterdamUMCdb.">
+<meta property="og:url" content="https://amsterdammedicaldatascience.nl/c4i/">
+<meta property="og:image" content="https://amsterdammedicaldatascience.nl/images/amdslogonew.png">
+<meta name="twitter:card" content="summary">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23000'/%3E%3Cg fill='%23fff'%3E%3Cpath id='x' d='M3.2 12.2 4.4 11 6 12.6 7.600 11 8.800 12.2 7.200 13.8 8.800 15.4 7.600 16.6 6 15 4.400 16.6 3.200 15.4 4.800 13.8z' transform='translate(-.4 2.2)'/%3E%3Cuse href='%23x' x='10'/%3E%3Cuse href='%23x' x='20'/%3E%3C/g%3E%3C/svg%3E">
+<style>
+/* One page, no scripts, nothing loaded from another site.
+   Teal and the typefaces come from the access portal, orange from the
+   AMDS logo, black and the three crosses from the flag of Amsterdam. */
+:root {
+  --ground: #F1F5F7; --surface: #FFFFFF; --ink: #13232E; --muted: #566873;
+  --line: #D6DEE3; --line-strong: #AEBBC3;
+  --accent: #0A5F70; --accent-ink: #FFFFFF; --accent-soft: #E0EEF1;
+  --brand: #F57625;
+  --display: "Iowan Old Style", "Palatino Linotype", Palatino, "Book Antiqua", Georgia, serif;
+  --body: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --page: 68rem; --gutter: clamp(16px, 4vw, 40px); --margin-col: 13rem;
+  color-scheme: light;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --ground: #0E161B; --surface: #162129; --ink: #E5ECF0; --muted: #9BACB7;
+    --line: #2A3943; --line-strong: #465863;
+    --accent: #5FC3D5; --accent-ink: #06222A; --accent-soft: #17343C;
+    color-scheme: dark;
+  }
+}
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+@media (prefers-reduced-motion: no-preference) { html { scroll-behavior: smooth; } }
+body { margin: 0; background: var(--ground); color: var(--ink); font-family: var(--body); font-size: 1.0625rem; line-height: 1.6; }
+h1, h2, h3 { font-family: var(--display); font-weight: 600; line-height: 1.15; margin: 0; text-wrap: balance; }
+p, ul, ol, dl, dd, figure { margin: 0; }
+a { color: var(--accent); text-underline-offset: .18em; }
+a[href^="mailto:"] { overflow-wrap: anywhere; }
+a:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; border-radius: 3px; }
+img, svg { max-width: 100%; }
+.page { max-width: var(--page); margin-inline: auto; padding-inline: var(--gutter); }
+.skip { position: absolute; left: -999px; top: 8px; background: var(--surface); padding: 8px 12px; border-radius: 6px; z-index: 5; }
+.skip:focus { left: 8px; }
+.crosses { fill: currentColor; display: block; }
+
+/* Top bar */
+.bar { position: sticky; top: 0; z-index: 4; background: var(--surface); border-bottom: 1px solid var(--line); }
+.bar .page { display: flex; align-items: center; justify-content: space-between; gap: 8px 24px; flex-wrap: wrap; padding-block: 10px; }
+.wordmark { font-family: var(--display); font-weight: 600; font-size: 1.05rem; color: var(--ink); text-decoration: none; white-space: nowrap; display: flex; align-items: center; gap: 10px; }
+.wordmark svg { height: 30px; width: auto; display: block; }
+.bar nav { display: flex; flex-wrap: wrap; gap: 4px 20px; font-size: .92rem; }
+.bar nav a { color: var(--ink); text-decoration: none; padding-block: 4px; border-bottom: 2px solid transparent; }
+.bar nav a:hover { border-bottom-color: var(--brand); }
+.bar nav a.go { color: var(--accent); font-weight: 600; }
+
+/* Opening */
+.opening { padding-top: clamp(36px, 6vw, 72px); }
+.opening-top { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 24px clamp(24px, 5vw, 64px); align-items: center; }
+.emblem { width: clamp(170px, 22vw, 270px); height: auto; display: block; }
+.opening h1 { font-size: clamp(2.4rem, 6.4vw, 4.6rem); letter-spacing: -.018em; line-height: 1.04; }
+.opening h1 span { display: block; }
+.opening .lead { margin-top: 24px; font-size: 1.2rem; color: var(--muted); max-width: 39rem; }
+.opening .actions { margin-top: 28px; }
+.skyline { margin-top: clamp(20px, 4vw, 44px); overflow: hidden; }
+.skyline svg { display: block; width: max(100%, 780px); max-width: none; height: auto; }
+.sky-detail { opacity: .5; }
+.sky-water { opacity: .3; }
+@media (prefers-reduced-motion: no-preference) {
+  .sky-line { stroke-dasharray: 1; stroke-dashoffset: 1; animation: draw 2.6s cubic-bezier(.45, .05, .25, 1) .15s forwards; }
+  .sky-detail { opacity: 0; animation: appear 1s ease-out 2s forwards; }
+  .sky-water { opacity: 0; animation: ripple 1.2s ease-out 2.3s forwards; }
+  @keyframes draw { to { stroke-dashoffset: 0; } }
+  @keyframes appear { to { opacity: .5; } }
+  @keyframes ripple { to { opacity: .3; } }
+}
+.credo { display: grid; grid-template-columns: var(--margin-col) minmax(0, 1fr); gap: 16px 40px; padding-block: clamp(28px, 5vw, 52px) clamp(40px, 6vw, 72px); align-items: start; }
+.credo .crosses { width: 120px; height: 34px; color: var(--ink); margin-top: .5rem; }
+.credo p { font-family: var(--display); font-size: clamp(1.3rem, 2.5vw, 1.72rem); line-height: 1.38; max-width: 37rem; }
+
+/* Sections: the heading stands in the margin, the text beside it */
+section { padding-block: clamp(36px, 6vw, 68px); border-top: 1px solid var(--line-strong); scroll-margin-top: 64px; display: grid; grid-template-columns: var(--margin-col) minmax(0, 1fr); gap: 20px 40px; }
+section > h2, footer h2 { font-size: 1.62rem; }
+.body { display: flex; flex-direction: column; gap: 18px; min-width: 0; }
+.body > * { max-width: 43rem; }
+.body > .logos, .body > .figures { max-width: none; }
+.body h3 { font-size: 1.2rem; margin-top: 14px; scroll-margin-top: 72px; }
+.body ul:not([class]), .needs ul { padding-left: 1.15em; display: flex; flex-direction: column; gap: 8px; }
+.small { font-size: .92rem; color: var(--muted); }
+
+/* The database in figures */
+.figures { display: grid; grid-template-columns: repeat(4, minmax(min-content, 1fr)); border-top: 2px solid var(--ink); border-bottom: 1px solid var(--line-strong); margin-block: 8px; }
+.figures div { padding: 16px 20px 18px 0; display: flex; flex-direction: column-reverse; justify-content: flex-end; gap: 2px; }
+.figures div + div { border-left: 1px solid var(--line); padding-left: 20px; }
+.figures dt { color: var(--muted); font-size: .93rem; line-height: 1.35; }
+.figures dd { font-family: var(--display); font-weight: 600; font-size: clamp(1.55rem, 2.7vw, 2.05rem); line-height: 1.1; font-variant-numeric: lining-nums; white-space: nowrap; }
+.facts { display: grid; grid-template-columns: max-content minmax(0, 1fr); }
+.facts dt, .facts dd { padding-block: 8px; border-bottom: 1px solid var(--line); }
+.facts dt { color: var(--muted); padding-right: 32px; }
+.facts dd span { color: var(--muted); }
+.versions { list-style: none; padding: 0; border-top: 1px solid var(--line-strong); }
+.versions li { display: grid; grid-template-columns: 11rem minmax(0, 1fr) max-content; grid-template-areas: "name text state"; gap: 6px 20px; align-items: start; padding-block: 14px; border-bottom: 1px solid var(--line); }
+.versions .name { grid-area: name; }
+.versions p { grid-area: text; }
+.versions b { display: block; font-family: var(--display); font-size: 1.12rem; line-height: 1.25; }
+.versions .name span { display: block; font-size: .93rem; color: var(--muted); }
+.state { display: inline-block; font-family: var(--body); font-size: .85rem; font-weight: 600; line-height: 1.3; padding: 3px 10px; border-radius: 999px; border: 1px solid var(--line-strong); white-space: nowrap; }
+.state.now { background: var(--accent-soft); color: var(--accent); border-color: transparent; }
+.state.soon { color: var(--muted); }
+.versions .state { grid-area: state; margin-top: .1rem; }
+h3 .state { margin-left: 8px; vertical-align: .12em; }
+.cite { border-left: 3px solid var(--brand); padding: 4px 0 4px 18px; font-size: .97rem; }
+.langs { list-style: none; padding: 0; display: flex; flex-wrap: wrap; gap: 6px 20px; }
+
+/* Requesting access */
+.needs { background: var(--accent-soft); border: 1px solid var(--line-strong); border-radius: 10px; padding: 18px 20px; display: flex; flex-direction: column; gap: 10px; }
+.needs h3 { margin: 0; }
+.steps { list-style: none; padding: 0; counter-reset: step; display: flex; flex-direction: column; }
+.steps li { counter-increment: step; display: grid; grid-template-columns: 2.1rem minmax(0, 1fr); gap: 12px; padding-block: 11px; border-bottom: 1px solid var(--line); }
+.steps li:first-child { border-top: 1px solid var(--line); }
+.steps li::before { content: counter(step); font-family: var(--display); font-weight: 600; font-size: 1.15rem; color: var(--accent); width: 2.1rem; height: 2.1rem; border: 1px solid var(--line-strong); border-radius: 50%; display: grid; place-items: center; background: var(--surface); line-height: 1; }
+.steps li > span { padding-top: .2rem; }
+.actions { display: flex; flex-wrap: wrap; gap: 12px 24px; align-items: center; }
+.btn { display: inline-block; background: var(--accent); color: var(--accent-ink); font-weight: 600; text-decoration: none; padding: 12px 22px; border-radius: 8px; border: 1px solid var(--accent); }
+.btn:hover { filter: brightness(1.08); }
+.btn:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; }
+
+/* The meetup: the black band of the Amsterdam flag, with its three crosses */
+.band { background: #000; color: #fff; scroll-margin-top: 56px; }
+.band .page { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 28px 56px; align-items: center; padding-block: clamp(40px, 7vw, 76px); }
+.band h2 { font-size: clamp(2rem, 4.6vw, 3.1rem); letter-spacing: -.012em; }
+.band p { max-width: 35rem; margin-top: 14px; color: #D9DEE1; }
+.band .actions { margin-top: 24px; }
+.band .btn { background: #fff; color: #000; border-color: #fff; }
+.band a:focus-visible, .band .btn:focus-visible { outline-color: #fff; }
+.band .crosses { width: clamp(170px, 26vw, 300px); height: auto; color: #fff; }
+
+/* People and partners */
+.tagline { font-family: var(--display); font-size: 1.4rem; line-height: 1.3; }
+.people { list-style: none; padding: 0; border-top: 1px solid var(--line-strong); }
+.people li { display: grid; grid-template-columns: 64px minmax(0, 1fr) minmax(0, 1fr); gap: 4px 20px; align-items: center; padding-block: 14px; border-bottom: 1px solid var(--line); }
+.people img { width: 64px; height: 64px; border-radius: 50%; object-fit: cover; background: var(--line); display: block; }
+.people b { display: block; font-family: var(--display); font-size: 1.12rem; line-height: 1.25; }
+.people span { display: block; font-size: .93rem; color: var(--muted); }
+.people .links { font-size: .93rem; }
+.logos { list-style: none; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(9.5rem, 1fr)); gap: 12px; }
+.logos li { background: #fff; border: 1px solid var(--line); border-radius: 10px; height: 112px; padding: 0 14px; display: flex; align-items: center; justify-content: center; }
+.logos img { max-height: 92px; max-width: 100%; width: auto; height: auto; display: block; }
+
+footer { border-top: 1px solid var(--line-strong); padding-block: 40px 64px; scroll-margin-top: 64px; }
+footer .page { display: grid; grid-template-columns: var(--margin-col) minmax(0, 1fr); gap: 20px 40px; }
+.contact { display: grid; grid-template-columns: max-content minmax(0, 1fr); gap: 8px 28px; }
+.contact dt { color: var(--muted); }
+.contact dd { overflow-wrap: anywhere; }
+
+@media (max-width: 960px) {
+  .figures { grid-template-columns: repeat(2, minmax(min-content, 1fr)); }
+  .figures div:nth-child(3) { border-left: 0; padding-left: 0; }
+  .figures div:nth-child(n+3) { border-top: 1px solid var(--line); }
+}
+@media (max-width: 760px) {
+  section, footer .page, .credo { grid-template-columns: minmax(0, 1fr); gap: 14px; }
+  .bar { position: static; }
+  .opening-top { grid-template-columns: minmax(0, 1fr); }
+  .emblem { width: 118px; order: -1; }
+  .wordmark svg { display: none; }
+  .bar nav { gap: 2px 16px; }
+  section, .band, footer { scroll-margin-top: 12px; }
+  .credo .crosses { width: 84px; height: 24px; margin-top: 0; }
+  .band .page { grid-template-columns: minmax(0, 1fr); }
+  .band .crosses { width: 150px; order: -1; }
+  .versions li { grid-template-columns: minmax(0, 1fr) max-content; grid-template-areas: "name state" "text text"; }
+  .people li { grid-template-columns: 64px minmax(0, 1fr); }
+  .people li > div:last-child { grid-column: 2; }
+  .facts dt { padding-right: 18px; }
+}
+@media (max-width: 420px) {
+  .figures dd { font-size: 1.4rem; }
+  .contact, .facts { grid-template-columns: minmax(0, 1fr); }
+  .contact dd { margin-bottom: 8px; }
+  .facts dt { border-bottom: 0; padding-bottom: 0; }
+  .facts dd { padding-top: 0; }
+}
+@media print { .bar { position: static; } .btn { color: #000; background: none; } .band { background: none; color: #000; } }
+</style>
+<style>
+/* Only for this page. Everything above is the stylesheet of the front page,
+   kept identical by tools/check.py. */
+.kicker { font-size: .95rem; color: var(--muted); margin-bottom: 16px; }
+.kicker b { color: var(--ink); letter-spacing: .04em; }
+.opening.center .opening-top { grid-template-columns: minmax(0, 1fr); }
+.opening.center h1 { font-size: clamp(2.1rem, 5.2vw, 3.7rem); max-width: 17em; }
+.opening.center + section { margin-top: clamp(28px, 5vw, 56px); }
+.opening.center .skyline svg { width: 100%; }
+@media (max-width: 760px) {
+  /* the whole line stays in view on a phone, so draw it heavier */
+  .opening.center .sky-line { stroke-width: 5; }
+  .opening.center .sky-detail { font-size: 36px; }
+}
+.pubs { list-style: none; padding: 0; border-top: 1px solid var(--line-strong); }
+.pubs li { padding-block: 12px; border-bottom: 1px solid var(--line); font-size: .97rem; overflow-wrap: anywhere; }
+.line { display: flex; flex-direction: column; gap: 14px; }
+.line + .line { margin-top: 6px; }
+.line h3 { margin-top: 10px; }
+</style>
+</head>
+<body>
+<a class="skip" href="#center">Skip to the text</a>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><symbol id="xxx" viewBox="0 0 38 10"><path id="x1" d="M1.6 0 5 3.4 8.4 0 10 1.6 6.6 5 10 8.4 8.4 10 5 6.6 1.6 10 0 8.4 3.4 5 0 1.6z"/><use href="#x1" x="14"/><use href="#x1" x="28"/></symbol><symbol id="em-figure" viewBox="0 0 350 332"><g fill="var(--ink)" font-family="'Times New Roman', Times, 'Liberation Serif', serif" font-size="12"><text x="202" y="98" textLength="48">00101010</text><text x="186" y="111" textLength="81">11010101100010</text><text x="175" y="125" textLength="104">101011010101101010</text><text x="169" y="139" textLength="115">10110110100101101010</text><text x="169" y="153" textLength="115">10101101001011010011</text><text x="174" y="166" textLength="105">011100100110101010</text><text x="180" y="180" textLength="91">1010011011000101</text><text x="200" y="193" textLength="52">110101000</text><text x="165" y="220" textLength="122">011101101011101010100</text><text x="143" y="234" textLength="167">00101011010100100010101001010</text><text x="112" y="248" textLength="227">101010010010111010101101010010101110101</text><text x="104" y="262" textLength="245">010110101100010101110011010101010110110101</text><text x="103" y="275" textLength="53">111011101</text><text x="171" y="275" textLength="113">1011101001101011011</text><text x="298" y="275" textLength="51">110110110</text><text x="103" y="289" textLength="53">011001001</text><text x="171" y="289" textLength="113">0110111010101010100</text><text x="298" y="289" textLength="51">101110100</text><text x="103" y="302" textLength="53">100110101</text><text x="171" y="302" textLength="113">1101110111011010101</text><text x="298" y="302" textLength="51">011010110</text><text x="103" y="316" textLength="53">001011101</text><text x="171" y="316" textLength="113">1010110101100110001</text><text x="298" y="316" textLength="51">110110101</text><text x="103" y="329" textLength="53">110110010</text><text x="171" y="329" textLength="113">1010010010101010100</text><text x="298" y="329" textLength="51">111001011</text></g></symbol><symbol id="em-scope" viewBox="0 0 350 332"><path fill="var(--brand)" fill-rule="evenodd" d="M162 303.5q-2.7 0.2-5.5 0.2q-2.7 0-5.5-0.2q-2.7-0.2-5.5-0.6q-2.7-0.5-5.4-0.8q-2.7-0.4-5.3-1.2q-2.7-0.7-5.1-1.9q-2.4-1.1-4.8-2.3q-2.5-1.1-4.9-2.4q-2.3-1.4-4.7-2.9q-2.3-1.5-4.6-3q-2.3-1.5-4.5-3.1q-2.1-1.7-3.8-3.9q-1.6-2.2-3.4-4.3q-1.9-2-3.5-4.2q-1.7-2.2-3.2-4.5q-1.5-2.3-2.8-4.8q-1.3-2.4-2.4-4.9q-1.2-2.5-2.2-5.1q-0.9-2.5-1.7-5.2q-0.7-2.6-1.3-5.3q-0.6-2.7-1-5.4q-0.3-2.8-0.5-5.5q-0.2-2.8-0.2-5.5q-0.1-2.8-0.1-5.5q0-2.8 0-5.5q0.1-2.8 0.1-5.5q0-2.8-0.1-5.5q0-2.8 0-5.5q0-2.8 0-5.5q0-2.8 0-5.5q0-2.8 0.3-5.7q0.2-2.9-1.3-4.9q-1.5-2-4.4-2.4q-2.9-0.3-5.5-1.2q-2.6-0.9-5.1-2q-2.5-1.1-5-2.4q-2.4-1.3-4.7-2.8q-2.3-1.5-4.5-3.2q-2.2-1.6-4.3-3.3q-2.2-1.8-4.2-3.7q-2-1.9-3.9-3.8q-1.9-2-3.7-4.2q-1.7-2.1-2-4.9q-0.3-2.8-1.7-5.2q-1.4-2.3-3.1-4.6q-1.6-2.2-3-4.5q-1.5-2.4-2.8-4.8q-1.4-2.3-2.7-4.8q-1.3-2.4-2.5-4.9q-1.2-2.5-2.3-5q-1.1-2.5-2.1-5.1q-1-2.5-2-5.1q-1-2.6-1.8-5.2q-0.8-2.6-1.6-5.3q-0.8-2.6-1.4-5.3q-0.6-2.7-1.2-5.3q-0.6-2.7-1-5.4q-0.4-2.8-0.8-5.5q-0.3-2.7-0.5-5.5q-0.1-2.7-0.2-5.5q-0.1-2.7 0.1-5.5q0.1-2.7 0.4-5.5q0.3-2.7 0.8-5.4q0.5-2.7 1.3-5.4q0.7-2.6 1.9-5.1q1.1-2.6 2.6-4.8q1.6-2.3 3.5-4.3q2-2 4.2-3.5q2.3-1.6 4.7-2.8q2.5-1.3 5.1-2.3q2.6-1 5.2-1.7q2.6-0.8 5.3-1.5q2.6-0.7 5.4-1.3q2.7-0.5 5.2-1.6q2.5-1 4.4-3.2q1.9-2.1 4.6-2.8q2.7-0.7 5.5 0q2.7 0.7 4.8 2.6q2.1 2 3 4.6q0.9 2.7 0.4 5.5q-0.5 2.8-2.2 5q-1.8 2.3-4.4 3.4q-2.6 1.1-5.3 0.6q-2.8-0.4-5.4-1.2q-2.6-0.7-5.3 0.1q-2.7 0.8-5.4 1.5q-2.6 0.6-5.3 1.4q-2.6 0.7-5.2 1.7q-2.6 1-5 2.3q-2.4 1.4-4.4 3.4q-1.9 2-3.1 4.5q-1.2 2.5-1.8 5.2q-0.6 2.6-0.9 5.4q-0.3 2.7-0.4 5.5q-0.1 2.7 0 5.5q0 2.7 0.2 5.5q0.1 2.7 0.5 5.4q0.5 2.8 0.9 5.5q0.5 2.7 1.2 5.4q0.6 2.6 1.3 5.3q0.8 2.6 1.6 5.3q0.8 2.6 1.8 5.2q0.9 2.5 2 5.1q1 2.5 2.1 5q1.2 2.6 2.4 5q1.1 2.5 2.5 4.9q1.3 2.4 2.7 4.8q1.4 2.4 2.9 4.7q1.5 2.3 3 4.6q1.6 2.3 4.3 3.2q2.7 0.9 4.7 2.8q2 1.9 3.8 4q1.9 2 4 3.8q2 1.8 4.2 3.5q2.2 1.7 4.5 3.2q2.4 1.4 4.8 2.7q2.5 1.2 5.1 2.1q2.6 0.8 5.3 1.3q2.7 0.5 5.5 0.6q2.8 0 5.5-0.4q2.7-0.3 5.4-1.2q2.6-0.8 5.1-2q2.5-1.1 4.8-2.6q2.4-1.4 4.6-3q2.2-1.7 4.3-3.5q2.1-1.8 4-3.8q1.9-1.9 3.8-4q1.8-2 4.5-3q2.6-0.9 4.4-3q1.9-2 3.4-4.3q1.5-2.3 2.9-4.7q1.3-2.4 2.7-4.8q1.4-2.4 2.6-4.9q1.2-2.4 2.3-4.9q1.2-2.5 2.2-5.1q1.1-2.5 2-5.1q1-2.6 1.9-5.2q0.8-2.6 1.6-5.2q0.8-2.7 1.4-5.4q0.7-2.6 1.2-5.3q0.5-2.7 0.9-5.5q0.4-2.7 0.7-5.4q0.2-2.8 0.3-5.5q0.1-2.8 0-5.5q-0.1-2.8-0.4-5.5q-0.2-2.7-0.7-5.5q-0.6-2.7-1.7-5.2q-1-2.6-2.8-4.7q-1.8-2.1-4.2-3.6q-2.3-1.5-4.9-2.5q-2.5-1-5.2-1.8q-2.6-0.8-5.3-1.5q-2.6-0.7-5.3-1.4q-2.7-0.8-5.4-0.5q-2.6 0.2-5.3 1.1q-2.7 0.8-5.4 0q-2.7-0.9-4.6-2.9q-2-2.1-2.7-4.8q-0.8-2.8-0.1-5.5q0.6-2.8 2.5-4.9q1.9-2.1 4.6-3.1q2.6-1 5.4-0.5q2.8 0.4 4.8 2.3q2.1 2 4.3 3.4q2.3 1.5 5 2q2.8 0.5 5.4 1.2q2.7 0.7 5.3 1.4q2.7 0.8 5.3 1.7q2.6 1 5.1 2.2q2.4 1.2 4.7 2.7q2.4 1.5 4.4 3.4q2 1.9 3.6 4.1q1.6 2.3 2.8 4.7q1.2 2.5 2 5.2q0.8 2.6 1.4 5.3q0.5 2.7 0.8 5.4q0.3 2.8 0.5 5.5q0.1 2.8 0.1 5.5q0 2.8-0.2 5.5q-0.1 2.8-0.4 5.5q-0.3 2.7-0.7 5.5q-0.4 2.7-1 5.4q-0.5 2.7-1.1 5.3q-0.6 2.7-1.4 5.4q-0.7 2.6-1.6 5.2q-0.8 2.7-1.7 5.3q-0.9 2.5-2 5.1q-1 2.6-2.1 5.1q-1 2.5-2.3 5q-1.2 2.5-2.4 4.9q-1.2 2.5-2.6 4.9q-1.4 2.3-2.8 4.7q-1.4 2.4-3 4.6q-1.6 2.3-3.1 4.6q-1.6 2.3-1.8 5.1q-0.2 2.8-1.9 5q-1.6 2.3-3.5 4.3q-2 1.9-4 3.8q-2 1.9-4.1 3.7q-2.1 1.8-4.2 3.4q-2.2 1.7-4.5 3.2q-2.3 1.5-4.7 2.9q-2.5 1.3-5 2.4q-2.5 1.1-5.1 2.1q-2.6 0.9-5.4 1.4q-2.8 0.5-4.8 2q-2.1 1.5-1.8 4.5q0.3 2.9 0.3 5.7q0 2.7 0 5.5q0 2.7 0 5.5q0 2.7 0 5.5q0.1 2.7 0.1 5.5q0 2.8 0 5.5q0 2.8 0 5.5q0 2.8 0 5.5q0 2.8 0.2 5.5q0.1 2.8 0.5 5.5q0.5 2.7 1.1 5.4q0.7 2.6 1.6 5.3q0.9 2.6 1.9 5.1q1.1 2.6 3 4.6q1.8 2 2.8 4.6q1 2.6 2.8 4.6q1.9 2.1 3.7 4.1q1.8 1.9 3.9 3.7q2.1 1.9 4.3 3.5q2.2 1.7 4.6 3.1q2.4 1.4 5 2.2q2.6 0.9 5 2q2.5 1.2 5 1.8q2.6 0.6 5.3 1.1q2.7 0.4 5.4 0.8q2.7 0.3 5.5 0.6q2.7 0.4 5.4 0.2q2.8-0.2 5.5-0.7q2.7-0.5 5.3-1.4q2.6-1 5.1-1.8q2.6-0.9 4.9-2.1q2.3-1.3 4.9-2.2q2.6-0.8 4.9-2.4q2.3-1.6 4.2-3.5q2-1.9 4-3.7q2-1.8 3.9-3.8q1.9-1.9 3.4-4.3q1.5-2.3 2.8-4.7q1.3-2.3 2.7-4.7q1.4-2.3 2.4-4.9q0.9-2.6 1.4-5.3q0.5-2.7 1.4-5.4q0.8-2.6 0.3-5.3q-0.6-2.8 0.2-5.4q0.8-2.6 0.7-5.4q-0.1-2.8-0.2-5.5q0-2.8 0.1-5.5q0-2.8 0-5.5q0-2.8 0-5.5q0-2.8-0.1-5.5q-0.1-2.8 0.2-5.6q0.2-2.9-1-5.1q-1.3-2.2-4.1-2.8q-2.9-0.6-5.5-1.4q-2.6-0.9-4.9-2.5q-2.3-1.6-4.3-3.3q-2-1.8-3.9-3.9q-1.8-2-3.8-3.9q-2.1-1.9-3-4.5q-0.9-2.6-1.9-5.2q-0.9-2.6-1.6-5.2q-0.7-2.7-1-5.4q-0.2-2.7-0.5-5.5q-0.2-2.7 0.5-5.4q0.8-2.6 1.5-5.3q0.8-2.6 1.6-5.3q0.9-2.6 2.5-4.8q1.7-2.1 3.4-4.3q1.7-2.1 3.5-4.3q1.7-2.1 4-3.7q2.2-1.5 4.6-2.8q2.4-1.2 5-2.2q2.6-0.9 5.3-1.6q2.7-0.7 5.4-1.1q2.7-0.4 5.5-0.4q2.7 0 5.5 0.4q2.7 0.5 5.3 1.2q2.7 0.7 5.3 1.7q2.6 0.9 5.1 1.9q2.6 1 4.6 3q1.9 1.9 3.7 4q1.8 2.1 3.6 4.1q1.9 2.1 3.3 4.4q1.4 2.4 2.3 4.9q0.8 2.6 2 5.1q1.1 2.5 1.4 5.3q0.2 2.7 0.1 5.5q0 2.7-0.2 5.5q-0.1 2.7-1.1 5.3q-0.9 2.5-1.6 5.2q-0.8 2.7-2.1 5.1q-1.3 2.4-3.2 4.4q-1.9 2-3.7 4.1q-1.9 2-3.8 3.9q-2 1.9-4.3 3.4q-2.3 1.4-5 2.2q-2.6 0.8-5.5 1.4q-2.8 0.6-4.1 2.8q-1.3 2.2-1 5.1q0.3 2.8 0.2 5.6q-0.1 2.7-0.1 5.5q0 2.7 0 5.5q0 2.7 0.1 5.5q0.2 2.7 0.2 5.5q0.1 2.7 0 5.5q-0.2 2.7-0.1 5.4q0 2.7-0.3 5.3q-0.4 2.7-0.7 5.4q-0.4 2.8-0.9 5.5q-0.6 2.7-1.5 5.3q-0.9 2.6-1.8 5.1q-0.9 2.6-2.1 5.1q-1.1 2.4-2.5 4.8q-1.4 2.4-2.7 4.8q-1.3 2.4-3.1 4.4q-1.9 2-3.7 4.1q-1.9 2-3.6 4.1q-1.8 2.1-4 3.7q-2.2 1.6-4.4 3.3q-2.2 1.6-4.6 3q-2.3 1.5-4.6 3q-2.3 1.5-4.8 2.6q-2.5 1-5 1.9q-2.6 0.9-5.1 1.6q-2.6 0.6-5.3 1.1q-2.7 0.5-5.4 1q-2.7 0.4-5.5 0.5zM198.9 141.7a27.8 27.8 0 1 0 55.6 0a27.8 27.8 0 1 0-55.6 0zM205 141.3a21.4 21.4 0 1 0 42.7 0a21.4 21.4 0 1 0-42.7 0z"/></symbol></svg>
+
+<header class="bar">
+  <div class="page">
+    <a class="wordmark" href="../"><svg viewBox="0 0 272 332" width="25" height="30" aria-hidden="true"><use href="#em-scope" width="350" height="332"/></svg>Amsterdam Medical Data Science</a>
+    <nav aria-label="On this page">
+      <a href="#center">The center</a>
+      <a href="#research">Research</a>
+      <a href="#publications">Publications</a>
+      <a href="#people">People</a>
+      <a href="#join">Work with us</a>
+      <a class="go" href="../#amsterdamumcdb">AmsterdamUMCdb</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+<div class="page">
+
+  <div class="opening center">
+    <div class="opening-top">
+      <div>
+        <p class="kicker"><b>C4I</b> &nbsp;·&nbsp; Department of Intensive Care Medicine, Amsterdam UMC</p>
+        <h1>Center for Critical Care Computational Intelligence</h1>
+        <p class="lead">We use the data of every previous intensive care patient to improve the care of every future one. We work from bytes to bedside: sharing data, building models, bringing them to the bedside, and testing whether patients benefit.</p>
+        <div class="actions">
+          <a class="btn" href="#research">See our research</a>
+          <a href="../#amsterdamumcdb">Our data: AmsterdamUMCdb</a>
+        </div>
+      </div>
+    </div>
+    <div class="skyline">
+      <svg viewBox="0 0 1200 150" role="img" aria-labelledby="pulse-t" xmlns="http://www.w3.org/2000/svg">
+        <title id="pulse-t">A row of ones and zeros that becomes a heartbeat: from bytes to bedside.</title>
+        <defs><linearGradient id="pulse-g" gradientUnits="userSpaceOnUse" x1="566" y1="0" x2="690" y2="0"><stop offset="0" stop-color="var(--ink)"/><stop offset="1" stop-color="var(--brand)"/></linearGradient></defs>
+        <g class="sky-detail" fill="var(--ink)" font-family="'Times New Roman', Times, 'Liberation Serif', serif" font-size="30" text-anchor="middle"><text y="106" x="14 37 60 83 106 129 152 175 198 221 244 267 290 313 336 359 382 405 428 451 474 497 520 543">010000110011010001001001</text></g>
+        <path class="sky-line" pathLength="1" fill="none" stroke="url(#pulse-g)" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" d="M566 96 H690 q11 -12 22 0 h14 l7 8 l13 -78 l14 100 l9 -30 h18 q17 -22 34 0 H960 q11 -12 22 0 h14 l7 8 l13 -78 l14 100 l9 -30 h18 q17 -22 34 0 H1200"/>
+      </svg>
+    </div>
+  </div>
+
+  <section id="center">
+    <h2>The center</h2>
+    <div class="body">
+      <p>A critically ill patient generates tens of thousands of data points a day, from monitors, life-support devices, laboratory tests and the electronic health record. Very little of it is used to help the next patient. The Center for Critical Care Computational Intelligence (C4I) was founded to change that.</p>
+      <p>The center is part of the Department of Intensive Care Medicine of Amsterdam UMC and is led by its founding director, Paul Elbers. It grew out of early work on data-driven decisions at the bedside, and has become a meeting place for intensive care professionals with a passion for data science and data scientists with an interest in intensive care medicine.</p>
+      <h3>From bytes to bedside</h3>
+      <p>We work the full circle, and each step feeds the next.</p>
+      <ol class="steps">
+        <li><span><b>Share data.</b> Bring intensive care data together and make it available for research, responsibly.</span></li>
+        <li><span><b>Build models.</b> Develop models with data science and artificial intelligence, clinicians and data scientists together.</span></li>
+        <li><span><b>Bring them to the bedside.</b> Turn models into decision support inside the electronic health record.</span></li>
+        <li><span><b>Test them.</b> Evaluate in clinical trials whether patients are better off, and learn from the result.</span></li>
+      </ol>
+      <p class="small">Earlier publications refer to the center as the Laboratory for Critical Care Computational Intelligence.</p>
+    </div>
+  </section>
+
+  <section id="research">
+    <h2>Research</h2>
+    <div class="body">
+      <div class="line">
+        <h3>Sharing intensive care data</h3>
+        <p><a href="../#amsterdamumcdb">AmsterdamUMCdb</a> was the first freely available, highly granular intensive care database from within the European Union. Its forthcoming Van Gogh version covers both locations of Amsterdam UMC.</p>
+        <p>The same approach now reaches beyond one hospital. <a href="https://www.icudata.nl/">ICUdata</a>, a foundation we initiated, combines the data of Dutch intensive care units; more than twelve hospitals have joined. INDICATE is a European project for federated sharing of intensive care data. During the pandemic we coordinated the <a href="../#ddw">Dutch Data Warehouse against COVID-19</a>.</p>
+      </div>
+      <div class="line">
+        <h3>Decision support at the bedside</h3>
+        <p>AutoKinetics calculates a personal antibiotic dose from the patient's own data in the electronic health record, from the start of treatment. In the Right Dose, Right Now trial in two centres, personalised dosing was feasible and safe. It improved target attainment for ciprofloxacin; for the three other antibiotics it did not.</p>
+        <p>With machine learning on AmsterdamUMCdb we developed decision support for the question whether a patient can safely leave intensive care. It was built in a public-private partnership, is integrated in the electronic health record and has been implemented in more than seven hospitals.</p>
+      </div>
+      <div class="line">
+        <h3>Artificial intelligence for intensive care</h3>
+        <p>Our systematic review of machine learning for the prediction of sepsis showed that models can predict sepsis ahead of time, and that studies of clinical implementation were needed to bridge the gap between bytes and bedside. We also contributed to international guidance on implementing artificial intelligence in critical care.</p>
+      </div>
+      <div class="line">
+        <h3>Reinforcement learning: learning while doing</h3>
+        <p>Intensive care is a sequence of decisions, each one changing the patient and the next choice. Reinforcement learning is the branch of artificial intelligence made for such sequences: it learns which action to take in which situation from the outcomes that follow.</p>
+        <p>We showed that a reinforcement learning model for haemodynamic treatment in sepsis transfers between patient populations in the United States and Europe. We developed methods to shape rewards and to evaluate and restrict policies before they are used. And we reviewed the field: by 2023 no study had shown that reinforcement learning improves outcomes for patients.</p>
+        <p>That is the gap we work on: bringing reinforcement learning to the bedside safely, with the clinician in the loop, so that caring for patients and learning from their care happen together.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="publications">
+    <h2>Selected publications</h2>
+    <div class="body">
+      <ul class="pubs">
+        <li>Cecconi M, Greco M, Shickel B, et al. Implementing Artificial Intelligence in Critical Care Medicine: a consensus of 22. <i>Crit Care</i> 2025;29:290. <a href="https://doi.org/10.1186/s13054-025-05532-2">doi:10.1186/s13054-025-05532-2</a></li>
+        <li>Otten M, Jagesar AR, Dam TA, et al. Does Reinforcement Learning Improve Outcomes for Critically Ill Patients? A Systematic Review and Level-of-Readiness Assessment. <i>Crit Care Med</i> 2024;52(2):e79–e88. <a href="https://doi.org/10.1097/CCM.0000000000006100">doi:10.1097/CCM.0000000000006100</a></li>
+        <li>Roggeveen LF, El Hassouni A, de Grooth HJ, et al. Reinforcement learning for intensive care medicine: actionable clinical insights from novel approaches to reward shaping and off-policy model evaluation. <i>Intensive Care Med Exp</i> 2024;12:32. <a href="https://doi.org/10.1186/s40635-024-00614-x">doi:10.1186/s40635-024-00614-x</a></li>
+        <li>Roggeveen LF, Guo T, Fleuren LM, et al. Right dose, right now: bedside, real-time, data-driven, and personalised antibiotic dosing in critically ill patients with sepsis or septic shock, a two-centre randomised clinical trial. <i>Crit Care</i> 2022;26:265. <a href="https://doi.org/10.1186/s13054-022-04098-7">doi:10.1186/s13054-022-04098-7</a></li>
+        <li>Thoral PJ, Fornasa M, de Bruin DP, et al. Explainable Machine Learning on AmsterdamUMCdb for ICU Discharge Decision Support: Uniting Intensivists and Data Scientists. <i>Crit Care Explor</i> 2021;3(9):e0529. <a href="https://doi.org/10.1097/CCE.0000000000000529">doi:10.1097/CCE.0000000000000529</a></li>
+        <li>Thoral PJ, Peppink JM, Driessen RH, et al. Sharing ICU Patient Data Responsibly Under the Society of Critical Care Medicine/European Society of Intensive Care Medicine Joint Data Science Collaboration: The Amsterdam University Medical Centers Database (AmsterdamUMCdb) Example. <i>Crit Care Med</i> 2021;49(6):e563–e577. <a href="https://doi.org/10.1097/CCM.0000000000004916">doi:10.1097/CCM.0000000000004916</a></li>
+        <li>Roggeveen L, El Hassouni A, Ahrendt J, et al. Transatlantic transferability of a new reinforcement learning model for optimizing haemodynamic treatment for critically ill patients with sepsis. <i>Artif Intell Med</i> 2021;112:102003. <a href="https://doi.org/10.1016/j.artmed.2020.102003">doi:10.1016/j.artmed.2020.102003</a></li>
+        <li>Fleuren LM, Klausch TLT, Zwager CL, et al. Machine learning for the prediction of sepsis: a systematic review and meta-analysis of diagnostic test accuracy. <i>Intensive Care Med</i> 2020;46(3):383–400. <a href="https://doi.org/10.1007/s00134-019-05872-y">doi:10.1007/s00134-019-05872-y</a></li>
+      </ul>
+      <p><a href="https://pubmed.ncbi.nlm.nih.gov/?term=Elbers+PWG%5BAuthor%5D&amp;sort=date">More publications on PubMed</a></p>
+    </div>
+  </section>
+
+  <section id="people">
+    <h2>People</h2>
+    <div class="body">
+      <ul class="people">
+        <li>
+          <img src="../images/pe.jpg" alt="" width="64" height="64">
+          <div><b>Paul Elbers, MD, PhD, EDIC</b><span>Intensivist and associate professor of intensive care medicine, Amsterdam UMC</span></div>
+          <div><span>Founding director</span><span class="links"><a href="https://www.linkedin.com/in/paulelbersmdphd/">LinkedIn</a></span></div>
+        </li>
+      </ul>
+      <p>The center brings together PhD candidates, intensivists, residents, master's students, postdoctoral researchers and clinical information specialists. Former PhD candidates now work in clinical training programmes, in academia and in companies of their own.</p>
+      <h3>Collaboration</h3>
+      <p>We work with research groups at Vrije Universiteit Amsterdam, the University of Cambridge, Imperial College London, the University of Pittsburgh and the Laboratory for Computational Physiology at the Massachusetts Institute of Technology. In Amsterdam the center is closely involved with <a href="../#about">Amsterdam Medical Data Science</a> and Amsterdam AI.</p>
+      <h3>Funding</h3>
+      <p>Our research has been funded by ZonMw, the Netherlands Enterprise Agency (RVO), Zorgverzekeraars Nederland and the European Commission.</p>
+    </div>
+  </section>
+
+  <section id="join">
+    <h2>Work with us</h2>
+    <div class="body">
+      <p>We welcome PhD candidates, postdoctoral researchers and students with a background in medicine, data science or artificial intelligence. We also welcome intensive care units and research groups that want to collaborate.</p>
+      <p>Write to <a href="mailto:info@amsterdammedicaldatascience.nl">info@amsterdammedicaldatascience.nl</a>.</p>
+      <ul>
+        <li>To work with our data, <a href="../#access">request access to AmsterdamUMCdb</a>.</li>
+        <li>To meet the community in Amsterdam, come to a <a href="../#meetup">Data and Pizza</a> meetup.</li>
+      </ul>
+    </div>
+  </section>
+
+</div>
+</main>
+
+<footer id="contact">
+  <div class="page">
+    <h2>Contact</h2>
+    <dl class="contact">
+      <dt>The center</dt><dd><a href="mailto:info@amsterdammedicaldatascience.nl">info@amsterdammedicaldatascience.nl</a></dd>
+      <dt>Access to AmsterdamUMCdb</dt><dd><a href="mailto:access@amsterdammedicaldatascience.nl">access@amsterdammedicaldatascience.nl</a></dd>
+      <dt>Address</dt><dd>Department of Intensive Care Medicine, Amsterdam UMC, Amsterdam, the Netherlands</dd>
+    </dl>
+  </div>
+</footer>
+</body>
+</html>

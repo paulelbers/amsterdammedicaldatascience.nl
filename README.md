@@ -3,15 +3,18 @@
 The website of Amsterdam Medical Data Science and
 [AmsterdamUMCdb](https://github.com/AmsterdamUMC/AmsterdamUMCdb): what the
 database holds, how to request access, the Data and Pizza meetups, and who is
-behind it.
+behind it. A second page is about the Center for Critical Care Computational
+Intelligence (C4I), the research group behind the database.
 
-It is one page. There are no scripts, and nothing is loaded from another
-site: no fonts, no trackers, no cookies.
+Each page is one file. There are no scripts, and nothing is loaded from
+another site: no fonts, no trackers, no cookies.
 
 ## What is where
 
 ```
-index.html        the whole page: text, styles, the emblem and the opening drawing
+index.html        the front page: text, styles, the emblem and the opening drawing
+c4i/index.html    the page of the Center for Critical Care Computational
+                  Intelligence, at /c4i/
 404.html          shown for an address that does not exist
 images/           logos and portraits
                   amdslogonew.png, the full AMDS logo, is the picture shown
@@ -19,6 +22,10 @@ images/           logos and portraits
 press/            the press release of November 2019, in six languages
 tools/skyline.py  draws the opening picture (see below)
 tools/emblem.py   draws the emblem (see below)
+tools/pulse.py    draws the opening picture of the C4I page: ones and zeros
+                  that become a heartbeat
+tools/sync.py     copies the styles and symbols of the front page into the
+                  C4I page
 tools/check.py    looks for missing files and broken links on the page, and
                   checks that the two drawings are what the scripts draw
 .nojekyll         tells GitHub to publish the files exactly as they are
@@ -31,6 +38,10 @@ Edit `index.html` and propose the change as a pull request. Merging into
 
 To look at a change before proposing it, open `index.html` in a browser. The
 images and PDFs load because their paths are relative.
+
+The C4I page carries a copy of the stylesheet of the front page, followed by
+a few rules of its own. After changing the styles in `index.html`, run
+`python3 tools/sync.py` to copy them over; the check fails if you forget.
 
 Every proposal is checked by `tools/check.py`: a picture or PDF the page
 refers to must be in the repository, and a link to a place on the page must
@@ -51,6 +62,10 @@ Check these when something changes, so the page does not go stale again.
 | What an applicant needs, and the steps | The access portal at `access.amsterdammedicaldatascience.nl`; the two must say the same |
 | Number of meetup members | [Meetup.com](https://www.meetup.com/amsterdam-medical-data-science/), October 2026 |
 | COVID-19 data warehouse figures | The previous version of this site; not re-checked |
+| C4I: mission, how it works, who it brings together, collaborations, funders | The academic profile that Paul Elbers supplied, and the center's vacancy of May 2025 |
+| C4I: what each study found | The abstracts on PubMed of the papers under "Selected publications" |
+| C4I: twelve hospitals in ICUdata, seven hospitals using the discharge support | Supplied by Paul Elbers in 2026; these numbers grow, so check them once a year |
+| C4I: people | Only the director is named. Add others when they agree to be listed |
 
 ## The opening picture
 
