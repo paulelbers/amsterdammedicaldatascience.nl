@@ -65,7 +65,7 @@ Check these when something changes, so the page does not go stale again.
 | C4I: mission, how it works, who it brings together, collaborations, funders | The academic profile that Paul Elbers supplied, and the center's vacancy of May 2025 |
 | C4I: what each study found | The abstracts on PubMed of the papers under "Selected publications" |
 | C4I: twelve hospitals in ICUdata, seven hospitals using the discharge support | Supplied by Paul Elbers in 2026; these numbers grow, so check them once a year |
-| C4I: people | Paul Elbers, October 2026: the PhD candidates he supervises (current and completing their PhD in one list), alumni, postdoc and colleague. First names as on their papers. LinkedIn addresses found by web search; photos to come from Paul |
+| C4I: people | Paul Elbers, October 2026: the PhD candidates he supervises (current and completing their PhD in one list), alumni, postdoc and colleague. First names as on their papers. LinkedIn addresses found by web search (only where the profile clearly matched); photos and the missing links to come from Paul |
 
 ## The opening picture
 
