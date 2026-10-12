@@ -206,8 +206,6 @@ footer .page { display: grid; grid-template-columns: var(--margin-col) minmax(0,
   .opening.center .sky-detail { font-size: 36px; }
 }
 .people .initials { width: 64px; height: 64px; border-radius: 50%; background: var(--line); color: var(--muted); display: grid; place-items: center; font-family: var(--display); font-size: 1.2rem; }
-.names li { font-family: var(--display); font-size: 1.08rem; }
-.names li span { font-family: var(--body); font-size: .85rem; color: var(--muted); margin-left: 4px; }
 .pubs { list-style: none; padding: 0; border-top: 1px solid var(--line-strong); }
 .pubs li { padding-block: 12px; border-bottom: 1px solid var(--line); font-size: .97rem; overflow-wrap: anywhere; }
 .line { display: flex; flex-direction: column; gap: 14px; }
@@ -400,12 +398,32 @@ footer .page { display: grid; grid-template-columns: var(--margin-col) minmax(0,
       </ul>
       <h3>Alumni</h3>
       <p>Former PhD candidates of the center now work in clinical training programmes, in academia and in companies of their own.</p>
-      <ul class="langs names">
-        <li>Tingjie Guo <span>PhD 2021</span></li>
-        <li>Ketan Paranjape <span>PhD 2022</span></li>
-        <li>Christopher Sauer <span>PhD 2022</span></li>
-        <li>Lucas Fleuren <span>PhD 2023</span></li>
-        <li>Luca Roggeveen <span>PhD 2026</span></li>
+      <ul class="people">
+        <li>
+          <div class="initials" aria-hidden="true">TG</div>
+          <div><b>Tingjie Guo</b><span>PhD 2021</span></div>
+          <div><span class="links"><a href="https://www.linkedin.com/in/tingjieguo/">LinkedIn</a></span></div>
+        </li>
+        <li>
+          <div class="initials" aria-hidden="true">KP</div>
+          <div><b>Ketan Paranjape</b><span>PhD 2022</span></div>
+          <div><span class="links"><a href="https://www.linkedin.com/in/ketanparanjape/">LinkedIn</a></span></div>
+        </li>
+        <li>
+          <div class="initials" aria-hidden="true">CS</div>
+          <div><b>Christopher Sauer</b><span>PhD 2022</span></div>
+          <div></div>
+        </li>
+        <li>
+          <div class="initials" aria-hidden="true">LF</div>
+          <div><b>Lucas Fleuren</b><span>PhD 2023</span></div>
+          <div><span class="links"><a href="https://www.linkedin.com/in/lucas-fleuren-4391a117b/">LinkedIn</a></span></div>
+        </li>
+        <li>
+          <div class="initials" aria-hidden="true">LR</div>
+          <div><b>Luca Roggeveen</b><span>PhD 2026</span></div>
+          <div></div>
+        </li>
       </ul>
       <h3>Collaboration</h3>
       <p>We work with research groups at Vrije Universiteit Amsterdam, the University of Cambridge, Imperial College London, the University of Pittsburgh and the Laboratory for Computational Physiology at the Massachusetts Institute of Technology. In Amsterdam the center is closely involved with <a href="../#about">Amsterdam Medical Data Science</a> and Amsterdam AI.</p>
