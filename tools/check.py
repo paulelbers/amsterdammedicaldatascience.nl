@@ -2,6 +2,7 @@
 
 - every picture, PDF and page that a page refers to is in the repository;
 - every link to a place on a page ("#access", "../#access") has that place;
+- every link to another website opens in a new tab;
 - the drawings on the pages are what the scripts in tools/ draw;
 - the C4I page has the same stylesheet and the same symbols as the front
   page, so the two cannot drift apart.
@@ -67,6 +68,14 @@ def problems_in(name: str) -> list[str]:
     return found
 
 
+def same_tab(name: str) -> list[str]:
+    """Links to other websites that would replace the page instead of opening a new tab."""
+    text = (ROOT / name).read_text(encoding="utf-8")
+    tags = re.findall(r'<a\b[^>]*\bhref="https?://[^"]*"[^>]*>', text)
+    return [f"{name}: {re.search(r'href=\"([^\"]*)', tag).group(1)} should open in a new tab (target=\"_blank\" rel=\"noopener\")"
+            for tag in tags if 'target="_blank"' not in tag or 'rel="noopener"' not in tag]
+
+
 def squeeze(text: str) -> str:
     return re.sub(r"\s+", " ", text).strip()
 
@@ -80,7 +89,7 @@ def shared(name: str) -> tuple[str, str]:
 
 
 def main() -> int:
-    found = [problem for name in PAGES for problem in problems_in(name)]
+    found = [problem for name in PAGES for problem in problems_in(name) + same_tab(name)]
     for script, name, what in DRAWINGS:
         drawn = subprocess.run([sys.executable, "-B", str(ROOT / "tools" / script)], capture_output=True, text=True, check=True).stdout
         if squeeze(drawn) not in squeeze((ROOT / name).read_text(encoding="utf-8")):
