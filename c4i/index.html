@@ -148,6 +148,11 @@ h3 .state { margin-left: 8px; vertical-align: .12em; }
 .people { list-style: none; padding: 0; border-top: 1px solid var(--line-strong); }
 .people li { display: grid; grid-template-columns: 64px minmax(0, 1fr) minmax(0, 1fr); gap: 4px 20px; align-items: center; padding-block: 14px; border-bottom: 1px solid var(--line); }
 .people img { width: 64px; height: 64px; border-radius: 50%; object-fit: cover; background: var(--line); display: block; }
+.people .initials { width: 64px; height: 64px; border-radius: 50%; background: var(--line); color: var(--muted); display: grid; place-items: center; font-family: var(--display); font-size: 1.2rem; }
+.faces { list-style: none; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(96px, 1fr)); gap: 22px 12px; }
+.faces li { display: flex; flex-direction: column; align-items: center; gap: 8px; text-align: center; font-size: .86rem; line-height: 1.3; }
+.faces img, .faces .initials { width: 76px; height: 76px; border-radius: 50%; object-fit: cover; background: var(--line); }
+.faces .initials { display: grid; place-items: center; color: var(--muted); font-family: var(--display); font-size: 1.35rem; }
 .people b { display: block; font-family: var(--display); font-size: 1.12rem; line-height: 1.25; }
 .people span { display: block; font-size: .93rem; color: var(--muted); }
 .people .links { font-size: .93rem; }
@@ -205,7 +210,6 @@ footer .page { display: grid; grid-template-columns: var(--margin-col) minmax(0,
   .opening.center .sky-line { stroke-width: 5; }
   .opening.center .sky-detail { font-size: 36px; }
 }
-.people .initials { width: 64px; height: 64px; border-radius: 50%; background: var(--line); color: var(--muted); display: grid; place-items: center; font-family: var(--display); font-size: 1.2rem; }
 .pubs { list-style: none; padding: 0; border-top: 1px solid var(--line-strong); }
 .pubs li { padding-block: 12px; border-bottom: 1px solid var(--line); font-size: .97rem; overflow-wrap: anywhere; }
 .line { display: flex; flex-direction: column; gap: 14px; }
@@ -386,9 +390,9 @@ footer .page { display: grid; grid-template-columns: var(--margin-col) minmax(0,
           <div></div>
         </li>
         <li>
-          <div class="initials" aria-hidden="true">PT</div>
+          <img src="../images/pt.png" alt="" width="64" height="64">
           <div><b>Patrick Thoral</b><span>PhD candidate</span></div>
-          <div></div>
+          <div><span class="links"><a href="https://www.linkedin.com/in/patrickthoral/">LinkedIn</a></span></div>
         </li>
         <li>
           <div class="initials" aria-hidden="true">MV</div>
