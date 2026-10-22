@@ -282,23 +282,32 @@ footer .page { display: grid; grid-template-columns: var(--margin-col) minmax(0,
     <div class="body">
       <div class="line">
         <h3>Sharing intensive care data</h3>
-        <p><a href="../#amsterdamumcdb">AmsterdamUMCdb</a> was the first freely available, highly granular intensive care database from within the European Union. Its forthcoming Van Gogh version covers both locations of Amsterdam UMC.</p>
-        <p>The same approach now reaches beyond one hospital. <a href="https://www.icudata.nl/">ICUdata</a>, a foundation we initiated, combines the data of Dutch intensive care units; more than twelve hospitals have joined. INDICATE is a European project for federated sharing of intensive care data. During the pandemic we coordinated the <a href="../#ddw">Dutch Data Warehouse against COVID-19</a>.</p>
+        <p><a href="../#amsterdamumcdb">AmsterdamUMCdb</a> was the first freely available, highly granular intensive care database from within the European Union. Its forthcoming Van Gogh version covers both locations of Amsterdam UMC. During the pandemic we coordinated the <a href="../#ddw">Dutch Data Warehouse against COVID-19</a>, which brought together the full electronic health records of critically ill COVID-19 patients from hospitals across the Netherlands. <a href="https://www.icudata.nl/">ICUdata</a>, a foundation we initiated, now combines the data of Dutch intensive care units; more than twelve hospitals have joined. INDICATE is a European project for federated sharing of intensive care data.</p>
+        <p>We also study how to share and reuse such data well: which public intensive care data sets exist and how they differ, how to share health data under the GDPR, and how to map the parameter names of different electronic health records to standard vocabularies. Data extracted automatically from the health record predicted mortality as well as data abstracted by hand.</p>
+      </div>
+      <div class="line">
+        <h3>Seeing what comes next</h3>
+        <p>Much of our work builds models from routinely collected data that give an earlier warning. Kinetic estimated GFR identified acute kidney injury in patients with sepsis earlier than the standard criteria. The LoVe score estimates, shortly after intubation, how likely prolonged mechanical ventilation is. Other studies predict atrial fibrillation, failure of non-invasive ventilation, and readmission or death after intensive care, and find clinically interpretable subgroups of patients with sepsis.</p>
+        <p>A model that works in one hospital does not automatically work in the next. Training on data from more hospitals makes models generalise better, but they still need to be calibrated before they are used elsewhere.</p>
       </div>
       <div class="line">
         <h3>Decision support at the bedside</h3>
-        <p>AutoKinetics calculates a personal antibiotic dose from the patient's own data in the electronic health record, from the start of treatment. In the Right Dose, Right Now trial in two centres, personalised dosing was feasible and safe. It improved target attainment for ciprofloxacin; for the three other antibiotics it did not.</p>
         <p>With machine learning on AmsterdamUMCdb we developed decision support for the question whether a patient can safely leave intensive care. It was built in a public-private partnership, is integrated in the electronic health record and has been implemented in more than seven hospitals.</p>
+        <p>We look at other everyday decisions in the same way. When antibiotics had to be restarted after they were stopped, the clearest predictor was a short last course, and restarts went with higher mortality: room for support on when to stop. For the hardest decision, whether to continue or withdraw life-sustaining treatment, behavioural artificial intelligence makes explicit which criteria intensivists weigh. And for patients with a haematological malignancy, two weeks of intensive care added little certainty about long-term survival, which matters for time-limited trials of treatment.</p>
       </div>
       <div class="line">
-        <h3>Artificial intelligence for intensive care</h3>
-        <p>Our systematic review of machine learning for the prediction of sepsis showed that models can predict sepsis ahead of time, and that studies of clinical implementation were needed to bridge the gap between bytes and bedside. We also contributed to international guidance on implementing artificial intelligence in critical care.</p>
+        <h3>The right antibiotic dose</h3>
+        <p>AutoKinetics calculates a personal antibiotic dose from the patient's own data in the electronic health record, from the start of treatment. In the Right Dose, Right Now trial in two centres, personalised dosing was feasible and safe. It improved target attainment for ciprofloxacin; for the three other antibiotics it did not, and an economic evaluation found the approach, as tested, not cost-effective. Behind it lies pharmacokinetic work on vancomycin, ciprofloxacin and ceftazidime in intensive care patients.</p>
       </div>
       <div class="line">
-        <h3>Reinforcement learning: learning while doing</h3>
-        <p>Intensive care is a sequence of decisions, each one changing the patient and the next choice. Reinforcement learning is the branch of artificial intelligence made for such sequences: it learns which action to take in which situation from the outcomes that follow.</p>
-        <p>We showed that a reinforcement learning model for haemodynamic treatment in sepsis transfers between patient populations in the United States and Europe. We developed methods to shape rewards and to evaluate and restrict policies before they are used. And we reviewed the field: by 2023 no study had shown that reinforcement learning improves outcomes for patients.</p>
-        <p>That is the gap we work on: bringing reinforcement learning to the bedside safely, with the clinician in the loop, so that caring for patients and learning from their care happen together.</p>
+        <h3>Which treatment, for which patient</h3>
+        <p>Intensive care is a sequence of decisions, each one changing the patient and the next choice. Observational data can show which patients benefit from which treatment, if analysed as cause and effect. With causal deep learning we found that patients with sepsis who benefit from corticosteroids are those with severe metabolic acidosis and impaired circulation, while less ill patients may be harmed. For mechanical ventilation, causal analysis showed there is no single safe threshold for mechanical power; our risk-adjusted score combines its intensity and duration with the stiffness of the lungs.</p>
+        <p>Reinforcement learning is the branch of artificial intelligence made for sequences of decisions: it learns which action to take in which situation from the outcomes that follow. We showed that a reinforcement learning model for haemodynamic treatment in sepsis transfers between patient populations in the United States and Europe, developed methods to shape rewards and to evaluate policies before they are used, and built clinical guidelines into reinforcement learning for mechanical ventilation. We also reviewed the field: by 2023 no study had shown that reinforcement learning improves outcomes for patients.</p>
+        <p>That is the gap we work on: bringing reinforcement learning to the bedside safely, with the clinician in the loop, so that caring for patients and learning from their care happen together. With Ari Ercole and Derek Angus we set out how in <i>Intensive Care Medicine</i>: <a href="https://doi.org/10.1007/s00134-026-08576-2">reinforcement learning with randomisation when needed</a>.</p>
+      </div>
+      <div class="line">
+        <h3>Artificial intelligence in practice</h3>
+        <p>Our systematic review of machine learning for the prediction of sepsis showed that models can predict sepsis ahead of time, and that studies of clinical implementation were needed to bridge the gap between bytes and bedside. We contributed to international guidance on implementing artificial intelligence in critical care and to a roadmap for its future. Large language models are the newest tool: in a chart review, one found far more bleeding events in intensive care than manual review, but expert judgement remained necessary.</p>
       </div>
     </div>
   </section>
@@ -307,16 +316,28 @@ footer .page { display: grid; grid-template-columns: var(--margin-col) minmax(0,
     <h2>Selected publications</h2>
     <div class="body">
       <ul class="pubs">
+        <li>Elbers P, Ercole A, Angus DC. Fully flexing the potential of AI in intensive care: reinforcement learning with randomization when needed. <i>Intensive Care Med</i> 2026;52(10):2207–2210. <a href="https://doi.org/10.1007/s00134-026-08576-2">doi:10.1007/s00134-026-08576-2</a></li>
+        <li>Hilders PA, Lijović L, Otten M, et al. The LoVe score: Development and validation of a bedside clinical index to identify patients at risk for prolonged invasive mechanical ventilation. <i>J Intensive Care Soc</i> 2026. <a href="https://doi.org/10.1177/17511437261479649">doi:10.1177/17511437261479649</a></li>
+        <li>Lijović L, Hilders P, Radočaj T, et al. Power, Duration, and Compliance: Reframing Risk of Ventilatory-Induced Lung Injury With the Risk-Adjusted Mechanical-Power Score. <i>Crit Care Med</i> 2026;54(7):1574–1584. <a href="https://doi.org/10.1097/CCM.0000000000007129">doi:10.1097/CCM.0000000000007129</a></li>
+        <li>Jagesar A, Smalbil L, Galea E, et al. Causal deep learning to personalize medicine: Which intensive care patients with sepsis will benefit from corticosteroid therapy? <i>J Intensive Med</i> 2025;6(1):61–68. <a href="https://doi.org/10.1016/j.jointm.2025.07.002">doi:10.1016/j.jointm.2025.07.002</a></li>
+        <li>Jagesar AR, Dam TA, Struja T, et al. Sharing is caring: A systematic review of publicly available intensive care data sets. <i>J Crit Care</i> 2025;90:155205. <a href="https://doi.org/10.1016/j.jcrc.2025.155205">doi:10.1016/j.jcrc.2025.155205</a></li>
         <li>Cecconi M, Greco M, Shickel B, et al. Implementing Artificial Intelligence in Critical Care Medicine: a consensus of 22. <i>Crit Care</i> 2025;29:290. <a href="https://doi.org/10.1186/s13054-025-05532-2">doi:10.1186/s13054-025-05532-2</a></li>
         <li>Otten M, Jagesar AR, Dam TA, et al. Does Reinforcement Learning Improve Outcomes for Critically Ill Patients? A Systematic Review and Level-of-Readiness Assessment. <i>Crit Care Med</i> 2024;52(2):e79–e88. <a href="https://doi.org/10.1097/CCM.0000000000006100">doi:10.1097/CCM.0000000000006100</a></li>
         <li>Roggeveen LF, El Hassouni A, de Grooth HJ, et al. Reinforcement learning for intensive care medicine: actionable clinical insights from novel approaches to reward shaping and off-policy model evaluation. <i>Intensive Care Med Exp</i> 2024;12:32. <a href="https://doi.org/10.1186/s40635-024-00614-x">doi:10.1186/s40635-024-00614-x</a></li>
         <li>Roggeveen LF, Guo T, Fleuren LM, et al. Right dose, right now: bedside, real-time, data-driven, and personalised antibiotic dosing in critically ill patients with sepsis or septic shock, a two-centre randomised clinical trial. <i>Crit Care</i> 2022;26:265. <a href="https://doi.org/10.1186/s13054-022-04098-7">doi:10.1186/s13054-022-04098-7</a></li>
+        <li>Fleuren LM, Dam TA, Tonutti M, et al. The Dutch Data Warehouse, a multicenter and full-admission electronic health records database for critically ill COVID-19 patients. <i>Crit Care</i> 2021;25:304. <a href="https://doi.org/10.1186/s13054-021-03733-z">doi:10.1186/s13054-021-03733-z</a></li>
         <li>Thoral PJ, Fornasa M, de Bruin DP, et al. Explainable Machine Learning on AmsterdamUMCdb for ICU Discharge Decision Support: Uniting Intensivists and Data Scientists. <i>Crit Care Explor</i> 2021;3(9):e0529. <a href="https://doi.org/10.1097/CCE.0000000000000529">doi:10.1097/CCE.0000000000000529</a></li>
         <li>Thoral PJ, Peppink JM, Driessen RH, et al. Sharing ICU Patient Data Responsibly Under the Society of Critical Care Medicine/European Society of Intensive Care Medicine Joint Data Science Collaboration: The Amsterdam University Medical Centers Database (AmsterdamUMCdb) Example. <i>Crit Care Med</i> 2021;49(6):e563–e577. <a href="https://doi.org/10.1097/CCM.0000000000004916">doi:10.1097/CCM.0000000000004916</a></li>
-        <li>Roggeveen L, El Hassouni A, Ahrendt J, et al. Transatlantic transferability of a new reinforcement learning model for optimizing haemodynamic treatment for critically ill patients with sepsis. <i>Artif Intell Med</i> 2021;112:102003. <a href="https://doi.org/10.1016/j.artmed.2020.102003">doi:10.1016/j.artmed.2020.102003</a></li>
         <li>Fleuren LM, Klausch TLT, Zwager CL, et al. Machine learning for the prediction of sepsis: a systematic review and meta-analysis of diagnostic test accuracy. <i>Intensive Care Med</i> 2020;46(3):383–400. <a href="https://doi.org/10.1007/s00134-019-05872-y">doi:10.1007/s00134-019-05872-y</a></li>
       </ul>
-      <p><a href="https://pubmed.ncbi.nlm.nih.gov/?term=Elbers+PWG%5BAuthor%5D&amp;sort=date">More publications on PubMed</a></p>
+      <h3 id="all-publications">All publications</h3>
+      <p>The full list of publications of the center's founding director, Paul Elbers, is kept up to date in these places.</p>
+      <ul class="langs">
+        <li><a href="https://pubmed.ncbi.nlm.nih.gov/?term=Elbers+p&amp;filter=years.1994-3000&amp;sort=date">PubMed</a></li>
+        <li><a href="https://scholar.google.com/citations?user=jPPoHuAAAAAJ&amp;hl=nl">Google Scholar</a></li>
+        <li><a href="https://pure.amsterdamumc.nl/en/persons/paul-elbers/">Amsterdam UMC research portal</a></li>
+        <li><a href="https://orcid.org/0000-0003-0447-6893">ORCID</a></li>
+      </ul>
     </div>
   </section>
 
@@ -327,7 +348,7 @@ footer .page { display: grid; grid-template-columns: var(--margin-col) minmax(0,
         <li>
           <img src="../images/pe.jpg" alt="" width="64" height="64">
           <div><b>Paul Elbers, MD, PhD, EDIC</b><span>Intensivist and associate professor of intensive care medicine, Amsterdam UMC</span></div>
-          <div><span>Founding director</span><span class="links"><a href="https://www.amsterdamumc.org/en/research/researchers/paul-elbers-1.htm">Amsterdam UMC</a>, <a href="https://www.linkedin.com/in/paulelbersmdphd/">LinkedIn</a></span></div>
+          <div><span>Founding director</span><span class="links"><a href="https://www.amsterdamumc.org/en/research/researchers/paul-elbers-1.htm">Amsterdam UMC</a>, <a href="https://www.linkedin.com/in/paulelbersmdphd/">LinkedIn</a>, <a href="#all-publications">Publications</a></span></div>
         </li>
         <li>
           <img src="../images/jr.jpg" alt="" width="64" height="64">
