@@ -150,6 +150,8 @@ h3 .state { margin-left: 8px; vertical-align: .12em; }
 .people li { display: grid; grid-template-columns: 64px minmax(0, 1fr) minmax(0, 1fr); gap: 4px 20px; align-items: center; padding-block: 14px; border-bottom: 1px solid var(--line); }
 .people img { width: 64px; height: 64px; border-radius: 50%; object-fit: cover; background: var(--line); display: block; }
 .people .initials { width: 64px; height: 64px; border-radius: 50%; background: var(--line); color: var(--muted); display: grid; place-items: center; font-family: var(--display); font-size: 1.2rem; }
+.plate { display: inline-block; background: #fff; border: 1px solid var(--line); border-radius: 10px; padding: 14px 18px; max-width: 100%; }
+.plate img { display: block; width: 100%; height: auto; }
 .art { margin: 0; }
 .art img { display: block; width: 100%; height: auto; border-radius: 6px; background: var(--line); }
 .art figcaption { margin-top: 8px; font-size: .85rem; color: var(--muted); }
@@ -259,6 +261,7 @@ footer .page { display: grid; grid-template-columns: var(--margin-col) minmax(0,
   <section id="c4i">
     <h2>The lab</h2>
     <div class="body">
+      <a class="plate" href="c4i/" style="width: 25rem"><img src="images/c4i-logo.png" width="1200" height="179" alt="Amsterdam UMC, Center for Critical Care Computational Intelligence"></a>
       <p>AmsterdamUMCdb is built and shared by the Center for Critical Care Computational Intelligence (C4I), the research group for data science and artificial intelligence at the Department of Intensive Care Medicine of Amsterdam UMC. We use the data of every previous intensive care patient to improve the care of every future one, from bytes to bedside. These are the people of C4I and those who work closely with us.</p>
       <ul class="faces">
         <li><img src="images/pe.jpg" alt="" width="76" height="76">Paul Elbers</li>
