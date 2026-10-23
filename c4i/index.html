@@ -219,6 +219,12 @@ footer .page { display: grid; grid-template-columns: var(--margin-col) minmax(0,
 .opening.center h1 { font-size: clamp(2.1rem, 5.2vw, 3.7rem); max-width: 17em; }
 .opening.center + section { margin-top: clamp(28px, 5vw, 56px); }
 .opening.center .skyline svg { width: 100%; }
+/* the opening of this page has no picture beside it, so it sits in the middle */
+@media (min-width: 761px) {
+  .opening.center .opening-top > div { text-align: center; }
+  .opening.center h1.logo-title, .opening.center .lead { margin-inline: auto; }
+  .opening.center .actions { justify-content: center; }
+}
 @media (max-width: 760px) {
   /* the whole line stays in view on a phone, so draw it heavier */
   .opening.center .sky-line { stroke-width: 5; }
