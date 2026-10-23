@@ -12,9 +12,9 @@
 <meta property="og:title" content="Center for Critical Care Computational Intelligence (C4I)">
 <meta property="og:description" content="Intensive care data and artificial intelligence, from bytes to bedside. The research group behind AmsterdamUMCdb.">
 <meta property="og:url" content="https://amsterdammedicaldatascience.nl/c4i/">
-<meta property="og:image" content="https://amsterdammedicaldatascience.nl/images/amdslogonew.png">
+<meta property="og:image" content="https://amsterdammedicaldatascience.nl/images/c4i-og.png">
 <meta name="twitter:card" content="summary">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23000'/%3E%3Cg fill='%23fff'%3E%3Cpath id='x' d='M3.2 12.2 4.4 11 6 12.6 7.600 11 8.800 12.2 7.200 13.8 8.800 15.4 7.600 16.6 6 15 4.400 16.6 3.200 15.4 4.800 13.8z' transform='translate(-.4 2.2)'/%3E%3Cuse href='%23x' x='10'/%3E%3Cuse href='%23x' x='20'/%3E%3C/g%3E%3C/svg%3E">
+<link rel="icon" type="image/png" href="../images/c4i-icon.png">
 <style>
 /* One page, no scripts, nothing loaded from another site.
    Teal and the typefaces come from the access portal, orange from the
@@ -149,6 +149,8 @@ h3 .state { margin-left: 8px; vertical-align: .12em; }
 .people li { display: grid; grid-template-columns: 64px minmax(0, 1fr) minmax(0, 1fr); gap: 4px 20px; align-items: center; padding-block: 14px; border-bottom: 1px solid var(--line); }
 .people img { width: 64px; height: 64px; border-radius: 50%; object-fit: cover; background: var(--line); display: block; }
 .people .initials { width: 64px; height: 64px; border-radius: 50%; background: var(--line); color: var(--muted); display: grid; place-items: center; font-family: var(--display); font-size: 1.2rem; }
+.plate { display: inline-block; background: #fff; border: 1px solid var(--line); border-radius: 10px; padding: 14px 18px; max-width: 100%; }
+.plate img { display: block; width: 100%; height: auto; }
 .art { margin: 0; }
 .art img { display: block; width: 100%; height: auto; border-radius: 6px; background: var(--line); }
 .art figcaption { margin-top: 8px; font-size: .85rem; color: var(--muted); }
@@ -203,6 +205,11 @@ footer .page { display: grid; grid-template-columns: var(--margin-col) minmax(0,
 /* Only for this page. Everything above is the stylesheet of the front page,
    kept identical by tools/check.py. */
 .kicker { font-size: .95rem; color: var(--muted); margin-bottom: 16px; }
+.opening.center h1.logo-title { max-width: 40rem; margin-bottom: 18px; }
+.opening.center h1.logo-title .plate { padding: clamp(12px, 2.4vw, 22px) clamp(14px, 3vw, 28px); }
+.emblem-note { display: flex; gap: 18px; align-items: center; max-width: 43rem; }
+.emblem-note .plate { flex: 0 0 auto; width: 150px; padding: 10px; }
+.emblem-note p { font-size: .93rem; color: var(--muted); }
 .kicker b { color: var(--ink); letter-spacing: .04em; }
 .opening.center .opening-top { grid-template-columns: minmax(0, 1fr); }
 .opening.center h1 { font-size: clamp(2.1rem, 5.2vw, 3.7rem); max-width: 17em; }
@@ -244,8 +251,8 @@ footer .page { display: grid; grid-template-columns: var(--margin-col) minmax(0,
   <div class="opening center">
     <div class="opening-top">
       <div>
+        <h1 class="logo-title"><span class="plate"><img src="../images/c4i-logo.png" width="1200" height="179" alt="Amsterdam UMC, Center for Critical Care Computational Intelligence"></span></h1>
         <p class="kicker"><b>C4I</b> &nbsp;·&nbsp; Department of Intensive Care Medicine, Amsterdam UMC</p>
-        <h1>Center for Critical Care Computational Intelligence</h1>
         <p class="lead">We use the data of every previous intensive care patient to improve the care of every future one. We work from bytes to bedside: sharing data, building models, bringing them to the bedside, and testing whether patients benefit.</p>
         <div class="actions">
           <a class="btn" href="#research">See our research</a>
@@ -277,6 +284,10 @@ footer .page { display: grid; grid-template-columns: var(--margin-col) minmax(0,
         <li><span><b>Test them.</b> Evaluate in clinical trials whether patients are better off, and learn from the result.</span></li>
       </ol>
       <p class="small">Earlier publications refer to the center as the Laboratory for Critical Care Computational Intelligence.</p>
+      <div class="emblem-note">
+        <span class="plate"><img src="../images/c4i-emblem-thoral.png" width="430" height="433" alt="The first emblem of the center: nested squares in dark blue, orange and red."></span>
+        <p>The center's first emblem was designed by Patrick Thoral, co-founder of AmsterdamUMCdb. It still marks this page in your browser tab.</p>
+      </div>
     </div>
   </section>
 
@@ -391,7 +402,7 @@ footer .page { display: grid; grid-template-columns: var(--margin-col) minmax(0,
         <li>
           <img src="../images/wh.jpg" alt="" width="64" height="64">
           <div><b>Wouter Huijbers</b><span>PhD candidate</span></div>
-          <div></div>
+          <div><span class="links"><a href="https://www.linkedin.com/in/wouter-huijbers-29071614a/" target="_blank" rel="noopener">LinkedIn</a></span></div>
         </li>
         <li>
           <img src="../images/aj.jpg" alt="" width="64" height="64">
