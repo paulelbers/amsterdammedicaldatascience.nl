@@ -204,27 +204,20 @@ footer .page { display: grid; grid-template-columns: var(--margin-col) minmax(0,
 <style>
 /* Only for this page. Everything above is the stylesheet of the front page,
    kept identical by tools/check.py. */
-.kicker { font-size: .95rem; color: var(--muted); margin-bottom: 16px; }
 .c4i-mark img { height: 30px; width: 30px; display: block; flex: 0 0 auto; }
 @media (max-width: 760px) { .c4i-mark { white-space: normal; line-height: 1.2; } .c4i-mark img { display: none; } }
 /* the long name puts the menu on a second line, so jumps stop lower */
 @media (min-width: 761px) { section, .body h3 { scroll-margin-top: 108px; } }
-.opening.center h1.logo-title { max-width: 40rem; margin-bottom: 18px; }
-.opening.center h1.logo-title .plate { padding: clamp(12px, 2.4vw, 22px) clamp(14px, 3vw, 28px); }
+.logo-line { margin-bottom: clamp(20px, 3vw, 32px); }
+.logo-line .plate { width: min(100%, 24rem); padding: 10px 14px; }
+.c4i-emblem { width: clamp(150px, 18vw, 220px); }
+@media (max-width: 760px) { .c4i-emblem { width: 84px; } }
+@media (prefers-color-scheme: dark) { .c4i-emblem { background: #fff; border-radius: 12px; padding: 14px; } }
 .emblem-note { display: flex; gap: 18px; align-items: center; max-width: 43rem; }
 .emblem-note .plate { flex: 0 0 auto; width: 150px; padding: 10px; }
 .emblem-note p { font-size: .93rem; color: var(--muted); }
-.kicker b { color: var(--ink); letter-spacing: .04em; }
-.opening.center .opening-top { grid-template-columns: minmax(0, 1fr); }
-.opening.center h1 { font-size: clamp(2.1rem, 5.2vw, 3.7rem); max-width: 17em; }
 .opening.center + section { margin-top: clamp(28px, 5vw, 56px); }
 .opening.center .skyline svg { width: 100%; }
-/* the opening of this page has no picture beside it, so it sits in the middle */
-@media (min-width: 761px) {
-  .opening.center .opening-top > div { text-align: center; }
-  .opening.center h1.logo-title, .opening.center .lead { margin-inline: auto; }
-  .opening.center .actions { justify-content: center; }
-}
 @media (max-width: 760px) {
   /* the whole line stays in view on a phone, so draw it heavier */
   .opening.center .sky-line { stroke-width: 5; }
@@ -261,14 +254,15 @@ footer .page { display: grid; grid-template-columns: var(--margin-col) minmax(0,
   <div class="opening center">
     <div class="opening-top">
       <div>
-        <h1 class="logo-title"><span class="plate"><img src="../images/c4i-logo.png" width="1200" height="179" alt="Amsterdam UMC, Center for Critical Care Computational Intelligence"></span></h1>
-        <p class="kicker"><b>C4I</b> &nbsp;·&nbsp; Department of Intensive Care Medicine, Amsterdam UMC</p>
-        <p class="lead">We use the data of every previous intensive care patient to improve the care of every future one. We work from bytes to bedside: sharing data, building models, bringing them to the bedside, and testing whether patients benefit.</p>
+        <p class="logo-line"><span class="plate"><img src="../images/c4i-logo.png" width="1200" height="179" alt="Amsterdam UMC, Center for Critical Care Computational Intelligence"></span></p>
+        <h1><span>From bytes</span> <span>to bedside.</span></h1>
+        <p class="lead">We use the data of every previous intensive care patient to improve the care of every future one: sharing data, building models, bringing them to the bedside, and testing whether patients benefit.</p>
         <div class="actions">
           <a class="btn" href="#research">See our research</a>
           <a href="../#amsterdamumcdb">Our data: AmsterdamUMCdb</a>
         </div>
       </div>
+      <img class="emblem c4i-emblem" src="../images/c4i-mark.png" width="208" height="280" alt="The emblem of the center, designed by Patrick Thoral: nested squares in dark blue, orange and red.">
     </div>
     <div class="skyline">
       <svg viewBox="0 0 1200 150" role="img" aria-labelledby="pulse-t" xmlns="http://www.w3.org/2000/svg">
@@ -296,7 +290,7 @@ footer .page { display: grid; grid-template-columns: var(--margin-col) minmax(0,
       <p class="small">Earlier publications refer to the center as the Laboratory for Critical Care Computational Intelligence.</p>
       <div class="emblem-note">
         <span class="plate"><img src="../images/c4i-emblem-thoral.png" width="430" height="433" alt="The first emblem of the center: nested squares in dark blue, orange and red."></span>
-        <p>The center's first emblem was designed by Patrick Thoral, co-founder of AmsterdamUMCdb. It still marks this page in your browser tab.</p>
+        <p>The center's first emblem was designed by Patrick Thoral, co-founder of AmsterdamUMCdb. It still marks the top of this page and its browser tab.</p>
       </div>
     </div>
   </section>
