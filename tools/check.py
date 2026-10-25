@@ -5,7 +5,8 @@
 - every link to another website opens in a new tab;
 - the drawings on the pages are what the scripts in tools/ draw;
 - the C4I page has the same stylesheet and the same symbols as the front
-  page, so the two cannot drift apart.
+  page, so the two cannot drift apart;
+- the CV page is exactly what tools/cv.py builds from its two files.
 
 Run it from the top of the repository:  python3 tools/check.py
 """
@@ -16,7 +17,7 @@ import sys
 from html.parser import HTMLParser
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
-PAGES = ["index.html", "404.html", "c4i/index.html"]
+PAGES = ["index.html", "404.html", "c4i/index.html", "paulelbers/index.html"]
 # script, page, what it draws
 DRAWINGS = [
     ("skyline.py", "index.html", "opening picture"),
@@ -99,6 +100,10 @@ def main() -> int:
         found.append("c4i/index.html: its first stylesheet differs from the one in index.html; copy it over")
     if not front[1] or front[1] != center[1]:
         found.append("c4i/index.html: its hidden symbols differ from those in index.html; copy them over")
+    sys.path.insert(0, str(ROOT / "tools"))
+    import cv
+    if cv.build() != (ROOT / "paulelbers" / "index.html").read_text(encoding="utf-8"):
+        found.append("paulelbers/index.html: differs from what tools/cv.py builds; run python3 tools/cv.py build")
     for problem in found:
         print(problem)
     print("Nothing wrong found." if not found else f"{len(found)} problem(s).")

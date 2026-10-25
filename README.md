@@ -15,6 +15,8 @@ another site: no fonts, no trackers, no cookies.
 index.html        the front page: text, styles, the emblem and the opening drawing
 c4i/index.html    the page of the Center for Critical Care Computational
                   Intelligence, at /c4i/
+paulelbers/       the CV page of Paul Elbers, at /paulelbers/ (see below):
+                  index.html is built from profile.toml and publications.json
 404.html          shown for an address that does not exist
 images/           logos and portraits
                   amdslogonew.png, the full AMDS logo, is the picture shown
@@ -26,6 +28,7 @@ tools/pulse.py    draws the opening picture of the C4I page: ones and zeros
                   that become a heartbeat
 tools/sync.py     copies the styles and symbols of the front page into the
                   C4I page
+tools/cv.py       collects the publications for the CV page and builds it
 tools/check.py    looks for missing files and broken links on the page, and
                   checks that the two drawings are what the scripts draw
 .nojekyll         tells GitHub to publish the files exactly as they are
@@ -66,6 +69,45 @@ Check these when something changes, so the page does not go stale again.
 | C4I: what each study found | The abstracts on PubMed of the papers under "Selected publications" |
 | C4I: twelve hospitals in ICUdata, seven hospitals using the discharge support | Supplied by Paul Elbers in 2026; these numbers grow, so check them once a year |
 | C4I: people | Paul Elbers, October 2026: the PhD candidates he supervises (current and completing their PhD in one list), alumni, postdoc and colleague. First names as on their papers. LinkedIn addresses and institutional pages found by web search (only where they clearly matched); photos from Paul, October 2026 (cropped square, at most 400 × 400); the missing links to come from Paul |
+
+## The CV page of Paul Elbers
+
+`/paulelbers/` is a living CV. It is kept current by a person or by a
+scheduled AI task, always through a pull request that Paul Elbers merges.
+
+| File | What it holds | Who changes it |
+| --- | --- | --- |
+| `paulelbers/profile.toml` | bio, positions, boards and committees, education, grants, the h-index, the selected papers, works the sources miss | by hand |
+| `paulelbers/publications.json` | every paper in PubMed and arXiv | `python3 tools/cv.py collect` only |
+| `paulelbers/index.html` | the page | `python3 tools/cv.py build` only |
+
+To bring the page up to date:
+
+1. `python3 tools/cv.py collect`. It asks PubMed (the query `Elbers p` from
+   1994 on: every hit is his) and arXiv, rewrites `publications.json`, and
+   says what is new or gone. It also lists works that ORCID and OpenAlex know
+   but the page does not. It never adds those itself.
+2. Judge that list. A real work of his that is worth listing goes into
+   `[[extra]]` in `profile.toml`; anything else into `not_listed`, so it is
+   not mentioned again. When in doubt, leave it out and ask in the pull request.
+3. Look for changes in his roles: new positions, committees, grants or
+   prizes, in public sources such as society and Amsterdam UMC pages and
+   news. Propose them in `profile.toml`, each with the address where it was
+   found, in the pull request.
+4. `python3 tools/cv.py build`, then `python3 tools/check.py`.
+5. Propose it as one pull request that lists every change and its source.
+   When nothing changed, propose nothing.
+
+Rules for whoever does this, a person or an AI:
+
+- Nothing goes live without Paul Elbers merging it.
+- Only what a public source says, or what he said himself. No guesses, no
+  inflated titles, no other person's work.
+- Nothing private: no date of birth, home address, family or health.
+- The h-index comes from Google Scholar, which a program cannot read. Ask
+  him for the current figure every three months, in the pull request; never
+  replace it with another source's figure.
+- Pending grant applications are not listed until they are awarded.
 
 ## The opening picture
 
