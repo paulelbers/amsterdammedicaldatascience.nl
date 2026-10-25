@@ -384,13 +384,25 @@ def build() -> str:
     selected_items = "\n".join(f"        <li>{citation(w)}</li>" for w in selected)
     pubmed_link = "https://pubmed.ncbi.nlm.nih.gov/?term=Elbers+p&filter=years.1994-3000&sort=date"
 
+    def part(key: str, heading: str = "") -> str:
+        """Rows from profile.toml, under a heading when there is one; nothing when the list is empty."""
+        if not profile.get(key):
+            return ""
+        return (f"      <h3>{heading}</h3>\n" if heading else "") + rows(profile[key])
+
+    def joined(*parts: str) -> str:
+        return "\n".join(p for p in parts if p)
+
     sections = [
         ("about", "About", about),
-        ("positions", "Positions", rows(profile["positions"]) + "\n      <h3>Boards and committees</h3>\n" + rows(profile["roles"])),
-        ("education", "Education", rows(profile["education"])),
+        ("positions", "Positions", joined(part("positions"), part("earlier", "Earlier positions"))),
+        ("roles", "Roles", joined(part("roles"), part("former_roles", "Earlier roles"))),
+        ("education", "Education", joined(part("education"), part("prizes", "Prizes"))),
+        ("grants", "Grants", part("grants")),
+        ("teaching", "Teaching", part("teaching")),
+        ("lectures", "Lectures", part("lectures")),
     ]
-    if profile.get("grants"):
-        sections.append(("grants", "Grants", rows(profile["grants"])))
+    sections = [s for s in sections if s[2]]
 
     body = "\n\n".join(
         f'  <section id="{key}">\n    <h2>{title}</h2>\n    <div class="body">\n{content}\n    </div>\n  </section>'
@@ -459,7 +471,9 @@ summary:focus-visible {{ outline: 3px solid var(--accent); outline-offset: 3px; 
     <nav aria-label="On this page">
       <a href="#about">About</a>
       <a href="#positions">Positions</a>
+      <a href="#roles">Roles</a>
       <a href="#education">Education</a>
+      <a href="#grants">Grants</a>
       <a href="#publications">Publications</a>
       <a class="go" href="../c4i/">C4I</a>
     </nav>
