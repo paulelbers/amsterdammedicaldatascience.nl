@@ -101,7 +101,8 @@ def kind_of(types: list[str]) -> str | None:
     return "Article"
 
 
-def pubmed() -> list[dict]:
+def pubmed() -> tuple[list[dict], int]:
+    """The papers, and the number of PubMed records (corrections included)."""
     base = "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/"
     term = urllib.parse.quote(PUBMED_QUERY)
     ids = fetch(f"{base}esearch.fcgi?db=pubmed&retmode=json&retmax=5000&term={term}")["esearchresult"]["idlist"]
@@ -136,7 +137,7 @@ def pubmed() -> list[dict]:
                 "doi": doi,
                 "pmid": uid,
             })
-    return works
+    return works, len(ids)
 
 
 def initials(name: str) -> str:
@@ -223,12 +224,13 @@ def candidates(known: list[dict], judged: list[str]) -> list[str]:
 
 def collect() -> None:
     before = json.loads(PUBLICATIONS.read_text(encoding="utf-8")) if PUBLICATIONS.exists() else {"works": []}
-    from_pubmed = pubmed()
+    from_pubmed, records = pubmed()
     from_arxiv = [w for w in arxiv() if not any(similar(w["title"], p["title"]) for p in from_pubmed)]
     works = sorted(from_pubmed + from_arxiv, key=lambda w: (w["year"], w["sort"], w["id"]), reverse=True)
     data = {
         "collected": datetime.date.today().isoformat(),
         "query": {"pubmed": PUBMED_QUERY, "arxiv": ARXIV_QUERY},
+        "pubmed_records": records,  # what the PubMed link shows; corrections included
         "works": works,
     }
     PUBLICATIONS.write_text(json.dumps(data, ensure_ascii=False, indent=1) + "\n", encoding="utf-8")
@@ -333,6 +335,7 @@ def build() -> str:
 
     in_pubmed = [w for w in works if w.get("pmid")]
     first_or_last = sum(1 for w in in_pubmed if not w["consortium"] and (MINE.match(w["authors"][0]) or MINE.match(w["authors"][-1])))
+    corrections = collected.get("pubmed_records", len(in_pubmed)) - len(in_pubmed)
     h = profile["h_index"]
 
     by_doi = {w.get("doi", "").lower(): w for w in works if w.get("doi")}
@@ -464,7 +467,7 @@ summary:focus-visible {{ outline: 3px solid var(--accent); outline-offset: 3px; 
       </div>
     </div>
     <dl class="figures three">
-      <div><dt>papers in PubMed</dt><dd>{len(in_pubmed)}</dd></div>
+      <div><dt>papers in PubMed{f" ({len(in_pubmed) + corrections} records, {corrections} of them corrections)" if corrections else ""}</dt><dd>{len(in_pubmed)}</dd></div>
       <div><dt>of them as first or last author</dt><dd>{first_or_last}</dd></div>
       <div><dt>h-index, {html.escape(h["source"])}, {month(h["checked"])}</dt><dd>{h["value"]}</dd></div>
     </dl>

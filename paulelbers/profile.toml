@@ -37,7 +37,7 @@ links = [
 ]
 
 # Google Scholar cannot be read by a program: Paul Elbers gives this number.
-h_index = { value = 51, source = "Google Scholar", checked = "2026-10" }
+h_index = { value = 54, source = "Google Scholar", checked = "2026-10" }  # all years; 51 since 2021
 
 # title, where, when ("when" may be left out)
 positions = [
