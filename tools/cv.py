@@ -287,9 +287,11 @@ def citation(work: dict, label: bool = True) -> str:
     kind = f'<span class="kind">{work["kind"]}</span> ' if label and work["kind"] != "Article" else ""
     if work["kind"] == "Preprint":
         where = f'<i>arXiv</i> {work["year"]}. {outside("https://arxiv.org/abs/" + work["arxiv"], "arXiv:" + work["arxiv"])}'
-    elif work["kind"] == "Book chapter":
+    elif work["kind"] in ("Book chapter", "Conference paper"):
         pages = f':{work["pages"]}' if work.get("pages") else ""
         where = f'In: <i>{html.escape(work["venue"])}</i>. {work["year"]}{pages}.'
+    elif work["kind"] == "Book":
+        where = f'{html.escape(work["venue"])}, {work["year"]}.'
     else:
         where = f'<i>{html.escape(work["venue"])}</i> {work["year"]}'
         if work.get("volume"):
@@ -303,7 +305,12 @@ def citation(work: dict, label: bool = True) -> str:
         where += " " + outside("https://doi.org/" + work["doi"], "doi:" + html.escape(work["doi"]))
     elif work.get("pmid"):
         where += " " + outside(f"https://pubmed.ncbi.nlm.nih.gov/{work['pmid']}/", "PubMed")
-    return f"{kind}{authors(work['authors'], work.get('consortium', False))} {title} {where}"
+    elif work.get("arxiv") and work["kind"] != "Preprint":
+        where += " " + outside("https://arxiv.org/abs/" + work["arxiv"], "arXiv:" + work["arxiv"])
+    names = authors(work["authors"], work.get("consortium", False))
+    if work.get("editors"):
+        names = names.rstrip(".") + ", editors."
+    return f"{kind}{names} {title} {where}"
 
 
 def rows(items: list[dict]) -> str:
@@ -326,7 +333,10 @@ def build() -> str:
     collected = json.loads(PUBLICATIONS.read_text(encoding="utf-8"))
     hidden = set(profile.get("hide", []))
     extra = [dict(w, consortium=False) for w in profile.get("extra", [])]
-    works = [w for w in collected["works"] + extra if w["id"] not in hidden]
+    # A preprint that was published later is shown as published, with its arXiv link
+    later = {p["id"]: p for p in profile.get("published", [])}
+    works = [dict(w, **{k: v for k, v in later.get(w["id"], {}).items() if k != "id"})
+             for w in collected["works"] + extra if w["id"] not in hidden]
     works.sort(key=lambda w: (w["year"], w.get("sort", "")), reverse=True)
 
     front = (ROOT / "index.html").read_text(encoding="utf-8")
@@ -345,7 +355,7 @@ def build() -> str:
         sys.exit(f"profile.toml selects papers that are not in the list: {', '.join(missing)}")
 
     # Every paper, also those that name him as a member of a study group
-    named = [w for w in works if w["kind"] not in ("Preprint", "Book chapter")]
+    named = [w for w in works if w["kind"] not in ("Preprint", "Book chapter", "Book", "Conference paper")]
     years = sorted({w["year"] for w in named}, reverse=True)
     blocks = []
     for i, year in enumerate(years):
@@ -362,8 +372,10 @@ def build() -> str:
                 f'        <ul class="pubs">\n{items}\n        </ul>\n      </details>')
 
     others = "\n".join(filter(None, [
-        group("Preprints", [w for w in works if w["kind"] == "Preprint"], "preprints"),
+        group("Conference papers", [w for w in works if w["kind"] == "Conference paper"], "conferences"),
+        group("Books", [w for w in works if w["kind"] == "Book"], "books"),
         group("Book chapters", [w for w in works if w["kind"] == "Book chapter"], "chapters"),
+        group("Preprints", [w for w in works if w["kind"] == "Preprint"], "preprints"),
     ]))
 
     links = profile["links"]
