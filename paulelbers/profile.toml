@@ -106,6 +106,8 @@ teaching = [
   { title = "Daily teaching and supervision", where = "Fellows, residents, nurses and students in intensive care" },
   { title = "Ultrasound curricula", where = "Initiator of the ICARUS, CACU and UltraNurse certifications" },
   { title = "Courses", where = "Clinical data science, microcirculation, acid–base, pharmacokinetics and extracorporeal circulation" },
+  { title = "Artificial intelligence course", where = "ISICEM, Brussels" },
+  { title = "Summer School of Clinical Acid-Base and Homeostasis", where = "Charles University, Prague; faculty", when = "2019, 2023" },
   { title = "PhD committees", where = "In the Netherlands and abroad, among them at Imperial College London" },
 ]
 
@@ -171,6 +173,17 @@ sort = "2022"
 pages = "137–153"
 
 # Work that PubMed and arXiv do not have. Found through ORCID and Google Scholar.
+[[extra]]
+id = "book:2026-stewarts-textbook-3"
+kind = "Book"
+year = 2026
+sort = "2026"
+authors = ["Duška F", "Kellum JA", "Elbers PWG"]
+editors = true
+title = "Stewart's textbook of acid-base. Fully revised third edition"
+venue = "AcidBase.org"
+isbn = "978-1-304-33385-8"
+
 [[extra]]
 id = "book:2009-stewarts-textbook"
 kind = "Book"

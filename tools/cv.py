@@ -292,6 +292,8 @@ def citation(work: dict, label: bool = True) -> str:
         where = f'In: <i>{html.escape(work["venue"])}</i>. {work["year"]}{pages}.'
     elif work["kind"] == "Book":
         where = f'{html.escape(work["venue"])}, {work["year"]}.'
+        if work.get("isbn"):
+            where += f' ISBN {html.escape(work["isbn"])}.'
     else:
         where = f'<i>{html.escape(work["venue"])}</i> {work["year"]}'
         if work.get("volume"):
