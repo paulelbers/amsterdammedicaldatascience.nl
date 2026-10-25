@@ -17,6 +17,8 @@ photo = "pe-cv.jpg"   # in images/
 description = "Paul Elbers is an intensivist and associate professor of intensive care medicine at Amsterdam UMC, founding director of the Center for Critical Care Computational Intelligence and co-founder of AmsterdamUMCdb. Positions, roles and publications."
 lead = "Intensivist and associate professor of intensive care medicine at [Amsterdam UMC](https://www.amsterdamumc.org/en/research/researchers/paul-elbers-1.htm). Founding director of the [Center for Critical Care Computational Intelligence](../c4i/) and co-founder of [AmsterdamUMCdb](../#amsterdamumcdb)."
 email = "p.elbers@amsterdamumc.nl"
+# A short, friendly word that this page is an experiment, shown under the name.
+experiment = "This CV keeps itself up to date with the help of AI. Every change is checked before it appears, but something may still be missing or not quite right, so corrections are welcome."
 address = "Department of Intensive Care Medicine, Amsterdam UMC, Amsterdam, the Netherlands"
 
 about = [

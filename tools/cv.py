@@ -472,6 +472,8 @@ def build() -> str:
 .cv-top .letters {{ display: block; font-family: var(--body); font-size: 1rem; font-weight: 600; letter-spacing: .08em; color: var(--muted); margin-top: 10px; }}
 .cv-top .lead {{ margin-top: 16px; }}
 .profiles {{ margin-top: 18px; font-size: .97rem; color: var(--muted); }}
+.experiment {{ margin-top: 12px; font-size: .9rem; color: var(--muted); max-width: 39rem; }}
+.experiment .state {{ margin-right: 6px; font-size: .78rem; padding: 1px 8px; }}
 .figures.three {{ grid-template-columns: repeat(3, minmax(min-content, 1fr)); margin-top: clamp(28px, 4vw, 44px); margin-bottom: 0; border-bottom: 0; }}
 .rows {{ list-style: none; padding: 0; border-top: 1px solid var(--line-strong); }}
 .rows li {{ display: grid; grid-template-columns: minmax(0, 1fr) max-content; gap: 2px 24px; align-items: baseline; padding-block: 12px; border-bottom: 1px solid var(--line); }}
@@ -526,6 +528,7 @@ summary:focus-visible {{ outline: 3px solid var(--accent); outline-offset: 3px; 
         <h1>{name}<span class="letters">{letters}</span></h1>
         <p class="lead">{inline(profile["lead"])}</p>
         <p class="profiles">Also on {profiles}.</p>
+        <p class="experiment"><span class="state soon">Experiment</span> {inline(profile["experiment"])} <a href="#about-this-page">How it works</a></p>
       </div>
     </div>
     <dl class="figures three">
@@ -567,7 +570,7 @@ summary:focus-visible {{ outline: 3px solid var(--accent); outline-offset: 3px; 
         <dt>Email</dt><dd><a href="mailto:{profile["email"]}">{profile["email"]}</a></dd>
         <dt>Address</dt><dd>{html.escape(profile["address"])}</dd>
       </dl>
-      <p class="small">This page is kept up to date with the help of AI. The publications are collected from PubMed and arXiv; nothing changes here before Paul Elbers has checked it. Publications last collected on {datetime.date.fromisoformat(collected["collected"]).strftime("%-d %B %Y")}.</p>
+      <p class="small" id="about-this-page">This page is a living CV and an experiment: it is kept up to date with the help of AI. The publications are collected from PubMed and arXiv, and other work and roles are looked up in public sources. Nothing changes here before Paul Elbers has checked it, but a machine can still miss something or get it slightly wrong. Corrections are welcome at <a href="mailto:{profile["email"]}">{profile["email"]}</a>. Publications last collected on {datetime.date.fromisoformat(collected["collected"]).strftime("%-d %B %Y")}.</p>
     </div>
   </div>
 </footer>
