@@ -257,6 +257,8 @@ footer .page { display: grid; grid-template-columns: var(--margin-col) minmax(0,
 .cv-top .letters { display: block; font-family: var(--body); font-size: 1rem; font-weight: 600; letter-spacing: .08em; color: var(--muted); margin-top: 10px; }
 .cv-top .lead { margin-top: 16px; }
 .profiles { margin-top: 18px; font-size: .97rem; color: var(--muted); }
+.experiment { margin-top: 12px; font-size: .9rem; color: var(--muted); max-width: 39rem; }
+.experiment .state { margin-right: 6px; font-size: .78rem; padding: 1px 8px; }
 .figures.three { grid-template-columns: repeat(3, minmax(min-content, 1fr)); margin-top: clamp(28px, 4vw, 44px); margin-bottom: 0; border-bottom: 0; }
 .rows { list-style: none; padding: 0; border-top: 1px solid var(--line-strong); }
 .rows li { display: grid; grid-template-columns: minmax(0, 1fr) max-content; gap: 2px 24px; align-items: baseline; padding-block: 12px; border-bottom: 1px solid var(--line); }
@@ -311,6 +313,7 @@ summary:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; b
         <h1>Paul Elbers<span class="letters">MD, PhD, EDIC</span></h1>
         <p class="lead">Intensivist and associate professor of intensive care medicine at <a href="https://www.amsterdamumc.org/en/research/researchers/paul-elbers-1.htm" target="_blank" rel="noopener">Amsterdam UMC</a>. Founding director of the <a href="../c4i/">Center for Critical Care Computational Intelligence</a> and co-founder of <a href="../#amsterdamumcdb">AmsterdamUMCdb</a>.</p>
         <p class="profiles">Also on <a href="https://www.amsterdamumc.org/en/research/researchers/paul-elbers-1.htm" target="_blank" rel="noopener">Amsterdam UMC</a>, <a href="https://pure.amsterdamumc.nl/en/persons/paul-elbers/" target="_blank" rel="noopener">Pure</a>, <a href="https://orcid.org/0000-0003-0447-6893" target="_blank" rel="noopener">ORCID</a>, <a href="https://scholar.google.com/citations?user=jPPoHuAAAAAJ" target="_blank" rel="noopener">Google Scholar</a>, <a href="https://pubmed.ncbi.nlm.nih.gov/?term=Elbers+p&amp;filter=years.1994-3000&amp;sort=date" target="_blank" rel="noopener">PubMed</a>, <a href="https://www.linkedin.com/in/paulelbersmdphd/" target="_blank" rel="noopener">LinkedIn</a>.</p>
+        <p class="experiment"><span class="state soon">Experiment</span> This CV keeps itself up to date with the help of AI. Every change is checked before it appears, but something may still be missing or not quite right, so corrections are welcome. <a href="#about-this-page">How it works</a></p>
       </div>
     </div>
     <dl class="figures three">
@@ -844,7 +847,7 @@ summary:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; b
         <dt>Email</dt><dd><a href="mailto:p.elbers@amsterdamumc.nl">p.elbers@amsterdamumc.nl</a></dd>
         <dt>Address</dt><dd>Department of Intensive Care Medicine, Amsterdam UMC, Amsterdam, the Netherlands</dd>
       </dl>
-      <p class="small">This page is kept up to date with the help of AI. The publications are collected from PubMed and arXiv; nothing changes here before Paul Elbers has checked it. Publications last collected on 25 October 2026.</p>
+      <p class="small" id="about-this-page">This page is a living CV and an experiment: it is kept up to date with the help of AI. The publications are collected from PubMed and arXiv, and other work and roles are looked up in public sources. Nothing changes here before Paul Elbers has checked it, but a machine can still miss something or get it slightly wrong. Corrections are welcome at <a href="mailto:p.elbers@amsterdamumc.nl">p.elbers@amsterdamumc.nl</a>. Publications last collected on 25 October 2026.</p>
     </div>
   </div>
 </footer>
