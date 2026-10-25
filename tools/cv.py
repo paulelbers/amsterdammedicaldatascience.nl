@@ -315,9 +315,23 @@ def citation(work: dict, label: bool = True) -> str:
     return f"{kind}{names} {title} {where}"
 
 
+def newest_first(item: dict) -> tuple:
+    """Sort key, newest first. What is still going on ("2012–") comes first, by its
+    first year; a period ("2025–2029") counts from its first year, a list of years
+    ("2019, 2023") from its last. Rows without a year come last, in the order of
+    profile.toml."""
+    when = item.get("when", "").strip()
+    years = [int(y) for y in re.findall(r"(?:19|20)\d\d", when)]
+    if not years:
+        return (2, 0)
+    if "–" in when:
+        return (0 if when.endswith("–") else 1, -years[0])
+    return (1, -max(years))
+
+
 def rows(items: list[dict]) -> str:
     out = []
-    for item in items:
+    for item in sorted(items, key=newest_first):
         name = inline(item["title"])
         where = inline(item.get("where", ""))
         when = html.escape(item.get("when", ""))
