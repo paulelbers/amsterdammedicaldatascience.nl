@@ -62,6 +62,7 @@ earlier = [
 roles = [
   { title = "Editorial boards", where = "Intensive Care Medicine Experimental; Critical Care" },
   { title = "Organizer", where = "ESICM Critical Care Datathon (eight editions); World Summit on Reinforcement Learning for Health" },
+  { title = "Conference committee", where = "[Intensive Care Innovation 2026](https://www.esicm.org/events/intensive-care-innovation-forum2026/), ESICM, Amsterdam", when = "2026" },
   { title = "Member, Science and Innovation Committee; chair, Innovation Agenda Task Force", where = "Dutch Society of Intensive Care (NVIC)" },
   { title = "Board member", where = "[ICUdata](https://www.icudata.nl/) foundation" },
   { title = "Board member", where = "Lage Landen congress" },
@@ -79,7 +80,7 @@ former_roles = [
 
 education = [
   { title = "PhD", where = "University of Amsterdam. Thesis: Focus on flow. Imaging the human microcirculation in perioperative and intensive care medicine. Promotor: Prof. dr. ir. C. Ince", when = "2010" },
-  { title = "Medical degree", where = "University of Amsterdam (AMC)", when = "2003" },
+  { title = "Medical degree, cum laude", where = "University of Amsterdam (AMC)", when = "2003" },
   { title = "European Diploma in Intensive Care (EDIC)", where = "European Society of Intensive Care Medicine" },
   { title = "University Teaching Qualification (BKO)", when = "2022" },
   { title = "Clinical Leadership Program", when = "2015" },
