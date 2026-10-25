@@ -106,7 +106,7 @@ teaching = [
   { title = "Daily teaching and supervision", where = "Fellows, residents, nurses and students in intensive care" },
   { title = "Ultrasound curricula", where = "Initiator of the ICARUS, CACU and UltraNurse certifications" },
   { title = "Courses", where = "Clinical data science, microcirculation, acid–base, pharmacokinetics and extracorporeal circulation" },
-  { title = "Artificial intelligence course", where = "ISICEM, Brussels" },
+  { title = "Practical AI literacy for intensive care and acute care clinicians", where = "[ISICEM](https://www.isicem.org/), Brussels; pre-symposium course, chair with Azra Bihorac", when = "2026" },
   { title = "Summer School of Clinical Acid-Base and Homeostasis", where = "Charles University, Prague; faculty", when = "2019, 2023" },
   { title = "PhD committees", where = "In the Netherlands and abroad, among them at Imperial College London" },
 ]
