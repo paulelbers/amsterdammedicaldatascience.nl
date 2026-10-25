@@ -267,7 +267,7 @@ def authors(names: list[str], consortium: bool) -> str:
         return f"<b>{html.escape(name)}</b>" if MINE.match(name) else html.escape(name)
     if consortium:
         shown = ", ".join(show(n) for n in names[:3])
-        return f"{shown}{', et al.' if len(names) > 3 else ''} With Paul Elbers as a member of the study group."
+        return f"{shown}{', et al.' if len(names) > 3 else ''} Paul Elbers as a member of the study group."
     if len(names) <= 6:
         return ", ".join(show(n) for n in names) + "."
     me = next(i for i, n in enumerate(names) if MINE.match(n))
@@ -331,8 +331,8 @@ def build() -> str:
     style = re.search(r"<style>.*?</style>", front, re.S).group(0)
     icon = re.search(r'<link rel="icon"[^>]*>', front).group(0)
 
-    in_pubmed = [w for w in works if w.get("pmid") and not w["consortium"]]
-    first_or_last = sum(1 for w in in_pubmed if MINE.match(w["authors"][0]) or MINE.match(w["authors"][-1]))
+    in_pubmed = [w for w in works if w.get("pmid")]
+    first_or_last = sum(1 for w in in_pubmed if not w["consortium"] and (MINE.match(w["authors"][0]) or MINE.match(w["authors"][-1])))
     h = profile["h_index"]
 
     by_doi = {w.get("doi", "").lower(): w for w in works if w.get("doi")}
@@ -341,7 +341,8 @@ def build() -> str:
     if missing:
         sys.exit(f"profile.toml selects papers that are not in the list: {', '.join(missing)}")
 
-    named = [w for w in works if not w["consortium"] and w["kind"] not in ("Preprint", "Book chapter")]
+    # Every paper, also those that name him as a member of a study group
+    named = [w for w in works if w["kind"] not in ("Preprint", "Book chapter")]
     years = sorted({w["year"] for w in named}, reverse=True)
     blocks = []
     for i, year in enumerate(years):
@@ -360,7 +361,6 @@ def build() -> str:
     others = "\n".join(filter(None, [
         group("Preprints", [w for w in works if w["kind"] == "Preprint"], "preprints"),
         group("Book chapters", [w for w in works if w["kind"] == "Book chapter"], "chapters"),
-        group("As a member of a study group", [w for w in works if w["consortium"]], "study-groups"),
     ]))
 
     links = profile["links"]
@@ -464,7 +464,7 @@ summary:focus-visible {{ outline: 3px solid var(--accent); outline-offset: 3px; 
       </div>
     </div>
     <dl class="figures three">
-      <div><dt>papers in PubMed as a named author</dt><dd>{len(in_pubmed)}</dd></div>
+      <div><dt>papers in PubMed</dt><dd>{len(in_pubmed)}</dd></div>
       <div><dt>of them as first or last author</dt><dd>{first_or_last}</dd></div>
       <div><dt>h-index, {html.escape(h["source"])}, {month(h["checked"])}</dt><dd>{h["value"]}</dd></div>
     </dl>
@@ -475,15 +475,15 @@ summary:focus-visible {{ outline: 3px solid var(--accent); outline-offset: 3px; 
   <section id="publications">
     <h2>Publications</h2>
     <div class="body">
+      <h3>All papers, by year</h3>
+      <p class="small">As listed in PubMed, including the papers that name him as a member of a study group, without corrections. The same list, always current, is on {outside(pubmed_link, "PubMed")}; citations are on {outside(next(l["url"] for l in links if l["name"] == "Google Scholar"), "Google Scholar")}.</p>
+      <div>
+{chr(10).join(blocks)}
+      </div>
       <h3>Selected</h3>
       <ul class="pubs">
 {selected_items}
       </ul>
-      <h3>All, by year</h3>
-      <p class="small">As listed in PubMed, without corrections. The same list, always current, is on {outside(pubmed_link, "PubMed")}; citations are on {outside(next(l["url"] for l in links if l["name"] == "Google Scholar"), "Google Scholar")}.</p>
-      <div>
-{chr(10).join(blocks)}
-      </div>
       <h3>Other work</h3>
       <div>
 {others}
