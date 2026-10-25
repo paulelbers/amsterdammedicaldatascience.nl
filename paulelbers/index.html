@@ -1,0 +1,738 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Paul Elbers, MD, PhD, EDIC | Intensivist, Amsterdam UMC</title>
+<meta name="description" content="Paul Elbers is an intensivist and associate professor of intensive care medicine at Amsterdam UMC, founding director of the Center for Critical Care Computational Intelligence and co-founder of AmsterdamUMCdb. Positions, roles and publications.">
+<meta name="author" content="Paul Elbers">
+<link rel="canonical" href="https://amsterdammedicaldatascience.nl/paulelbers/">
+<meta property="og:type" content="profile">
+<meta property="og:site_name" content="Amsterdam Medical Data Science">
+<meta property="og:title" content="Paul Elbers, MD, PhD, EDIC">
+<meta property="og:description" content="Paul Elbers is an intensivist and associate professor of intensive care medicine at Amsterdam UMC, founding director of the Center for Critical Care Computational Intelligence and co-founder of AmsterdamUMCdb. Positions, roles and publications.">
+<meta property="og:url" content="https://amsterdammedicaldatascience.nl/paulelbers/">
+<meta property="og:image" content="https://amsterdammedicaldatascience.nl/images/pe-cv.jpg">
+<meta name="twitter:card" content="summary">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23000'/%3E%3Cg fill='%23fff'%3E%3Cpath id='x' d='M3.2 12.2 4.4 11 6 12.6 7.600 11 8.800 12.2 7.200 13.8 8.800 15.4 7.600 16.6 6 15 4.400 16.6 3.200 15.4 4.800 13.8z' transform='translate(-.4 2.2)'/%3E%3Cuse href='%23x' x='10'/%3E%3Cuse href='%23x' x='20'/%3E%3C/g%3E%3C/svg%3E">
+<style>
+/* One page, no scripts, nothing loaded from another site.
+   Teal and the typefaces come from the access portal, orange from the
+   AMDS logo, black and the three crosses from the flag of Amsterdam. */
+:root {
+  --ground: #F1F5F7; --surface: #FFFFFF; --ink: #13232E; --muted: #566873;
+  --line: #D6DEE3; --line-strong: #AEBBC3;
+  --accent: #0A5F70; --accent-ink: #FFFFFF; --accent-soft: #E0EEF1;
+  --brand: #F57625;
+  --display: "Iowan Old Style", "Palatino Linotype", Palatino, "Book Antiqua", Georgia, serif;
+  --body: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --page: 68rem; --gutter: clamp(16px, 4vw, 40px); --margin-col: 13rem;
+  color-scheme: light;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --ground: #0E161B; --surface: #162129; --ink: #E5ECF0; --muted: #9BACB7;
+    --line: #2A3943; --line-strong: #465863;
+    --accent: #5FC3D5; --accent-ink: #06222A; --accent-soft: #17343C;
+    color-scheme: dark;
+  }
+}
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+@media (prefers-reduced-motion: no-preference) { html { scroll-behavior: smooth; } }
+body { margin: 0; background: var(--ground); color: var(--ink); font-family: var(--body); font-size: 1.0625rem; line-height: 1.6; }
+h1, h2, h3 { font-family: var(--display); font-weight: 600; line-height: 1.15; margin: 0; text-wrap: balance; }
+p, ul, ol, dl, dd, figure { margin: 0; }
+a { color: var(--accent); text-underline-offset: .18em; }
+a[href^="mailto:"] { overflow-wrap: anywhere; }
+a:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; border-radius: 3px; }
+img, svg { max-width: 100%; }
+.page { max-width: var(--page); margin-inline: auto; padding-inline: var(--gutter); }
+.skip { position: absolute; left: -999px; top: 8px; background: var(--surface); padding: 8px 12px; border-radius: 6px; z-index: 5; }
+.skip:focus { left: 8px; }
+.crosses { fill: currentColor; display: block; }
+
+/* Top bar */
+.bar { position: sticky; top: 0; z-index: 4; background: var(--surface); border-bottom: 1px solid var(--line); }
+.bar .page { display: flex; align-items: center; justify-content: space-between; gap: 8px 24px; flex-wrap: wrap; padding-block: 10px; }
+.wordmark { font-family: var(--display); font-weight: 600; font-size: 1.05rem; color: var(--ink); text-decoration: none; white-space: nowrap; display: flex; align-items: center; gap: 10px; }
+.wordmark svg { height: 30px; width: auto; display: block; }
+.bar nav { display: flex; flex-wrap: wrap; gap: 4px 20px; font-size: .92rem; }
+.bar nav a { color: var(--ink); text-decoration: none; padding-block: 4px; border-bottom: 2px solid transparent; }
+.bar nav a:hover { border-bottom-color: var(--brand); }
+.bar nav a.go { color: var(--accent); font-weight: 600; }
+
+/* Opening */
+.opening { padding-top: clamp(36px, 6vw, 72px); }
+.opening-top { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 24px clamp(24px, 5vw, 64px); align-items: center; }
+.emblem { width: clamp(170px, 22vw, 270px); height: auto; display: block; }
+.opening h1 { font-size: clamp(2.4rem, 6.4vw, 4.6rem); letter-spacing: -.018em; line-height: 1.04; }
+.opening h1 span { display: block; }
+.opening .lead { margin-top: 24px; font-size: 1.2rem; color: var(--muted); max-width: 39rem; }
+.opening .actions { margin-top: 28px; }
+.skyline { margin-top: clamp(20px, 4vw, 44px); overflow: hidden; }
+.skyline svg { display: block; width: max(100%, 780px); max-width: none; height: auto; }
+.sky-detail { opacity: .5; }
+.sky-water { opacity: .3; }
+@media (prefers-reduced-motion: no-preference) {
+  .sky-line { stroke-dasharray: 1; stroke-dashoffset: 1; animation: draw 2.6s cubic-bezier(.45, .05, .25, 1) .15s forwards; }
+  .sky-detail { opacity: 0; animation: appear 1s ease-out 2s forwards; }
+  .sky-water { opacity: 0; animation: ripple 1.2s ease-out 2.3s forwards; }
+  @keyframes draw { to { stroke-dashoffset: 0; } }
+  @keyframes appear { to { opacity: .5; } }
+  @keyframes ripple { to { opacity: .3; } }
+}
+.credo { display: grid; grid-template-columns: var(--margin-col) minmax(0, 1fr); gap: 16px 40px; padding-block: clamp(28px, 5vw, 52px) clamp(40px, 6vw, 72px); align-items: start; }
+.credo .crosses { width: 120px; height: 34px; color: var(--ink); margin-top: .5rem; }
+.credo p { font-family: var(--display); font-size: clamp(1.3rem, 2.5vw, 1.72rem); line-height: 1.38; max-width: 37rem; }
+
+/* Sections: the heading stands in the margin, the text beside it */
+section { padding-block: clamp(36px, 6vw, 68px); border-top: 1px solid var(--line-strong); scroll-margin-top: 64px; display: grid; grid-template-columns: var(--margin-col) minmax(0, 1fr); gap: 20px 40px; }
+section > h2, footer h2 { font-size: 1.62rem; }
+.body { display: flex; flex-direction: column; gap: 18px; min-width: 0; }
+.body > * { max-width: 43rem; }
+.body > .logos, .body > .figures { max-width: none; }
+.body h3 { font-size: 1.2rem; margin-top: 14px; scroll-margin-top: 72px; }
+.body ul:not([class]), .needs ul { padding-left: 1.15em; display: flex; flex-direction: column; gap: 8px; }
+.small { font-size: .92rem; color: var(--muted); }
+
+/* The database in figures */
+.figures { display: grid; grid-template-columns: repeat(4, minmax(min-content, 1fr)); border-top: 2px solid var(--ink); border-bottom: 1px solid var(--line-strong); margin-block: 8px; }
+.figures div { padding: 16px 20px 18px 0; display: flex; flex-direction: column-reverse; justify-content: flex-end; gap: 2px; }
+.figures div + div { border-left: 1px solid var(--line); padding-left: 20px; }
+.figures dt { color: var(--muted); font-size: .93rem; line-height: 1.35; }
+.figures dd { font-family: var(--display); font-weight: 600; font-size: clamp(1.55rem, 2.7vw, 2.05rem); line-height: 1.1; font-variant-numeric: lining-nums; white-space: nowrap; }
+.facts { display: grid; grid-template-columns: max-content minmax(0, 1fr); }
+.facts dt, .facts dd { padding-block: 8px; border-bottom: 1px solid var(--line); }
+.facts dt { color: var(--muted); padding-right: 32px; }
+.facts dd span { color: var(--muted); }
+.versions { list-style: none; padding: 0; border-top: 1px solid var(--line-strong); }
+.versions li { display: grid; grid-template-columns: 11rem minmax(0, 1fr) max-content; grid-template-areas: "name text state"; gap: 6px 20px; align-items: start; padding-block: 14px; border-bottom: 1px solid var(--line); }
+.versions .name { grid-area: name; }
+.versions p { grid-area: text; }
+.versions b { display: block; font-family: var(--display); font-size: 1.12rem; line-height: 1.25; }
+.versions .name span { display: block; font-size: .93rem; color: var(--muted); }
+.state { display: inline-block; font-family: var(--body); font-size: .85rem; font-weight: 600; line-height: 1.3; padding: 3px 10px; border-radius: 999px; border: 1px solid var(--line-strong); white-space: nowrap; }
+.state.now { background: var(--accent-soft); color: var(--accent); border-color: transparent; }
+.state.soon { color: var(--muted); }
+.versions .state { grid-area: state; margin-top: .1rem; }
+h3 .state { margin-left: 8px; vertical-align: .12em; }
+.cite { border-left: 3px solid var(--brand); padding: 4px 0 4px 18px; font-size: .97rem; }
+.langs { list-style: none; padding: 0; display: flex; flex-wrap: wrap; gap: 6px 20px; }
+
+/* Requesting access */
+.needs { background: var(--accent-soft); border: 1px solid var(--line-strong); border-radius: 10px; padding: 18px 20px; display: flex; flex-direction: column; gap: 10px; }
+.needs h3 { margin: 0; }
+.steps { list-style: none; padding: 0; counter-reset: step; display: flex; flex-direction: column; }
+.steps li { counter-increment: step; display: grid; grid-template-columns: 2.1rem minmax(0, 1fr); gap: 12px; padding-block: 11px; border-bottom: 1px solid var(--line); }
+.steps li:first-child { border-top: 1px solid var(--line); }
+.steps li::before { content: counter(step); font-family: var(--display); font-weight: 600; font-size: 1.15rem; color: var(--accent); width: 2.1rem; height: 2.1rem; border: 1px solid var(--line-strong); border-radius: 50%; display: grid; place-items: center; background: var(--surface); line-height: 1; }
+.steps li > span { padding-top: .2rem; }
+.actions { display: flex; flex-wrap: wrap; gap: 12px 24px; align-items: center; }
+.btn { display: inline-block; background: var(--accent); color: var(--accent-ink); font-weight: 600; text-decoration: none; padding: 12px 22px; border-radius: 8px; border: 1px solid var(--accent); }
+.btn:hover { filter: brightness(1.08); }
+.btn:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; }
+
+/* The meetup: the black band of the Amsterdam flag, with its three crosses */
+.band { background: #000; color: #fff; scroll-margin-top: 56px; }
+.band .page { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 28px 56px; align-items: center; padding-block: clamp(40px, 7vw, 76px); }
+.band h2 { font-size: clamp(2rem, 4.6vw, 3.1rem); letter-spacing: -.012em; }
+.band p { max-width: 35rem; margin-top: 14px; color: #D9DEE1; }
+.band .actions { margin-top: 24px; }
+.band .btn { background: #fff; color: #000; border-color: #fff; }
+.band a:focus-visible, .band .btn:focus-visible { outline-color: #fff; }
+.band .crosses { width: clamp(170px, 26vw, 300px); height: auto; color: #fff; }
+
+/* People and partners */
+.tagline { font-family: var(--display); font-size: 1.4rem; line-height: 1.3; }
+.people { list-style: none; padding: 0; border-top: 1px solid var(--line-strong); }
+.people li { display: grid; grid-template-columns: 64px minmax(0, 1fr) minmax(0, 1fr); gap: 4px 20px; align-items: center; padding-block: 14px; border-bottom: 1px solid var(--line); }
+.people img { width: 64px; height: 64px; border-radius: 50%; object-fit: cover; background: var(--line); display: block; }
+.people .initials { width: 64px; height: 64px; border-radius: 50%; background: var(--line); color: var(--muted); display: grid; place-items: center; font-family: var(--display); font-size: 1.2rem; }
+.plate { display: inline-block; background: #fff; border: 1px solid var(--line); border-radius: 10px; padding: 14px 18px; max-width: 100%; }
+.plate img { display: block; width: 100%; height: auto; }
+.art { margin: 0; }
+.art img { display: block; width: 100%; height: auto; border-radius: 6px; background: var(--line); }
+.art figcaption { margin-top: 8px; font-size: .85rem; color: var(--muted); }
+.faces { list-style: none; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(96px, 1fr)); gap: 22px 12px; }
+.faces li { display: flex; flex-direction: column; align-items: center; gap: 8px; text-align: center; font-size: .86rem; line-height: 1.3; }
+.faces img, .faces .initials { width: 76px; height: 76px; border-radius: 50%; object-fit: cover; background: var(--line); }
+.faces .initials { display: grid; place-items: center; color: var(--muted); font-family: var(--display); font-size: 1.35rem; }
+.people b { display: block; font-family: var(--display); font-size: 1.12rem; line-height: 1.25; }
+.people span { display: block; font-size: .93rem; color: var(--muted); }
+.people .links { font-size: .93rem; }
+.logos { list-style: none; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(9.5rem, 1fr)); gap: 12px; }
+.logos li { background: #fff; border: 1px solid var(--line); border-radius: 10px; height: 112px; padding: 0 14px; display: flex; align-items: center; justify-content: center; }
+.logos img { max-height: 92px; max-width: 100%; width: auto; height: auto; display: block; }
+
+footer { border-top: 1px solid var(--line-strong); padding-block: 40px 64px; scroll-margin-top: 64px; }
+footer .page { display: grid; grid-template-columns: var(--margin-col) minmax(0, 1fr); gap: 20px 40px; }
+.contact { display: grid; grid-template-columns: max-content minmax(0, 1fr); gap: 8px 28px; }
+.contact dt { color: var(--muted); }
+.contact dd { overflow-wrap: anywhere; }
+
+@media (max-width: 960px) {
+  .figures { grid-template-columns: repeat(2, minmax(min-content, 1fr)); }
+  .figures div:nth-child(3) { border-left: 0; padding-left: 0; }
+  .figures div:nth-child(n+3) { border-top: 1px solid var(--line); }
+}
+@media (max-width: 760px) {
+  section, footer .page, .credo { grid-template-columns: minmax(0, 1fr); gap: 14px; }
+  .bar { position: static; }
+  .opening-top { grid-template-columns: minmax(0, 1fr); }
+  .emblem { width: 118px; order: -1; }
+  .wordmark svg { display: none; }
+  .bar nav { gap: 2px 16px; }
+  section, .band, footer { scroll-margin-top: 12px; }
+  .credo .crosses { width: 84px; height: 24px; margin-top: 0; }
+  .band .page { grid-template-columns: minmax(0, 1fr); }
+  .band .crosses { width: 150px; order: -1; }
+  .versions li { grid-template-columns: minmax(0, 1fr) max-content; grid-template-areas: "name state" "text text"; }
+  .people li { grid-template-columns: 64px minmax(0, 1fr); }
+  .people li > div:last-child { grid-column: 2; }
+  .facts dt { padding-right: 18px; }
+}
+@media (max-width: 420px) {
+  .figures dd { font-size: 1.4rem; }
+  .contact, .facts { grid-template-columns: minmax(0, 1fr); }
+  .contact dd { margin-bottom: 8px; }
+  .facts dt { border-bottom: 0; padding-bottom: 0; }
+  .facts dd { padding-top: 0; }
+}
+@media print { .bar { position: static; } .btn { color: #000; background: none; } .band { background: none; color: #000; } }
+</style>
+<style>
+/* Only for this page. The stylesheet above is the one of the front page;
+   tools/cv.py copies it in when it builds this page. */
+.cv-top { display: grid; grid-template-columns: auto minmax(0, 1fr); gap: 20px clamp(24px, 4vw, 48px); align-items: center; }
+.portrait { width: clamp(112px, 15vw, 176px); height: auto; aspect-ratio: 1; border-radius: 50%; object-fit: cover; background: var(--line); display: block; }
+.cv-top h1 { font-size: clamp(2.3rem, 5.6vw, 4rem); }
+.cv-top .letters { display: block; font-family: var(--body); font-size: 1rem; font-weight: 600; letter-spacing: .08em; color: var(--muted); margin-top: 10px; }
+.cv-top .lead { margin-top: 16px; }
+.profiles { margin-top: 18px; font-size: .97rem; color: var(--muted); }
+.figures.three { grid-template-columns: repeat(3, minmax(min-content, 1fr)); margin-top: clamp(28px, 4vw, 44px); margin-bottom: 0; border-bottom: 0; }
+.rows { list-style: none; padding: 0; border-top: 1px solid var(--line-strong); }
+.rows li { display: grid; grid-template-columns: minmax(0, 1fr) max-content; gap: 2px 24px; align-items: baseline; padding-block: 12px; border-bottom: 1px solid var(--line); }
+.rows b { display: block; font-family: var(--display); font-size: 1.1rem; line-height: 1.3; }
+.rows span { display: block; font-size: .95rem; color: var(--muted); }
+.rows .when { font-variant-numeric: tabular-nums; white-space: nowrap; }
+.pubs { list-style: none; padding: 0; border-top: 1px solid var(--line-strong); }
+.pubs li { padding-block: 12px; border-bottom: 1px solid var(--line); font-size: .97rem; overflow-wrap: anywhere; }
+details .pubs { border-top: 0; }
+.kind { font-size: .78rem; font-weight: 600; text-transform: uppercase; letter-spacing: .06em; color: var(--muted); margin-right: 4px; }
+details { border-bottom: 1px solid var(--line-strong); }
+details:first-of-type { border-top: 1px solid var(--line-strong); }
+summary { cursor: pointer; padding-block: 12px; font-family: var(--display); font-weight: 600; font-size: 1.2rem; }
+summary span { font-family: var(--body); font-weight: 400; font-size: .9rem; color: var(--muted); margin-left: 6px; }
+summary:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; border-radius: 3px; }
+@media (max-width: 760px) {
+  .cv-top { grid-template-columns: minmax(0, 1fr); }
+  .portrait { width: 112px; }
+  .rows li { grid-template-columns: minmax(0, 1fr); }
+}
+@media (max-width: 560px) {
+  .figures.three { grid-template-columns: minmax(0, 1fr); }
+  .figures.three div + div { border-left: 0; padding-left: 0; border-top: 1px solid var(--line); }
+}
+</style>
+</head>
+<body>
+<a class="skip" href="#about">Skip to the text</a>
+
+<header class="bar">
+  <div class="page">
+    <a class="wordmark" href="#top">Paul Elbers</a>
+    <nav aria-label="On this page">
+      <a href="#about">About</a>
+      <a href="#positions">Positions</a>
+      <a href="#education">Education</a>
+      <a href="#publications">Publications</a>
+      <a class="go" href="../c4i/">C4I</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+<div class="page">
+
+  <div class="opening">
+    <div class="cv-top">
+      <img class="portrait" src="../images/pe-cv.jpg" width="200" height="200" alt="Portrait of Paul Elbers">
+      <div>
+        <h1>Paul Elbers<span class="letters">MD, PhD, EDIC</span></h1>
+        <p class="lead">Intensivist and associate professor of intensive care medicine at <a href="https://www.amsterdamumc.org/en/research/researchers/paul-elbers-1.htm" target="_blank" rel="noopener">Amsterdam UMC</a>. Founding director of the <a href="../c4i/">Center for Critical Care Computational Intelligence</a> and co-founder of <a href="../#amsterdamumcdb">AmsterdamUMCdb</a>.</p>
+        <p class="profiles">Also on <a href="https://www.amsterdamumc.org/en/research/researchers/paul-elbers-1.htm" target="_blank" rel="noopener">Amsterdam UMC</a>, <a href="https://pure.amsterdamumc.nl/en/persons/paul-elbers/" target="_blank" rel="noopener">Pure</a>, <a href="https://orcid.org/0000-0003-0447-6893" target="_blank" rel="noopener">ORCID</a>, <a href="https://scholar.google.com/citations?user=jPPoHuAAAAAJ" target="_blank" rel="noopener">Google Scholar</a>, <a href="https://pubmed.ncbi.nlm.nih.gov/?term=Elbers+p&amp;filter=years.1994-3000&amp;sort=date" target="_blank" rel="noopener">PubMed</a>, <a href="https://www.linkedin.com/in/paulelbersmdphd/" target="_blank" rel="noopener">LinkedIn</a>.</p>
+      </div>
+    </div>
+    <dl class="figures three">
+      <div><dt>papers in PubMed as a named author</dt><dd>208</dd></div>
+      <div><dt>of them as first or last author</dt><dd>84</dd></div>
+      <div><dt>h-index, Google Scholar, October 2026</dt><dd>51</dd></div>
+    </dl>
+  </div>
+
+  <section id="about">
+    <h2>About</h2>
+    <div class="body">
+      <p>Paul Elbers works where intensive care medicine meets data science. His aim is to use the data of every previous intensive care patient to improve the care of every future one: sharing intensive care data, building models with artificial intelligence, bringing them to the bedside as decision support, and testing in clinical trials whether patients are better off.</p>
+      <p>He co-founded <a href="../#amsterdamumcdb">AmsterdamUMCdb</a>, the first freely available, highly granular intensive care database from within the European Union, and leads the <a href="../c4i/">Center for Critical Care Computational Intelligence</a> (C4I) at Amsterdam UMC. During the COVID-19 pandemic the center coordinated the <a href="https://doi.org/10.1186/s13054-021-03733-z" target="_blank" rel="noopener">Dutch Data Warehouse</a>, which brought together the full health records of critically ill COVID-19 patients from hospitals across the Netherlands. He also initiated <a href="https://www.icudata.nl/" target="_blank" rel="noopener">ICUdata</a>, a foundation that combines the data of Dutch intensive care units.</p>
+      <p>His current work focuses on reinforcement learning at the bedside: algorithms that learn the best treatment from data, combined with <a href="https://doi.org/10.1007/s00134-026-08576-2" target="_blank" rel="noopener">randomization when needed</a>, so that they keep learning while patients are protected.</p>
+    </div>
+  </section>
+
+  <section id="positions">
+    <h2>Positions</h2>
+    <div class="body">
+      <ul class="rows">
+        <li><div><b>Intensivist</b><span>Department of Intensive Care Medicine, Amsterdam UMC</span></div></li>
+        <li><div><b>Associate professor of intensive care medicine</b><span>Amsterdam UMC</span></div></li>
+        <li><div><b>Founding director</b><span><a href="../c4i/">Center for Critical Care Computational Intelligence (C4I)</a>, Amsterdam UMC</span></div></li>
+        <li><div><b>Co-founder and administrator</b><span><a href="../#amsterdamumcdb">AmsterdamUMCdb</a>, the freely available intensive care database of Amsterdam UMC</span></div></li>
+      </ul>
+      <h3>Boards and committees</h3>
+      <ul class="rows">
+        <li><div><b>Research Committee</b><span>European Society of Intensive Care Medicine (ESICM)</span></div></li>
+        <li><div><b>Science and Innovation Committee</b><span>Dutch Society of Intensive Care (NVIC)</span></div></li>
+        <li><div><b>ICUdata</b><span>Foundation that combines the data of Dutch intensive care units</span></div></li>
+        <li><div><b>Lage Landen foundation</b></div></li>
+        <li><div><b>International Fluid Academy</b></div></li>
+        <li><div><b>AcidBase.org</b><span>Online decision support for acid–base disorders</span></div></li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="education">
+    <h2>Education</h2>
+    <div class="body">
+      <ul class="rows">
+        <li><div><b>PhD</b><span>University of Amsterdam. Thesis: Focus on flow. Imaging the human microcirculation in perioperative and intensive care medicine. Promotor: Prof. dr. ir. C. Ince</span></div><span class="when">2010</span></li>
+        <li><div><b>European Diploma in Intensive Care (EDIC)</b><span>European Society of Intensive Care Medicine</span></div></li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="grants">
+    <h2>Grants</h2>
+    <div class="body">
+      <ul class="rows">
+        <li><div><b>IrelandICUdb</b><span>Optimizing outcomes from weaning from invasive mechanical ventilation in Ireland: a federated, FAIR-aligned ICU database for benchmarking and policy translation. Health Research Board, Ireland</span></div><span class="when">2025–2029</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="publications">
+    <h2>Publications</h2>
+    <div class="body">
+      <h3>Selected</h3>
+      <ul class="pubs">
+        <li><span class="kind">Editorial</span> <b>Elbers P</b>, Ercole A, Angus DC. Fully flexing the potential of AI in intensive care: reinforcement learning with randomization when needed. <i>Intensive Care Med</i> 2026;52(10):2207–2210. <a href="https://doi.org/10.1007/s00134-026-08576-2" target="_blank" rel="noopener">doi:10.1007/s00134-026-08576-2</a></li>
+        <li>Hilders PA, Lijović L, Otten M, … <b>Elbers PWG</b>. The LoVe score: Development and validation of a bedside clinical index to identify patients at risk for prolonged invasive mechanical ventilation. <i>J Intensive Care Soc</i> 2026. <a href="https://doi.org/10.1177/17511437261479649" target="_blank" rel="noopener">doi:10.1177/17511437261479649</a></li>
+        <li>Lijović L, Hilders P, Radočaj T, Širanović M, <b>Elbers P</b>. Power, Duration, and Compliance: Reframing Risk of Ventilatory-Induced Lung Injury With the Risk-Adjusted Mechanical-Power Score. <i>Crit Care Med</i> 2026;54(7):1574–1584. <a href="https://doi.org/10.1097/CCM.0000000000007129" target="_blank" rel="noopener">doi:10.1097/CCM.0000000000007129</a></li>
+        <li>Jagesar A, Smalbil L, Galea E, … <b>Elbers P</b>. Causal deep learning to personalize medicine: Which intensive care patients with sepsis will benefit from corticosteroid therapy? <i>J Intensive Med</i> 2026;6(1):61–68. <a href="https://doi.org/10.1016/j.jointm.2025.07.002" target="_blank" rel="noopener">doi:10.1016/j.jointm.2025.07.002</a></li>
+        <li><span class="kind">Review</span> Jagesar AR, Dam TA, Struja T, … <b>Elbers PWG</b>. Sharing is caring: A systematic review of publicly available intensive care data sets. <i>J Crit Care</i> 2025;90:155205. <a href="https://doi.org/10.1016/j.jcrc.2025.155205" target="_blank" rel="noopener">doi:10.1016/j.jcrc.2025.155205</a></li>
+        <li><span class="kind">Review</span> Cecconi M, Greco M, Shickel B, … <b>Elbers P</b>, et al. Implementing Artificial Intelligence in Critical Care Medicine: a consensus of 22. <i>Crit Care</i> 2025;29(1):290. <a href="https://doi.org/10.1186/s13054-025-05532-2" target="_blank" rel="noopener">doi:10.1186/s13054-025-05532-2</a></li>
+        <li><span class="kind">Review</span> Otten M, Jagesar AR, Dam TA, … <b>Elbers PWG</b>. Does Reinforcement Learning Improve Outcomes for Critically Ill Patients? A Systematic Review and Level-of-Readiness Assessment. <i>Crit Care Med</i> 2024;52(2):e79–e88. <a href="https://doi.org/10.1097/CCM.0000000000006100" target="_blank" rel="noopener">doi:10.1097/CCM.0000000000006100</a></li>
+        <li>Roggeveen LF, Hassouni AE, de Grooth HJ, Girbes ARJ, Hoogendoorn M, <b>Elbers PWG</b>. Reinforcement learning for intensive care medicine: actionable clinical insights from novel approaches to reward shaping and off-policy model evaluation. <i>Intensive Care Med Exp</i> 2024;12(1):32. <a href="https://doi.org/10.1186/s40635-024-00614-x" target="_blank" rel="noopener">doi:10.1186/s40635-024-00614-x</a></li>
+        <li>Roggeveen LF, Guo T, Fleuren LM, … <b>Elbers PWG</b>. Right dose, right now: bedside, real-time, data-driven, and personalised antibiotic dosing in critically ill patients with sepsis or septic shock-a two-centre randomised clinical trial. <i>Crit Care</i> 2022;26(1):265. <a href="https://doi.org/10.1186/s13054-022-04098-7" target="_blank" rel="noopener">doi:10.1186/s13054-022-04098-7</a></li>
+        <li>Fleuren LM, Dam TA, Tonutti M, … <b>Elbers PWG</b>. The Dutch Data Warehouse, a multicenter and full-admission electronic health records database for critically ill COVID-19 patients. <i>Crit Care</i> 2021;25(1):304. <a href="https://doi.org/10.1186/s13054-021-03733-z" target="_blank" rel="noopener">doi:10.1186/s13054-021-03733-z</a></li>
+        <li>Thoral PJ, Fornasa M, de Bruin DP, … <b>Elbers PWG</b>. Explainable Machine Learning on AmsterdamUMCdb for ICU Discharge Decision Support: Uniting Intensivists and Data Scientists. <i>Crit Care Explor</i> 2021;3(9):e0529. <a href="https://doi.org/10.1097/CCE.0000000000000529" target="_blank" rel="noopener">doi:10.1097/CCE.0000000000000529</a></li>
+        <li>Thoral PJ, Peppink JM, Driessen RH, … <b>Elbers PWG</b>. Sharing ICU Patient Data Responsibly Under the Society of Critical Care Medicine/European Society of Intensive Care Medicine Joint Data Science Collaboration: The Amsterdam University Medical Centers Database (AmsterdamUMCdb) Example. <i>Crit Care Med</i> 2021;49(6):e563–e577. <a href="https://doi.org/10.1097/CCM.0000000000004916" target="_blank" rel="noopener">doi:10.1097/CCM.0000000000004916</a></li>
+        <li><span class="kind">Review</span> Fleuren LM, Klausch TLT, Zwager CL, … <b>Elbers PWG</b>. Machine learning for the prediction of sepsis: a systematic review and meta-analysis of diagnostic test accuracy. <i>Intensive Care Med</i> 2020;46(3):383–400. <a href="https://doi.org/10.1007/s00134-019-05872-y" target="_blank" rel="noopener">doi:10.1007/s00134-019-05872-y</a></li>
+      </ul>
+      <h3>All, by year</h3>
+      <p class="small">As listed in PubMed, without corrections. The same list, always current, is on <a href="https://pubmed.ncbi.nlm.nih.gov/?term=Elbers+p&amp;filter=years.1994-3000&amp;sort=date" target="_blank" rel="noopener">PubMed</a>; citations are on <a href="https://scholar.google.com/citations?user=jPPoHuAAAAAJ" target="_blank" rel="noopener">Google Scholar</a>.</p>
+      <div>
+      <details open>
+        <summary>2026 <span>26</span></summary>
+        <ul class="pubs">
+          <li>Heldeweg MLA, Krbec M, Vancura M, … <b>Elbers P</b>, et al. Electrolyte redistribution during acute respiratory acid-base changes: an in vivo study using apnoea testing. <i>Br J Anaesth</i> 2026. <a href="https://doi.org/10.1016/j.bja.2026.09.015" target="_blank" rel="noopener">doi:10.1016/j.bja.2026.09.015</a></li>
+          <li><span class="kind">Editorial</span> <b>Elbers P</b>, Ercole A, Angus DC. Fully flexing the potential of AI in intensive care: reinforcement learning with randomization when needed. <i>Intensive Care Med</i> 2026;52(10):2207–2210. <a href="https://doi.org/10.1007/s00134-026-08576-2" target="_blank" rel="noopener">doi:10.1007/s00134-026-08576-2</a></li>
+          <li><span class="kind">Letter</span> Hilders P, Lijović L, <b>Elbers P</b>. Response to &#x27;Comment on &quot;The LoVe score: Development and validation of a bedside clinical index to identify patients at risk for prolonged invasive mechanical ventilation&quot;&#x27;. <i>J Intensive Care Soc</i> 2026. <a href="https://doi.org/10.1177/17511437261493298" target="_blank" rel="noopener">doi:10.1177/17511437261493298</a></li>
+          <li>Guarracino F, <b>Elbers P</b>, Slama M, Pinsky MR. Clinical relevance of ventriculo-arterial coupling and how to assess it at the bedside. <i>Ann Intensive Care</i> 2026;16:100170. <a href="https://doi.org/10.1016/j.aicoj.2026.100170" target="_blank" rel="noopener">doi:10.1016/j.aicoj.2026.100170</a></li>
+          <li>Reuland MC, Raasveld SJ, Dongelmans DA, <b>Elbers PWG</b>, Müller MCA, Vlaar APJ. Hemorrhagic shock in intensive care: Variation in blood product administration during resuscitation. <i>Vox Sang</i> 2026. <a href="https://doi.org/10.1111/vox.70380" target="_blank" rel="noopener">doi:10.1111/vox.70380</a></li>
+          <li>Vistisen ST, Novotny ME, Mukkamala R, Enevoldsen J, Jacquet-Lagreze M, <b>Elbers P</b>. Associations between reduction of hypotension and treatment intensity in hypotension prediction index studies. <i>Anesthesiology</i> 2026. <a href="https://doi.org/10.1097/ALN.0000000000006367" target="_blank" rel="noopener">doi:10.1097/ALN.0000000000006367</a></li>
+          <li>Lavinio A, Rocheteau E, Antonelli M, … <b>Elbers P</b>, et al. Heparin formulation and thromboprophylaxis intensity in critically ill patients: Results from the ESICM UNITE registry. <i>Thromb Res</i> 2026;265:109820. <a href="https://doi.org/10.1016/j.thromres.2026.109820" target="_blank" rel="noopener">doi:10.1016/j.thromres.2026.109820</a></li>
+          <li>Hilders PA, Lijović L, Otten M, … <b>Elbers PWG</b>. The LoVe score: Development and validation of a bedside clinical index to identify patients at risk for prolonged invasive mechanical ventilation. <i>J Intensive Care Soc</i> 2026. <a href="https://doi.org/10.1177/17511437261479649" target="_blank" rel="noopener">doi:10.1177/17511437261479649</a></li>
+          <li>Reuland MC, van der Meer OM, Testoni A, … <b>Elbers PWG</b>, et al. Clinical utility of LLM-assisted chart review for the detection of bleeding events. <i>Transfus Clin Biol</i> 2026. <a href="https://doi.org/10.1016/j.tracli.2026.07.005" target="_blank" rel="noopener">doi:10.1016/j.tracli.2026.07.005</a></li>
+          <li>Otten M, van der Woude B, <b>Elbers PWG</b>, de Grooth HJ. The authors reply. <i>Crit Care Med</i> 2026;54(8):2170–2171. <a href="https://doi.org/10.1097/CCM.0000000000007247" target="_blank" rel="noopener">doi:10.1097/CCM.0000000000007247</a></li>
+          <li><span class="kind">Letter</span> Workum JD, Meyfroidt G, Bakker J, … <b>Elbers PWG</b>, et al. Authors reply: &quot;AI in critical care: a roadmap to the future&quot;. <i>J Crit Care</i> 2026;94:155597. <a href="https://doi.org/10.1016/j.jcrc.2026.155597" target="_blank" rel="noopener">doi:10.1016/j.jcrc.2026.155597</a></li>
+          <li>Moazeni M, Moraga SM, Wösten M, … <b>Elbers P</b>, et al. Real-time prediction of atrial fibrillation in intensive care unit: a meta-learning approach. <i>JAMIA Open</i> 2026;9(4):ooag110. <a href="https://doi.org/10.1093/jamiaopen/ooag110" target="_blank" rel="noopener">doi:10.1093/jamiaopen/ooag110</a></li>
+          <li>Thoral PJ, de Metz J, Mulia S, … <b>Elbers PWG</b>. Behaviour artificial intelligence technology to support the decision-making process of continuation or withdrawal of life-sustaining therapy. <i>Intensive Care Med Exp</i> 2026;14(1). <a href="https://doi.org/10.1186/s40635-026-00930-4" target="_blank" rel="noopener">doi:10.1186/s40635-026-00930-4</a></li>
+          <li>Rozemeijer S, Dubois EA, de Grooth HJ, … <b>Elbers PWG</b>, et al. Early high-dose vitamin C for out-of-hospital cardiac arrest: the VITaCCA randomized clinical trial. <i>Intensive Care Med</i> 2026;52(7):1447–1457. <a href="https://doi.org/10.1007/s00134-026-08492-5" target="_blank" rel="noopener">doi:10.1007/s00134-026-08492-5</a></li>
+          <li>Lijović L, Hilders P, Radočaj T, Širanović M, <b>Elbers P</b>. Power, Duration, and Compliance: Reframing Risk of Ventilatory-Induced Lung Injury With the Risk-Adjusted Mechanical-Power Score. <i>Crit Care Med</i> 2026;54(7):1574–1584. <a href="https://doi.org/10.1097/CCM.0000000000007129" target="_blank" rel="noopener">doi:10.1097/CCM.0000000000007129</a></li>
+          <li>Piasecki A, Adamczyk K, Śniegowski M, … <b>Elbers PWG</b>. Early prognostication for ICU patients with combined respiratory and circulatory failure: an interpretable machine learning approach. <i>Sci Rep</i> 2026;16(1). <a href="https://doi.org/10.1038/s41598-026-59064-y" target="_blank" rel="noopener">doi:10.1038/s41598-026-59064-y</a></li>
+          <li><span class="kind">Editorial</span> Duška F, Krbec M, Heldeweg M, <b>Elbers P</b>, Giosa L. A pragmatic approach to complex acid base disturbances of critical illness: the &quot;Stewart light&quot;. <i>Intensive Care Med</i> 2026;52(6):1322–1325. <a href="https://doi.org/10.1007/s00134-026-08416-3" target="_blank" rel="noopener">doi:10.1007/s00134-026-08416-3</a></li>
+          <li>Krbec M, Vančura M, Waldauf P, … <b>Elbers PWG</b>, et al. Improving interpretation of metabolic acid-base disorders by correcting pH-dependent bias in base excess partitioning. <i>Br J Anaesth</i> 2026;136(5):1451–1458. <a href="https://doi.org/10.1016/j.bja.2026.02.001" target="_blank" rel="noopener">doi:10.1016/j.bja.2026.02.001</a></li>
+          <li>Spoormans EM, Janssens GN, van der Hoeven NW, … <b>Elbers PWG</b>, et al. Immediate vs Delayed Coronary Angiography After Cardiac Arrest Without ST-Segment Elevation: 5-Year Outcomes From the COACT Randomized Trial. <i>J Am Coll Cardiol</i> 2026;87(16):2134–2143. <a href="https://doi.org/10.1016/j.jacc.2025.12.018" target="_blank" rel="noopener">doi:10.1016/j.jacc.2025.12.018</a></li>
+          <li><span class="kind">Review</span> Cecconi M, Greco M, Balzani E, … <b>Elbers P</b>, et al. Innovation in intensive care: a framework to turn ideas and concepts into actionable solutions. <i>Intensive Care Med</i> 2026;52(4):700–713. <a href="https://doi.org/10.1007/s00134-026-08405-6" target="_blank" rel="noopener">doi:10.1007/s00134-026-08405-6</a></li>
+          <li>Otten M, van der Woude B, van Kempen BJH, … <b>Elbers PWG</b>, et al. Minimal Gain in Prognostic Certainty for Patients With Hematologic Malignancies Over 2 Weeks of Intensive Care: An Analysis to Inform Time-Limited Trials. <i>Crit Care Med</i> 2026;54(4):860–870. <a href="https://doi.org/10.1097/CCM.0000000000007006" target="_blank" rel="noopener">doi:10.1097/CCM.0000000000007006</a></li>
+          <li>Hilders PA, Lijović L, Otten M, … <b>Elbers PWG</b>. Prediction-guided clustering for sepsis phenotyping: a retrospective cohort analysis. <i>Intensive Care Med Exp</i> 2026;14(1). <a href="https://doi.org/10.1186/s40635-026-00882-9" target="_blank" rel="noopener">doi:10.1186/s40635-026-00882-9</a></li>
+          <li>Lijović L, Dam TA, Baek MS, … <b>Elbers PWG</b>, et al. Respiratory physiology after resupination following prone ventilation to predict 28-day mortality in mechanically ventilated patients: a machine learning analysis. <i>Sci Rep</i> 2026;16(1). <a href="https://doi.org/10.1038/s41598-026-39336-3" target="_blank" rel="noopener">doi:10.1038/s41598-026-39336-3</a></li>
+          <li><span class="kind">Review</span> Workum JD, Meyfroidt G, Bakker J, … <b>Elbers PWG</b>, et al. AI in critical care: A roadmap to the future. <i>J Crit Care</i> 2026;91:155262. <a href="https://doi.org/10.1016/j.jcrc.2025.155262" target="_blank" rel="noopener">doi:10.1016/j.jcrc.2025.155262</a></li>
+          <li>Dam TA, Schade RP, de Steenwinkel JEM, … <b>Elbers PWG</b>. Explainable machine learning for discontinuation of therapeutic antibiotics in intensive care patients. <i>J Crit Care</i> 2026;91:155247. <a href="https://doi.org/10.1016/j.jcrc.2025.155247" target="_blank" rel="noopener">doi:10.1016/j.jcrc.2025.155247</a></li>
+          <li>Jagesar A, Smalbil L, Galea E, … <b>Elbers P</b>. Causal deep learning to personalize medicine: Which intensive care patients with sepsis will benefit from corticosteroid therapy? <i>J Intensive Med</i> 2026;6(1):61–68. <a href="https://doi.org/10.1016/j.jointm.2025.07.002" target="_blank" rel="noopener">doi:10.1016/j.jointm.2025.07.002</a></li>
+        </ul>
+      </details>
+      <details>
+        <summary>2025 <span>19</span></summary>
+        <ul class="pubs">
+          <li><span class="kind">Review</span> Jagesar AR, Dam TA, Struja T, … <b>Elbers PWG</b>. Sharing is caring: A systematic review of publicly available intensive care data sets. <i>J Crit Care</i> 2025;90:155205. <a href="https://doi.org/10.1016/j.jcrc.2025.155205" target="_blank" rel="noopener">doi:10.1016/j.jcrc.2025.155205</a></li>
+          <li>Rigter IM, Swart EL, Brüggemann RJ, Guo T, <b>Elbers PWG</b>, van Hest RM. External Cross-validation of Two Ciprofloxacin Population Pharmacokinetic Models in Patients in Intensive Care. <i>Ther Drug Monit</i> 2025;47(6):e90–e96. <a href="https://doi.org/10.1097/FTD.0000000000001357" target="_blank" rel="noopener">doi:10.1097/FTD.0000000000001357</a></li>
+          <li><span class="kind">Letter</span> Reuland MC, Raasveld SJ, Dongelmans DA, <b>Elbers PWG</b>, Müller MCA, Vlaar APJ. Pitfalls and paradoxes: blood transfusion in 5 public ICU databases. <i>Crit Care</i> 2025;29(1):503. <a href="https://doi.org/10.1186/s13054-025-05737-5" target="_blank" rel="noopener">doi:10.1186/s13054-025-05737-5</a></li>
+          <li>Zhang Z, Chen L, Shen H, … <b>Elbers PWG</b>, et al. Deriving consensus sepsis clusters via goal-directed subgroup identification in multi-omics study. <i>Nat Commun</i> 2025;16(1):10328. <a href="https://doi.org/10.1038/s41467-025-65271-4" target="_blank" rel="noopener">doi:10.1038/s41467-025-65271-4</a></li>
+          <li>Otten M, van Kempen BJH, van der Woude B, … <b>Elbers PWG</b>. Long-term mortality in ICU patients with hematological malignancies: Impact of organ support duration and ICU length of stay. <i>J Crit Care</i> 2025;89:155122. <a href="https://doi.org/10.1016/j.jcrc.2025.155122" target="_blank" rel="noopener">doi:10.1016/j.jcrc.2025.155122</a></li>
+          <li>Broulikova HM, Wallage J, Roggeveen L, … <b>Elbers PWG</b>, et al. Cost-effectiveness of data driven personalised antibiotic dosing in critically ill patients with sepsis or septic shock. <i>J Clin Monit Comput</i> 2025;39(5):937–946. <a href="https://doi.org/10.1007/s10877-024-01257-9" target="_blank" rel="noopener">doi:10.1007/s10877-024-01257-9</a></li>
+          <li><span class="kind">Editorial</span> Vistisen ST, <b>Elbers P</b>. Predicting arterial pressure without prejudice: towards effective hypotension prediction models. <i>Br J Anaesth</i> 2025;135(3):532–537. <a href="https://doi.org/10.1016/j.bja.2025.06.016" target="_blank" rel="noopener">doi:10.1016/j.bja.2025.06.016</a></li>
+          <li>Bourne RS, Alberto L, Brummel NE, … <b>Elbers P</b>, et al. Understanding barriers and facilitators to implementation of consensus-based recommendations for the management of very old people in intensive care. <i>Age Ageing</i> 2025;54(9). <a href="https://doi.org/10.1093/ageing/afaf272" target="_blank" rel="noopener">doi:10.1093/ageing/afaf272</a></li>
+          <li><span class="kind">Review</span> Cecconi M, Greco M, Shickel B, … <b>Elbers P</b>, et al. Implementing Artificial Intelligence in Critical Care Medicine: a consensus of 22. <i>Crit Care</i> 2025;29(1):290. <a href="https://doi.org/10.1186/s13054-025-05532-2" target="_blank" rel="noopener">doi:10.1186/s13054-025-05532-2</a></li>
+          <li>Lijović L, Radočaj T, Kovač N, Vučić M, <b>Elbers P</b>. Predictive performance of ROX index and its variations for NIV failure. <i>Med Intensiva (Engl Ed)</i> 2025;49(7):502136. <a href="https://doi.org/10.1016/j.medine.2025.502136" target="_blank" rel="noopener">doi:10.1016/j.medine.2025.502136</a></li>
+          <li>Dam TA, de Bruin D, Cinà G, … <b>Elbers PWG</b>, et al. ICU readmission and mortality risk prediction: Generalizability of a multi-hospital model. <i>J Intensive Med</i> 2025;5(4):377–384. <a href="https://doi.org/10.1016/j.jointm.2025.03.007" target="_blank" rel="noopener">doi:10.1016/j.jointm.2025.03.007</a></li>
+          <li>Krbec M, Brusatori S, Waldauf P, … <b>Elbers P</b>. Determination of pK(A) of nonvolatile weak acids in plasma of healthy volunteers and critically ill patients. <i>Intensive Care Med Exp</i> 2025;13(1):54. <a href="https://doi.org/10.1186/s40635-025-00762-8" target="_blank" rel="noopener">doi:10.1186/s40635-025-00762-8</a></li>
+          <li>Palmowski L, Westhus B, Witowski A, … <b>Elbers P</b>, et al. Subphenotypes and the De Ritis ratio for mortality risk stratification in sepsis-associated acute liver injury: a retrospective cohort study. <i>EClinicalMedicine</i> 2025;82:103173. <a href="https://doi.org/10.1016/j.eclinm.2025.103173" target="_blank" rel="noopener">doi:10.1016/j.eclinm.2025.103173</a></li>
+          <li>Steenvoorden TS, de Kruijf KC, Appelman B, … <b>Elbers PWG</b>, et al. Host Response Protein Biomarkers Indicative of Persistent Acute Kidney Injury in Critically Ill COVID-19 Patients. <i>Crit Care Explor</i> 2025;7(3):e1222. <a href="https://doi.org/10.1097/CCE.0000000000001222" target="_blank" rel="noopener">doi:10.1097/CCE.0000000000001222</a></li>
+          <li>Wu C, Canakoglu A, Vine J, … <b>Elbers P</b>, et al. Elucidating the causal relationship of mechanical power and lung injury: a dynamic approach to ventilator management. <i>Intensive Care Med Exp</i> 2025;13(1):28. <a href="https://doi.org/10.1186/s40635-025-00736-w" target="_blank" rel="noopener">doi:10.1186/s40635-025-00736-w</a></li>
+          <li>Beil M, Alberto L, Bourne RS, … <b>Elbers P</b>, et al. ESICM consensus-based recommendations for the management of very old patients in intensive care. <i>Intensive Care Med</i> 2025;51(2):287–301. <a href="https://doi.org/10.1007/s00134-025-07794-4" target="_blank" rel="noopener">doi:10.1007/s00134-025-07794-4</a></li>
+          <li><span class="kind">Editorial</span> Lijović L, <b>Elbers P</b>. Leveraging the power of routinely collected ICU data. <i>Intensive Care Med</i> 2025;51(1):163–166. <a href="https://doi.org/10.1007/s00134-024-07745-5" target="_blank" rel="noopener">doi:10.1007/s00134-024-07745-5</a></li>
+          <li><span class="kind">Review</span> Biesheuvel LA, Workum JD, Reuland M, … <b>Elbers P</b>. Large language models in critical care. <i>J Intensive Med</i> 2025;5(2):113–118. <a href="https://doi.org/10.1016/j.jointm.2024.12.001" target="_blank" rel="noopener">doi:10.1016/j.jointm.2024.12.001</a></li>
+          <li>Lijović L, de Grooth HJ, Thoral P, … <b>Elbers P</b>. Preparing for future pandemics: Automated intensive care electronic health record data extraction to accelerate clinical insights. <i>J Intensive Med</i> 2025;5(2):167–175. <a href="https://doi.org/10.1016/j.jointm.2024.10.003" target="_blank" rel="noopener">doi:10.1016/j.jointm.2024.10.003</a></li>
+        </ul>
+      </details>
+      <details>
+        <summary>2024 <span>13</span></summary>
+        <ul class="pubs">
+          <li>Wortel SA, Bakhshi-Raiez F, Abu-Hanna A, … <b>Elbers P</b>, et al. Long-term mortality of Dutch COVID-19 patients admitted to the intensive care medicine: a retrospective analysis from a national quality registry. <i>Crit Care Sci</i> 2024;36:e202400251en. <a href="https://doi.org/10.62675/2965-2774.20240251-en" target="_blank" rel="noopener">doi:10.62675/2965-2774.20240251-en</a></li>
+          <li>Rockenschaub P, Hilbert A, Kossen T, … <b>Elbers P</b>, et al. The Impact of Multi-Institution Datasets on the Generalizability of Machine Learning Prediction Models in the ICU. <i>Crit Care Med</i> 2024;52(11):1710–1721. <a href="https://doi.org/10.1097/CCM.0000000000006359" target="_blank" rel="noopener">doi:10.1097/CCM.0000000000006359</a></li>
+          <li>van Rhee KP, Brüggemann RJM, Roberts JA, … <b>Elbers PWG</b>, et al. Pooled Population Pharmacokinetic Analysis and Dose Recommendations for Ciprofloxacin in Intensive Care Unit Patients with Obesity. <i>J Clin Pharmacol</i> 2024;64(9):1165–1172. <a href="https://doi.org/10.1002/jcph.2450" target="_blank" rel="noopener">doi:10.1002/jcph.2450</a></li>
+          <li>Jagesar AR, Otten M, Dam TA, … <b>Elbers PWG</b>. Comparative performance of intensive care mortality prediction models based on manually curated versus automatically extracted electronic health record data. <i>Int J Med Inform</i> 2024;188:105477. <a href="https://doi.org/10.1016/j.ijmedinf.2024.105477" target="_blank" rel="noopener">doi:10.1016/j.ijmedinf.2024.105477</a></li>
+          <li>Williams CYK, Edinburgh T, <b>Elbers PWG</b>, Thoral PJ, Ercole A. Application of the Sepsis-3 criteria to describe sepsis epidemiology in the Amsterdam UMCdb intensive care dataset. <i>PLoS One</i> 2024;19(6):e0304133. <a href="https://doi.org/10.1371/journal.pone.0304133" target="_blank" rel="noopener">doi:10.1371/journal.pone.0304133</a></li>
+          <li><span class="kind">Review</span> Biesheuvel LA, Dongelmans DA, <b>Elbers PWG</b>. Artificial intelligence to advance acute and intensive care medicine. <i>Curr Opin Crit Care</i> 2024;30(3):246–250. <a href="https://doi.org/10.1097/MCC.0000000000001150" target="_blank" rel="noopener">doi:10.1097/MCC.0000000000001150</a></li>
+          <li><span class="kind">Review</span> Pinsky MR, Bedoya A, Bihorac A, … <b>Elbers P</b>, et al. Use of artificial intelligence in critical care: opportunities and obstacles. <i>Crit Care</i> 2024;28(1):113. <a href="https://doi.org/10.1186/s13054-024-04860-z" target="_blank" rel="noopener">doi:10.1186/s13054-024-04860-z</a></li>
+          <li>Roggeveen LF, Hassouni AE, de Grooth HJ, Girbes ARJ, Hoogendoorn M, <b>Elbers PWG</b>. Reinforcement learning for intensive care medicine: actionable clinical insights from novel approaches to reward shaping and off-policy model evaluation. <i>Intensive Care Med Exp</i> 2024;12(1):32. <a href="https://doi.org/10.1186/s40635-024-00614-x" target="_blank" rel="noopener">doi:10.1186/s40635-024-00614-x</a></li>
+          <li><span class="kind">Editorial</span> <b>Elbers P</b>, Thoral P, Bos LDJ, Greco M, Wendel-Garcia PD, Ercole A. The ESICM datathon and the ESICM and ICMx data science strategy. <i>Intensive Care Med Exp</i> 2024;12(1):29. <a href="https://doi.org/10.1186/s40635-024-00615-w" target="_blank" rel="noopener">doi:10.1186/s40635-024-00615-w</a></li>
+          <li><span class="kind">Review</span> Otten M, Jagesar AR, Dam TA, … <b>Elbers PWG</b>. Does Reinforcement Learning Improve Outcomes for Critically Ill Patients? A Systematic Review and Level-of-Readiness Assessment. <i>Crit Care Med</i> 2024;52(2):e79–e88. <a href="https://doi.org/10.1097/CCM.0000000000006100" target="_blank" rel="noopener">doi:10.1097/CCM.0000000000006100</a></li>
+          <li>Maas AFG, Wyers C, Dielis A, … <b>Elbers P</b>, et al. The Incidence of Pulmonary Embolism in Hospitalized Non-ICU Patients with COVID-19 during the First Wave: A Multicenter Retrospective Cohort Study in the Netherlands. <i>J Vasc Res</i> 2024;61(3):142–150. <a href="https://doi.org/10.1159/000538312" target="_blank" rel="noopener">doi:10.1159/000538312</a></li>
+          <li>den Hengst F, Otten M, <b>Elbers P</b>, van Harmelen F, François-Lavet V, Hoogendoorn M. Guideline-informed reinforcement learning for mechanical ventilation in critical care. <i>Artif Intell Med</i> 2024;147:102742. <a href="https://doi.org/10.1016/j.artmed.2023.102742" target="_blank" rel="noopener">doi:10.1016/j.artmed.2023.102742</a></li>
+          <li>Spoormans EM, Lemkes JS, Janssens GN, … <b>Elbers PWG</b>, et al. The Prognostic Value of Troponin-T in Out-of-Hospital Cardiac Arrest Without ST-Segment Elevation: A COACT Substudy. <i>J Soc Cardiovasc Angiogr Interv</i> 2024;3(2):101191. <a href="https://doi.org/10.1016/j.jscai.2023.101191" target="_blank" rel="noopener">doi:10.1016/j.jscai.2023.101191</a></li>
+        </ul>
+      </details>
+      <details>
+        <summary>2023 <span>19</span></summary>
+        <ul class="pubs">
+          <li>Dam TA, Fleuren LM, Roggeveen LF, … <b>Elbers PWG</b>. Augmented intelligence facilitates concept mapping across different electronic health records. <i>Int J Med Inform</i> 2023;179:105233. <a href="https://doi.org/10.1016/j.ijmedinf.2023.105233" target="_blank" rel="noopener">doi:10.1016/j.ijmedinf.2023.105233</a></li>
+          <li><span class="kind">Review</span> Vagliano I, Dormosh N, Rios M, … <b>Elbers PWG</b>, et al. Prognostic models of in-hospital mortality of intensive care patients using neural representation of unstructured text: A systematic review and critical appraisal. <i>J Biomed Inform</i> 2023;146:104504. <a href="https://doi.org/10.1016/j.jbi.2023.104504" target="_blank" rel="noopener">doi:10.1016/j.jbi.2023.104504</a></li>
+          <li>de Groot R, Püttmann DP, Fleuren LM, … <b>Elbers PWG</b>, et al. Determining and assessing characteristics of data element names impacting the performance of annotation using Usagi. <i>Int J Med Inform</i> 2023;178:105200. <a href="https://doi.org/10.1016/j.ijmedinf.2023.105200" target="_blank" rel="noopener">doi:10.1016/j.ijmedinf.2023.105200</a></li>
+          <li><span class="kind">Letter</span> Thoral P, <b>Elbers P</b>. Encouraging responsible intensive care data sharing. <i>Intensive Care Med</i> 2023;49(8):1027–1028. <a href="https://doi.org/10.1007/s00134-023-07113-9" target="_blank" rel="noopener">doi:10.1007/s00134-023-07113-9</a></li>
+          <li>Puttmann D, de Groot R, de Keizer N, … <b>Elbers PWG</b>, et al. Assessing the FAIRness of databases on the EHDEN portal: A case study on two Dutch ICU databases. <i>Int J Med Inform</i> 2023;176:105104. <a href="https://doi.org/10.1016/j.ijmedinf.2023.105104" target="_blank" rel="noopener">doi:10.1016/j.ijmedinf.2023.105104</a></li>
+          <li>Michels EHA, Appelman B, de Brabander J, … <b>Elbers P</b>, et al. Age-related changes in plasma biomarkers and their association with mortality in COVID-19. <i>Eur Respir J</i> 2023;62(1). <a href="https://doi.org/10.1183/13993003.00011-2023" target="_blank" rel="noopener">doi:10.1183/13993003.00011-2023</a></li>
+          <li><span class="kind">Letter</span> Krbec M, Duška F, <b>Elbers PWG</b>. Toward a unified understanding of blood buffer power. <i>J Appl Physiol (1985)</i> 2023;135(1):202. <a href="https://doi.org/10.1152/japplphysiol.00320.2023" target="_blank" rel="noopener">doi:10.1152/japplphysiol.00320.2023</a></li>
+          <li>Verhaeghe J, De Corte T, Sauer CM, … <b>Elbers P</b>, et al. Generalizable calibrated machine learning models for real-time atrial fibrillation risk prediction in ICU patients. <i>Int J Med Inform</i> 2023;175:105086. <a href="https://doi.org/10.1016/j.ijmedinf.2023.105086" target="_blank" rel="noopener">doi:10.1016/j.ijmedinf.2023.105086</a></li>
+          <li>Janssen A, De Waele JJ, <b>Elbers PWG</b>. Towards adequate and automated antibiotic dosing. <i>Intensive Care Med</i> 2023;49(7):853–856. <a href="https://doi.org/10.1007/s00134-023-07047-2" target="_blank" rel="noopener">doi:10.1007/s00134-023-07047-2</a></li>
+          <li>Siepel S, Dam TA, Fleuren LM, … <b>Elbers PWG</b>, et al. Evolution of Clinical Phenotypes of COVID-19 Patients During Intensive Care Treatment: An Unsupervised Machine Learning Analysis. <i>J Intensive Care Med</i> 2023;38(7):612–629. <a href="https://doi.org/10.1177/08850666231153393" target="_blank" rel="noopener">doi:10.1177/08850666231153393</a></li>
+          <li>de Kok JWTM, de la Hoz MÁA, de Jong Y, … <b>Elbers PWG</b>, et al. A guide to sharing open healthcare data under the General Data Protection Regulation. <i>Sci Data</i> 2023;10(1):404. <a href="https://doi.org/10.1038/s41597-023-02256-2" target="_blank" rel="noopener">doi:10.1038/s41597-023-02256-2</a></li>
+          <li>Lijović L, Pelajić S, Hawchar F, … <b>Elbers P</b>. Diagnosing acute kidney injury ahead of time in critically ill septic patients using kinetic estimated glomerular filtration rate. <i>J Crit Care</i> 2023;75:154276. <a href="https://doi.org/10.1016/j.jcrc.2023.154276" target="_blank" rel="noopener">doi:10.1016/j.jcrc.2023.154276</a></li>
+          <li>Smits T, Heldeweg M, Tulleken AM, … <b>Elbers P</b>, et al. Effects of nurse delivered thoracic ultrasound on management of adult intensive care unit patients: A prospective observational study. <i>Int J Nurs Stud Adv</i> 2023;5:100135. <a href="https://doi.org/10.1016/j.ijnsa.2023.100135" target="_blank" rel="noopener">doi:10.1016/j.ijnsa.2023.100135</a></li>
+          <li>Yarnell CJ, Angriman F, Ferreyro BL, … <b>Elbers P</b>, et al. Oxygenation thresholds for invasive ventilation in hypoxemic respiratory failure: a target trial emulation in two cohorts. <i>Crit Care</i> 2023;27(1):67. <a href="https://doi.org/10.1186/s13054-023-04307-x" target="_blank" rel="noopener">doi:10.1186/s13054-023-04307-x</a></li>
+          <li>Bologheanu R, Kapral L, Laxar D, … <b>Elbers P</b>, et al. Development of a Reinforcement Learning Algorithm to Optimize Corticosteroid Therapy in Critically Ill Patients with Sepsis. <i>J Clin Med</i> 2023;12(4). <a href="https://doi.org/10.3390/jcm12041513" target="_blank" rel="noopener">doi:10.3390/jcm12041513</a></li>
+          <li>de Hond AAH, Kant IMJ, Fornasa M, … <b>Elbers PWG</b>, et al. Predicting Readmission or Death After Discharge From the ICU: External Validation and Retraining of a Machine Learning Model. <i>Crit Care Med</i> 2023;51(2):291–300. <a href="https://doi.org/10.1097/CCM.0000000000005758" target="_blank" rel="noopener">doi:10.1097/CCM.0000000000005758</a></li>
+          <li>Yarnell CJ, Johnson A, Dam T, … <b>Elbers P</b>, et al. Do Thresholds for Invasive Ventilation in Hypoxemic Respiratory Failure Exist? A Cohort Study. <i>Am J Respir Crit Care Med</i> 2023;207(3):271–282. <a href="https://doi.org/10.1164/rccm.202206-1092OC" target="_blank" rel="noopener">doi:10.1164/rccm.202206-1092OC</a></li>
+          <li><span class="kind">Review</span> Huntjens DW, Dijkstra JA, Verwiel LN, … <b>Elbers P</b>, et al. Optimizing Antiviral Dosing for HSV and CMV Treatment in Immunocompromised Patients. <i>Pharmaceutics</i> 2023;15(1). <a href="https://doi.org/10.3390/pharmaceutics15010163" target="_blank" rel="noopener">doi:10.3390/pharmaceutics15010163</a></li>
+          <li>Overgaauw A, Meijboom LJ, van Es J, … <b>Elbers P</b>, et al. Real-world characteristics and outcomes of patients with intermediate high risk acute pulmonary embolism. <i>Acute Med</i> 2023;22(2):61–66. <a href="https://doi.org/10.52964/AMJA.0936" target="_blank" rel="noopener">doi:10.52964/AMJA.0936</a></li>
+        </ul>
+      </details>
+      <details>
+        <summary>2022 <span>26</span></summary>
+        <ul class="pubs">
+          <li><span class="kind">Review</span> Sauer CM, Chen LC, Hyland SL, Girbes A, <b>Elbers P</b>, Celi LA. Leveraging electronic health records for data science: common pitfalls and how to avoid them. <i>Lancet Digit Health</i> 2022;4(12):e893–e898. <a href="https://doi.org/10.1016/S2589-7500(22)00154-6" target="_blank" rel="noopener">doi:10.1016/S2589-7500(22)00154-6</a></li>
+          <li>Vagliano I, Schut MC, Abu-Hanna A, … <b>Elbers PWG</b>, et al. Assess and validate predictive performance of models for in-hospital mortality in COVID-19 patients: A retrospective cohort study in the Netherlands comparing the value of registry data with high-granular electronic health records. <i>Int J Med Inform</i> 2022;167:104863. <a href="https://doi.org/10.1016/j.ijmedinf.2022.104863" target="_blank" rel="noopener">doi:10.1016/j.ijmedinf.2022.104863</a></li>
+          <li>Smit JM, Exterkate L, van Tienhoven AJ, … <b>Elbers PWG</b>, et al. INCIDENCE, RISK FACTORS, AND OUTCOME OF SUSPECTED CENTRAL VENOUS CATHETER-RELATED INFECTIONS IN CRITICALLY ILL COVID-19 PATIENTS: A MULTICENTER RETROSPECTIVE COHORT STUDY. <i>Shock</i> 2022;58(5):358–365. <a href="https://doi.org/10.1097/SHK.0000000000001994" target="_blank" rel="noopener">doi:10.1097/SHK.0000000000001994</a></li>
+          <li>Dam TA, Roggeveen LF, van Diggelen F, … <b>Elbers PWG</b>. Predicting responders to prone positioning in mechanically ventilated patients with COVID-19 using machine learning. <i>Ann Intensive Care</i> 2022;12(1):99. <a href="https://doi.org/10.1186/s13613-022-01070-0" target="_blank" rel="noopener">doi:10.1186/s13613-022-01070-0</a></li>
+          <li>Nasa P, Wise R, <b>Elbers PWG</b>, et al. Intravenous fluid therapy in perioperative and critical care setting-Knowledge test and practice: An international cross-sectional survey. <i>J Crit Care</i> 2022;71:154122. <a href="https://doi.org/10.1016/j.jcrc.2022.154122" target="_blank" rel="noopener">doi:10.1016/j.jcrc.2022.154122</a></li>
+          <li><span class="kind">Review</span> Jacobs R, Wise RD, Myatchin I, … <b>Elbers PWG</b>, et al. Fluid Management, Intra-Abdominal Hypertension and the Abdominal Compartment Syndrome: A Narrative Review. <i>Life (Basel)</i> 2022;12(9). <a href="https://doi.org/10.3390/life12091390" target="_blank" rel="noopener">doi:10.3390/life12091390</a></li>
+          <li>Roggeveen LF, Guo T, Fleuren LM, … <b>Elbers PWG</b>. Right dose, right now: bedside, real-time, data-driven, and personalised antibiotic dosing in critically ill patients with sepsis or septic shock-a two-centre randomised clinical trial. <i>Crit Care</i> 2022;26(1):265. <a href="https://doi.org/10.1186/s13054-022-04098-7" target="_blank" rel="noopener">doi:10.1186/s13054-022-04098-7</a></li>
+          <li>Conway Morris A, Kohler K, De Corte T, … <b>Elbers PWG</b>, et al. Co-infection and ICU-acquired infection in COIVD-19 ICU patients: a secondary analysis of the UNITE-COVID data set. <i>Crit Care</i> 2022;26(1):236. <a href="https://doi.org/10.1186/s13054-022-04108-8" target="_blank" rel="noopener">doi:10.1186/s13054-022-04108-8</a></li>
+          <li>Spoormans EM, Lemkes JS, Janssens GN, … <b>Elbers PWG</b>, et al. Ischaemic electrocardiogram patterns and its association with survival in out-of-hospital cardiac arrest patients without ST-segment elevation myocardial infarction: a COACT trials&#x27; post-hoc subgroup analysis. <i>Eur Heart J Acute Cardiovasc Care</i> 2022;11(7):535–543. <a href="https://doi.org/10.1093/ehjacc/zuac060" target="_blank" rel="noopener">doi:10.1093/ehjacc/zuac060</a></li>
+          <li>Greco M, De Corte T, Ercole A, … <b>Elbers P</b>, et al. Clinical and organizational factors associated with mortality during the peak of first COVID-19 wave: the global UNITE-COVID study. <i>Intensive Care Med</i> 2022;48(6):690–705. <a href="https://doi.org/10.1007/s00134-022-06705-1" target="_blank" rel="noopener">doi:10.1007/s00134-022-06705-1</a></li>
+          <li>Guo T, Abdulla A, Koch BCP, … <b>Elbers PWG</b>, et al. Pooled Population Pharmacokinetic Analysis for Exploring Ciprofloxacin Pharmacokinetic Variability in Intensive Care Patients. <i>Clin Pharmacokinet</i> 2022;61(6):869–879. <a href="https://doi.org/10.1007/s40262-022-01114-5" target="_blank" rel="noopener">doi:10.1007/s40262-022-01114-5</a></li>
+          <li>Sauer CM, Dam TA, Celi LA, … <b>Elbers P</b>. Systematic Review and Comparison of Publicly Available ICU Data Sets-A Decision Guide for Clinicians and Data Scientists. <i>Crit Care Med</i> 2022;50(6):e581–e588. <a href="https://doi.org/10.1097/CCM.0000000000005517" target="_blank" rel="noopener">doi:10.1097/CCM.0000000000005517</a></li>
+          <li>Fujarski M, Porschen C, Plagwitz L, … <b>Elbers P</b>, et al. Prediction of Acute Kidney Injury in the Intensive Care Unit: Preliminary Findings in a European Open Access Database. <i>Stud Health Technol Inform</i> 2022;294:139–140. <a href="https://doi.org/10.3233/SHTI220419" target="_blank" rel="noopener">doi:10.3233/SHTI220419</a></li>
+          <li>Collard D, Stronks K, Harris V, … <b>Elbers P</b>, et al. Ethnic Differences in Coronavirus Disease 2019 Hospitalization and Hospital Outcomes in a Multiethnic Population in the Netherlands. <i>Open Forum Infect Dis</i> 2022;9(6):ofac257. <a href="https://doi.org/10.1093/ofid/ofac257" target="_blank" rel="noopener">doi:10.1093/ofid/ofac257</a></li>
+          <li>Chandra J, Armengol de la Hoz MA, Lee G, … <b>Elbers P</b>, et al. A novel Vascular Leak Index identifies sepsis patients with a higher risk for in-hospital death and fluid accumulation. <i>Crit Care</i> 2022;26(1):103. <a href="https://doi.org/10.1186/s13054-022-03968-4" target="_blank" rel="noopener">doi:10.1186/s13054-022-03968-4</a></li>
+          <li>Vagliano I, Brinkman S, Abu-Hanna A, … <b>Elbers PWG</b>, et al. Can we reliably automate clinical prognostic modelling? A retrospective cohort study for ICU triage prediction of in-hospital mortality of COVID-19 patients in the Netherlands. <i>Int J Med Inform</i> 2022;160:104688. <a href="https://doi.org/10.1016/j.ijmedinf.2022.104688" target="_blank" rel="noopener">doi:10.1016/j.ijmedinf.2022.104688</a></li>
+          <li>Edinburgh T, Eglen SJ, Thoral P, <b>Elbers P</b>, Ercole A. Sepsis-3 criteria in AmsterdamUMCdb: open-source code implementation. <i>GigaByte</i> 2022;2022:gigabyte45. <a href="https://doi.org/10.46471/gigabyte.45" target="_blank" rel="noopener">doi:10.46471/gigabyte.45</a></li>
+          <li>de Vos J, Visser LA, de Beer AA, … <b>Elbers PWG</b>, et al. The Potential Cost-Effectiveness of a Machine Learning Tool That Can Prevent Untimely Intensive Care Unit Discharge. <i>Value Health</i> 2022;25(3):359–367. <a href="https://doi.org/10.1016/j.jval.2021.06.018" target="_blank" rel="noopener">doi:10.1016/j.jval.2021.06.018</a></li>
+          <li>Camaro C, Bonnes JL, Adang EM, … <b>Elbers PW</b>, et al. Cost Analysis From a Randomized Comparison of Immediate Versus Delayed Angiography After Cardiac Arrest. <i>J Am Heart Assoc</i> 2022;11(5):e022238. <a href="https://doi.org/10.1161/JAHA.121.022238" target="_blank" rel="noopener">doi:10.1161/JAHA.121.022238</a></li>
+          <li><span class="kind">Letter</span> de Grooth HJ, <b>Elbers P</b>. Pick your prior: scepticism about sceptical prior beliefs. <i>Intensive Care Med</i> 2022;48(3):374–375. <a href="https://doi.org/10.1007/s00134-021-06602-z" target="_blank" rel="noopener">doi:10.1007/s00134-021-06602-z</a></li>
+          <li>Janssens GN, Daemen J, Lemkes JS, … <b>Elbers PWG</b>, et al. The influence of timing of coronary angiography on acute kidney injury in out-of-hospital cardiac arrest patients: a retrospective cohort study. <i>Ann Intensive Care</i> 2022;12(1):12. <a href="https://doi.org/10.1186/s13613-022-00987-w" target="_blank" rel="noopener">doi:10.1186/s13613-022-00987-w</a></li>
+          <li>van der Ven WH, Schuurmans J, Schenk J, … <b>Elbers PWG</b>, et al. Monitoring, management, and outcome of hypotension in Intensive Care Unit patients, an international survey of the European Society of Intensive Care Medicine. <i>J Crit Care</i> 2022;67:118–125. <a href="https://doi.org/10.1016/j.jcrc.2021.10.008" target="_blank" rel="noopener">doi:10.1016/j.jcrc.2021.10.008</a></li>
+          <li>Spoormans EM, Lemkes JS, Janssens GN, … <b>Elbers PWG</b>. Targeted Temperature Management in Out-of-Hospital Cardiac Arrest With Shockable Rhythm: A Post Hoc Analysis of the Coronary Angiography After Cardiac Arrest Trial. <i>Crit Care Med</i> 2022;50(2):e129–e142. <a href="https://doi.org/10.1097/CCM.0000000000005271" target="_blank" rel="noopener">doi:10.1097/CCM.0000000000005271</a></li>
+          <li>Boerman AW, Schinkel M, Meijerink L, … <b>Elbers PWG</b>, et al. Using machine learning to predict blood culture outcomes in the emergency department: a single-centre, retrospective, observational study. <i>BMJ Open</i> 2022;12(1):e053332. <a href="https://doi.org/10.1136/bmjopen-2021-053332" target="_blank" rel="noopener">doi:10.1136/bmjopen-2021-053332</a></li>
+          <li>Smit JM, Krijthe JH, Endeman H, … <b>Elbers PWG</b>, et al. Dynamic prediction of mortality in COVID-19 patients in the intensive care unit: A retrospective multi-center cohort study. <i>Intell Based Med</i> 2022;6:100071. <a href="https://doi.org/10.1016/j.ibmed.2022.100071" target="_blank" rel="noopener">doi:10.1016/j.ibmed.2022.100071</a></li>
+          <li><span class="kind">Review</span> Plečko D, Bennett N, Mårtensson J, … <b>Elbers PWG</b>, et al. Rapid Evaluation of Coronavirus Illness Severity (RECOILS) in intensive care: Development and validation of a prognostic tool for in-hospital mortality. <i>Acta Anaesthesiol Scand</i> 2022;66(1):65–75. <a href="https://doi.org/10.1111/aas.13991" target="_blank" rel="noopener">doi:10.1111/aas.13991</a></li>
+        </ul>
+      </details>
+      <details>
+        <summary>2021 <span>29</span></summary>
+        <ul class="pubs">
+          <li>Fleuren LM, Dam TA, Tonutti M, … <b>Elbers PWG</b>. Predictors for extubation failure in COVID-19 patients using a machine learning approach. <i>Crit Care</i> 2021;25(1):448. <a href="https://doi.org/10.1186/s13054-021-03864-3" target="_blank" rel="noopener">doi:10.1186/s13054-021-03864-3</a></li>
+          <li>De Corte T, <b>Elbers P</b>, De Waele J. The future of antimicrobial dosing in the ICU: an opportunity for data science. <i>Intensive Care Med</i> 2021;47(12):1481–1483. <a href="https://doi.org/10.1007/s00134-021-06549-1" target="_blank" rel="noopener">doi:10.1007/s00134-021-06549-1</a></li>
+          <li><span class="kind">Letter</span> de Metz J, Thoral PJ, Chorus CG, <b>Elbers PWG</b>, van den Bogaard B. Behavioural artificial intelligence technology for COVID-19 intensivist triage decisions: making the implicit explicit. <i>Intensive Care Med</i> 2021;47(11):1327–1328. <a href="https://doi.org/10.1007/s00134-021-06453-8" target="_blank" rel="noopener">doi:10.1007/s00134-021-06453-8</a></li>
+          <li>Dam TA, de Grooth HJ, Klausch T, … <b>Elbers PWG</b>. Some Patients Are More Equal Than Others: Variation in Ventilator Settings for Coronavirus Disease 2019 Acute Respiratory Distress Syndrome. <i>Crit Care Explor</i> 2021;3(10):e0555. <a href="https://doi.org/10.1097/CCE.0000000000000555" target="_blank" rel="noopener">doi:10.1097/CCE.0000000000000555</a></li>
+          <li>Sauer CM, Gómez J, Botella MR, … <b>Elbers P</b>, et al. Understanding critically ill sepsis patients with normal serum lactate levels: results from U.S. and European ICU cohorts. <i>Sci Rep</i> 2021;11(1):20076. <a href="https://doi.org/10.1038/s41598-021-99581-6" target="_blank" rel="noopener">doi:10.1038/s41598-021-99581-6</a></li>
+          <li>Xu H, Agha-Mir-Salim L, O&#x27;Brien Z, … <b>Elbers P</b>, et al. Varying association of laboratory values with reference ranges and outcomes in critically ill patients: an analysis of data from five databases in four countries across Asia, Europe and North America. <i>BMJ Health Care Inform</i> 2021;28(1). <a href="https://doi.org/10.1136/bmjhci-2021-100419" target="_blank" rel="noopener">doi:10.1136/bmjhci-2021-100419</a></li>
+          <li>Schenk J, van der Ven WH, Schuurmans J, … <b>Elbers PWG</b>, et al. Definition and incidence of hypotension in intensive care unit patients, an international survey of the European Society of Intensive Care Medicine. <i>J Crit Care</i> 2021;65:142–148. <a href="https://doi.org/10.1016/j.jcrc.2021.05.023" target="_blank" rel="noopener">doi:10.1016/j.jcrc.2021.05.023</a></li>
+          <li>Smit JM, Haaksma ME, Winkler MH, … <b>Elbers PWG</b>, et al. Lung ultrasound in a tertiary intensive care unit population: a diagnostic accuracy study. <i>Crit Care</i> 2021;25(1):339. <a href="https://doi.org/10.1186/s13054-021-03759-3" target="_blank" rel="noopener">doi:10.1186/s13054-021-03759-3</a></li>
+          <li>Gelissen H, de Grooth HJ, Smulders Y, … <b>Elbers P</b>, et al. Effect of Low-Normal vs High-Normal Oxygenation Targets on Organ Dysfunction in Critically Ill Patients: A Randomized Clinical Trial. <i>JAMA</i> 2021;326(10):940–948. <a href="https://doi.org/10.1001/jama.2021.13011" target="_blank" rel="noopener">doi:10.1001/jama.2021.13011</a></li>
+          <li>Thoral PJ, Fornasa M, de Bruin DP, … <b>Elbers PWG</b>. Explainable Machine Learning on AmsterdamUMCdb for ICU Discharge Decision Support: Uniting Intensivists and Data Scientists. <i>Crit Care Explor</i> 2021;3(9):e0529. <a href="https://doi.org/10.1097/CCE.0000000000000529" target="_blank" rel="noopener">doi:10.1097/CCE.0000000000000529</a></li>
+          <li>Fleuren LM, Dam TA, Tonutti M, … <b>Elbers PWG</b>. The Dutch Data Warehouse, a multicenter and full-admission electronic health records database for critically ill COVID-19 patients. <i>Crit Care</i> 2021;25(1):304. <a href="https://doi.org/10.1186/s13054-021-03733-z" target="_blank" rel="noopener">doi:10.1186/s13054-021-03733-z</a></li>
+          <li>Rozemeijer S, de Grooth HJ, <b>Elbers PWG</b>, et al. Early high-dose vitamin C in post-cardiac arrest syndrome (VITaCCA): study protocol for a randomized, double-blind, multi-center, placebo-controlled trial. <i>Trials</i> 2021;22(1):546. <a href="https://doi.org/10.1186/s13063-021-05483-3" target="_blank" rel="noopener">doi:10.1186/s13063-021-05483-3</a></li>
+          <li>Rozemeijer S, Smit B, <b>Elbers PWG</b>, Girbes ARJ, Oudemans-van Straaten HM, de Man AME. Rapid screening of critically ill patients for low plasma vitamin C concentrations using a point-of-care oxidation-reduction potential measurement. <i>Intensive Care Med Exp</i> 2021;9(1):40. <a href="https://doi.org/10.1186/s40635-021-00403-w" target="_blank" rel="noopener">doi:10.1186/s40635-021-00403-w</a></li>
+          <li>Ottenhoff MC, Ramos LA, Potters W, … <b>Elbers PWG</b>, et al. Predicting mortality of individual patients with COVID-19: a multicentre Dutch cohort. <i>BMJ Open</i> 2021;11(7):e047347. <a href="https://doi.org/10.1136/bmjopen-2020-047347" target="_blank" rel="noopener">doi:10.1136/bmjopen-2020-047347</a></li>
+          <li>Lemkes JS, Spoormans EM, Demirkiran A, … <b>Elbers PWG</b>, et al. The effect of immediate coronary angiography after cardiac arrest without ST-segment elevation on left ventricular function. A sub-study of the COACT randomised trial. <i>Resuscitation</i> 2021;164:93–100. <a href="https://doi.org/10.1016/j.resuscitation.2021.04.020" target="_blank" rel="noopener">doi:10.1016/j.resuscitation.2021.04.020</a></li>
+          <li>Fleuren LM, Tonutti M, de Bruin DP, … <b>Elbers PWG</b>, et al. Risk factors for adverse outcomes during mechanical ventilation of 1152 COVID-19 patients: a multicenter machine learning study with highly granular data from the Dutch Data Warehouse. <i>Intensive Care Med Exp</i> 2021;9(1):32. <a href="https://doi.org/10.1186/s40635-021-00397-5" target="_blank" rel="noopener">doi:10.1186/s40635-021-00397-5</a></li>
+          <li>Thoral PJ, Peppink JM, Driessen RH, … <b>Elbers PWG</b>. Sharing ICU Patient Data Responsibly Under the Society of Critical Care Medicine/European Society of Intensive Care Medicine Joint Data Science Collaboration: The Amsterdam University Medical Centers Database (AmsterdamUMCdb) Example. <i>Crit Care Med</i> 2021;49(6):e563–e577. <a href="https://doi.org/10.1097/CCM.0000000000004916" target="_blank" rel="noopener">doi:10.1097/CCM.0000000000004916</a></li>
+          <li>Werumeus Buning A, Hodiamont CJ, Lechner NM, … <b>Elbers PWG</b>, et al. Population Pharmacokinetics and Probability of Target Attainment of Different Dosing Regimens of Ceftazidime in Critically Ill Patients with a Proven or Suspected Pseudomonas aeruginosa Infection. <i>Antibiotics (Basel)</i> 2021;10(6). <a href="https://doi.org/10.3390/antibiotics10060612" target="_blank" rel="noopener">doi:10.3390/antibiotics10060612</a></li>
+          <li>Paranjape K, Schinkel M, Hammer RD, … <b>Elbers PWG</b>, et al. The Value of Artificial Intelligence in Laboratory Medicine. <i>Am J Clin Pathol</i> 2021;155(6):823–831. <a href="https://doi.org/10.1093/ajcp/aqaa170" target="_blank" rel="noopener">doi:10.1093/ajcp/aqaa170</a></li>
+          <li><span class="kind">Review</span> Van Regenmortel N, Moers L, Langer T, … <b>Elbers P</b>, et al. Fluid-induced harm in the hospital: look beyond volume and start considering sodium. From physiology towards recommendations for daily practice in hospitalized adults. <i>Ann Intensive Care</i> 2021;11(1):79. <a href="https://doi.org/10.1186/s13613-021-00851-3" target="_blank" rel="noopener">doi:10.1186/s13613-021-00851-3</a></li>
+          <li>Bulthuis MC, Boxhoorn L, Beudel M, … <b>Elbers PWG</b>, et al. Acute pancreatitis in COVID-19 patients: true risk? <i>Scand J Gastroenterol</i> 2021;56(5):585–587. <a href="https://doi.org/10.1080/00365521.2021.1896776" target="_blank" rel="noopener">doi:10.1080/00365521.2021.1896776</a></li>
+          <li><span class="kind">Letter</span> Fleuren LM, de Bruin DP, Tonutti M, Lalisang RCA, <b>Elbers PWG</b>. Large-scale ICU data sharing for global collaboration: the first 1633 critically ill COVID-19 patients in the Dutch Data Warehouse. <i>Intensive Care Med</i> 2021;47(4):478–481. <a href="https://doi.org/10.1007/s00134-021-06361-x" target="_blank" rel="noopener">doi:10.1007/s00134-021-06361-x</a></li>
+          <li>Guo T, van Hest RM, Fleuren LM, … <b>Elbers PWG</b>. Why we should sample sparsely and aim for a higher target: Lessons from model-based therapeutic drug monitoring of vancomycin in intensive care patients. <i>Br J Clin Pharmacol</i> 2021;87(3):1234–1242. <a href="https://doi.org/10.1111/bcp.14498" target="_blank" rel="noopener">doi:10.1111/bcp.14498</a></li>
+          <li>Collard D, Nurmohamed NS, Kaiser Y, … <b>Elbers PWG</b>, et al. Cardiovascular risk factors and COVID-19 outcomes in hospitalised patients: a prospective cohort study. <i>BMJ Open</i> 2021;11(2):e045482. <a href="https://doi.org/10.1136/bmjopen-2020-045482" target="_blank" rel="noopener">doi:10.1136/bmjopen-2020-045482</a></li>
+          <li>Roggeveen L, El Hassouni A, Ahrendt J, … <b>Elbers PW</b>. Transatlantic transferability of a new reinforcement learning model for optimizing haemodynamic treatment for critically ill patients with sepsis. <i>Artif Intell Med</i> 2021;112:102003. <a href="https://doi.org/10.1016/j.artmed.2020.102003" target="_blank" rel="noopener">doi:10.1016/j.artmed.2020.102003</a></li>
+          <li><span class="kind">Editorial</span> Maslove DM, <b>Elbers PWG</b>, Clermont G. Artificial intelligence in telemetry: what clinicians should know. <i>Intensive Care Med</i> 2021;47(2):150–153. <a href="https://doi.org/10.1007/s00134-020-06295-w" target="_blank" rel="noopener">doi:10.1007/s00134-020-06295-w</a></li>
+          <li>Peters EJ, Collard D, Van Assen S, … <b>Elbers PW</b>, et al. Outcomes of persons with coronavirus disease 2019 in hospitals with and without standard treatment with (hydroxy)chloroquine. <i>Clin Microbiol Infect</i> 2021;27(2):264–268. <a href="https://doi.org/10.1016/j.cmi.2020.10.004" target="_blank" rel="noopener">doi:10.1016/j.cmi.2020.10.004</a></li>
+          <li>Ariës MJH, van den Bergh JP, Beudel M, … <b>Elbers PWG</b>, et al. [Clinical course of COVID-19 in the Netherlands: an overview of 2607 patients in hospital during the first wave]. <i>Ned Tijdschr Geneeskd</i> 2021;165. <a href="https://pubmed.ncbi.nlm.nih.gov/33651497/" target="_blank" rel="noopener">PubMed</a></li>
+          <li>Spoormans EM, Lemkes JS, Janssens GN, … <b>Elbers PWG</b>, et al. Sex differences in patients with out-of-hospital cardiac arrest without ST-segment elevation: A COACT trial substudy. <i>Resuscitation</i> 2021;158:14–22. <a href="https://doi.org/10.1016/j.resuscitation.2020.10.026" target="_blank" rel="noopener">doi:10.1016/j.resuscitation.2020.10.026</a></li>
+        </ul>
+      </details>
+      <details>
+        <summary>2020 <span>10</span></summary>
+        <ul class="pubs">
+          <li>Lemkes JS, Janssens GN, van der Hoeven NW, … <b>Elbers PWG</b>, et al. Coronary Angiography After Cardiac Arrest Without ST Segment Elevation: One-Year Outcomes of the COACT Randomized Clinical Trial. <i>JAMA Cardiol</i> 2020;5(12):1358–1365. <a href="https://doi.org/10.1001/jamacardio.2020.3670" target="_blank" rel="noopener">doi:10.1001/jamacardio.2020.3670</a></li>
+          <li><b>Elbers PWG</b>, de Grooth HJ, Girbes ARJ. The effect of small versus large clog size on emergency response time: A randomized controlled trial. <i>J Crit Care</i> 2020;60:116–119. <a href="https://doi.org/10.1016/j.jcrc.2020.07.028" target="_blank" rel="noopener">doi:10.1016/j.jcrc.2020.07.028</a></li>
+          <li>Spoormans EM, Lemkes JS, Janssens GN, … <b>Elbers PWG</b>, et al. Data on sex differences in one-year outcomes of out-of-hospital cardiac arrest patients without ST-segment elevation. <i>Data Brief</i> 2020;33:106521. <a href="https://doi.org/10.1016/j.dib.2020.106521" target="_blank" rel="noopener">doi:10.1016/j.dib.2020.106521</a></li>
+          <li>Guo T, van Hest RM, Zwep LB, … <b>Elbers PWG</b>, et al. Optimizing Predictive Performance of Bayesian Forecasting for Vancomycin Concentration in Intensive Care Patients. <i>Pharm Res</i> 2020;37(9):171. <a href="https://doi.org/10.1007/s11095-020-02908-7" target="_blank" rel="noopener">doi:10.1007/s11095-020-02908-7</a></li>
+          <li><span class="kind">Letter</span> Fleuren LM, Thoral P, Shillan D, Ercole A, <b>Elbers PWG</b>. Machine learning in intensive care medicine: ready for take-off? <i>Intensive Care Med</i> 2020;46(7):1486–1488. <a href="https://doi.org/10.1007/s00134-020-06045-y" target="_blank" rel="noopener">doi:10.1007/s00134-020-06045-y</a></li>
+          <li><span class="kind">Review</span> Malbrain MLNG, Langer T, Annane D, … <b>Elbers P</b>, et al. Intravenous fluid therapy in the perioperative and critical care setting: Executive summary of the International Fluid Academy (IFA). <i>Ann Intensive Care</i> 2020;10(1):64. <a href="https://doi.org/10.1186/s13613-020-00679-3" target="_blank" rel="noopener">doi:10.1186/s13613-020-00679-3</a></li>
+          <li>Roggeveen LF, Guo T, Driessen RH, … <b>Elbers P</b>. Right Dose, Right Now: Development of AutoKinetics for Real Time Model Informed Precision Antibiotic Dosing Decision Support at the Bedside of Critically Ill Patients. <i>Front Pharmacol</i> 2020;11:646. <a href="https://doi.org/10.3389/fphar.2020.00646" target="_blank" rel="noopener">doi:10.3389/fphar.2020.00646</a></li>
+          <li><span class="kind">Letter</span> Haaksma ME, Smit JM, Heldeweg MLA, Pisani L, <b>Elbers P</b>, Tuinman PR. Lung ultrasound and B-lines: B careful! <i>Intensive Care Med</i> 2020;46(3):544–545. <a href="https://doi.org/10.1007/s00134-019-05911-8" target="_blank" rel="noopener">doi:10.1007/s00134-019-05911-8</a></li>
+          <li><span class="kind">Review</span> Fleuren LM, Klausch TLT, Zwager CL, … <b>Elbers PWG</b>. Machine learning for the prediction of sepsis: a systematic review and meta-analysis of diagnostic test accuracy. <i>Intensive Care Med</i> 2020;46(3):383–400. <a href="https://doi.org/10.1007/s00134-019-05872-y" target="_blank" rel="noopener">doi:10.1007/s00134-019-05872-y</a></li>
+          <li><span class="kind">Letter</span> de Grooth HJ, <b>Elbers PWG</b>, Vincent JL. Vitamin C for Sepsis and Acute Respiratory Failure. <i>JAMA</i> 2020;323(8):792. <a href="https://doi.org/10.1001/jama.2019.21981" target="_blank" rel="noopener">doi:10.1001/jama.2019.21981</a></li>
+        </ul>
+      </details>
+      <details>
+        <summary>2019 <span>12</span></summary>
+        <ul class="pubs">
+          <li>Roggeveen LF, Fleuren LM, Guo T, … <b>Elbers PWG</b>. Right Dose Right Now: bedside data-driven personalized antibiotic dosing in severe sepsis and septic shock - rationale and design of a multicenter randomized controlled superiority trial. <i>Trials</i> 2019;20(1):745. <a href="https://doi.org/10.1186/s13063-019-3911-5" target="_blank" rel="noopener">doi:10.1186/s13063-019-3911-5</a></li>
+          <li><span class="kind">Review</span> Zwager CL, Tuinman PR, de Grooth HJ, … <b>Elbers PWG</b>. Why physiology will continue to guide the choice between balanced crystalloids and normal saline: a systematic review and meta-analysis. <i>Crit Care</i> 2019;23(1):366. <a href="https://doi.org/10.1186/s13054-019-2658-4" target="_blank" rel="noopener">doi:10.1186/s13054-019-2658-4</a></li>
+          <li><span class="kind">Review</span> Spoelstra-de Man AME, Oudemans-van Straaten HM, <b>Elbers PWG</b>. Vitamin C and thiamine in critical illness. <i>BJA Educ</i> 2019;19(9):290–296. <a href="https://doi.org/10.1016/j.bjae.2019.05.005" target="_blank" rel="noopener">doi:10.1016/j.bjae.2019.05.005</a></li>
+          <li><span class="kind">Letter</span> Santos-Silva J, Lichtenstein D, Tuinman PR, <b>Elbers PWG</b>. The lung point, still a sign specific to pneumothorax. <i>Intensive Care Med</i> 2019;45(9):1327–1328. <a href="https://doi.org/10.1007/s00134-019-05677-z" target="_blank" rel="noopener">doi:10.1007/s00134-019-05677-z</a></li>
+          <li>Rozemeijer S, Haitsma Mulier JLG, Röttgering JG, … <b>Elbers PWG</b>, et al. Renal Resistive Index: Response to Shock and its Determinants in Critically Ill Patients. <i>Shock</i> 2019;52(1):43–51. <a href="https://doi.org/10.1097/SHK.0000000000001246" target="_blank" rel="noopener">doi:10.1097/SHK.0000000000001246</a></li>
+          <li><span class="kind">Case report</span> Haaksma ME, Nossent EJ, <b>Elbers P</b>, Tuinman PR. Case Report: Pulmonary hemorrhage as a rare cause of lung ultrasound A/B-profile. <i>F1000Res</i> 2019;8:788. <a href="https://doi.org/10.12688/f1000research.19329.2" target="_blank" rel="noopener">doi:10.12688/f1000research.19329.2</a></li>
+          <li>Fleuren LM, Roggeveen LF, Guo T, … <b>Elbers PWG</b>. Clinically relevant pharmacokinetic knowledge on antibiotic dosing among intensive care professionals is insufficient: a cross-sectional study. <i>Crit Care</i> 2019;23(1):185. <a href="https://doi.org/10.1186/s13054-019-2438-1" target="_blank" rel="noopener">doi:10.1186/s13054-019-2438-1</a></li>
+          <li>Rozemeijer S, Spoelstra-de Man AME, Coenen S, … <b>Elbers PWG</b>, et al. Estimating Vitamin C Status in Critically Ill Patients with a Novel Point-of-Care Oxidation-Reduction Potential Measurement. <i>Nutrients</i> 2019;11(5). <a href="https://doi.org/10.3390/nu11051031" target="_blank" rel="noopener">doi:10.3390/nu11051031</a></li>
+          <li><span class="kind">Letter</span> Tulleken AM, Gelissen H, Lust E, … <b>Elbers PWG</b>. UltraNurse: teaching point-of-care ultrasound to intensive care nurses. <i>Intensive Care Med</i> 2019;45(5):727–729. <a href="https://doi.org/10.1007/s00134-018-05512-x" target="_blank" rel="noopener">doi:10.1007/s00134-018-05512-x</a></li>
+          <li>Dekker NAM, Veerhoek D, Koning NJ, … <b>Elbers PWG</b>, et al. Postoperative microcirculatory perfusion and endothelial glycocalyx shedding following cardiac surgery with cardiopulmonary bypass. <i>Anaesthesia</i> 2019;74(5):609–618. <a href="https://doi.org/10.1111/anae.14577" target="_blank" rel="noopener">doi:10.1111/anae.14577</a></li>
+          <li>Guo T, van Hest RM, Roggeveen LF, … <b>Elbers PWG</b>. External Evaluation of Population Pharmacokinetic Models of Vancomycin in Large Cohorts of Intensive Care Unit Patients. <i>Antimicrob Agents Chemother</i> 2019;63(5). <a href="https://doi.org/10.1128/AAC.02543-18" target="_blank" rel="noopener">doi:10.1128/AAC.02543-18</a></li>
+          <li>Lemkes JS, Janssens GN, van der Hoeven NW, … <b>Elbers PWG</b>, et al. Coronary Angiography after Cardiac Arrest without ST-Segment Elevation. <i>N Engl J Med</i> 2019;380(15):1397–1407. <a href="https://doi.org/10.1056/NEJMoa1816897" target="_blank" rel="noopener">doi:10.1056/NEJMoa1816897</a></li>
+        </ul>
+      </details>
+      <details>
+        <summary>2018 <span>7</span></summary>
+        <ul class="pubs">
+          <li><span class="kind">Letter</span> Spoelstra-de Man AME, de Grooth HJ, <b>Elbers PWG</b>, Oudemans-van Straaten HM. Response to &quot;Adjuvant vitamin C in cardiac arrest patients undergoing renal replacement therapy: an appeal for a higher high-dose&quot;. <i>Crit Care</i> 2018;22(1):350. <a href="https://doi.org/10.1186/s13054-018-2200-0" target="_blank" rel="noopener">doi:10.1186/s13054-018-2200-0</a></li>
+          <li><span class="kind">Review</span> Spoelstra-de Man AME, <b>Elbers PWG</b>, Oudemans-Van Straaten HM. Vitamin C: should we supplement? <i>Curr Opin Crit Care</i> 2018;24(4):248–255. <a href="https://doi.org/10.1097/MCC.0000000000000510" target="_blank" rel="noopener">doi:10.1097/MCC.0000000000000510</a></li>
+          <li>Touw HR, Parlevliet KL, Beerepoot M, … <b>Elbers PW</b>, et al. Lung ultrasound compared with chest X-ray in diagnosing postoperative pulmonary complications following cardiothoracic surgery: a prospective observational study. <i>Anaesthesia</i> 2018;73(8):946–954. <a href="https://doi.org/10.1111/anae.14243" target="_blank" rel="noopener">doi:10.1111/anae.14243</a></li>
+          <li>Steenvoorden TS, Hilderink B, <b>Elbers PWG</b>, Tuinman PR. Lung point in the absence of pneumothorax. <i>Intensive Care Med</i> 2018;44(8):1329–1330. <a href="https://doi.org/10.1007/s00134-018-5112-1" target="_blank" rel="noopener">doi:10.1007/s00134-018-5112-1</a></li>
+          <li>Haitsma Mulier JLG, Rozemeijer S, Röttgering JG, … <b>Elbers PWG</b>, et al. Renal resistive index as an early predictor and discriminator of acute kidney injury in critically ill patients; A prospective observational cohort study. <i>PLoS One</i> 2018;13(6):e0197967. <a href="https://doi.org/10.1371/journal.pone.0197967" target="_blank" rel="noopener">doi:10.1371/journal.pone.0197967</a></li>
+          <li><span class="kind">Review</span> <b>Elbers PWG</b>, Kooter J, van Regenmortel N. [Abnormal saline&#x27;s swan song]. <i>Ned Tijdschr Geneeskd</i> 2018;162. <a href="https://pubmed.ncbi.nlm.nih.gov/30040329/" target="_blank" rel="noopener">PubMed</a></li>
+          <li><span class="kind">Review</span> Spoelstra-de Man AME, <b>Elbers PWG</b>, Oudemans-van Straaten HM. Making sense of early high-dose intravenous vitamin C in ischemia/reperfusion injury. <i>Crit Care</i> 2018;22(1):70. <a href="https://doi.org/10.1186/s13054-018-1996-y" target="_blank" rel="noopener">doi:10.1186/s13054-018-1996-y</a></li>
+        </ul>
+      </details>
+      <details>
+        <summary>2017 <span>10</span></summary>
+        <ul class="pubs">
+          <li>Waldauf P, Rubulotta F, Sitzwohl C, … <b>Elbers P</b>, et al. Factors associated with success in the oral part of the European Diploma in Intensive Care. <i>J Intensive Care Soc</i> 2017;18(4):294–299. <a href="https://doi.org/10.1177/1751143717712623" target="_blank" rel="noopener">doi:10.1177/1751143717712623</a></li>
+          <li><span class="kind">Letter</span> Oudemans-van Straaten HM, <b>Elbers PWG</b>, Spoelstra-de Man AME. Response. <i>Chest</i> 2017;152(3):687–688. <a href="https://doi.org/10.1016/j.chest.2017.06.045" target="_blank" rel="noopener">doi:10.1016/j.chest.2017.06.045</a></li>
+          <li><span class="kind">Editorial</span> Oudemans-van Straaten HM, <b>Elbers PWG</b>, Spoelstra-de Man AME. How to Give Vitamin C a Cautious but Fair Chance in Severe Sepsis. <i>Chest</i> 2017;151(6):1199–1200. <a href="https://doi.org/10.1016/j.chest.2017.01.008" target="_blank" rel="noopener">doi:10.1016/j.chest.2017.01.008</a></li>
+          <li><span class="kind">Letter</span> <b>Elbers PW</b>, Heunks L, Peñuelas O, Muriel A, Nin N, Esteban A. Compliance and statistics : Discussion on &quot;Severe hypercapnia and outcomes of mechanically ventilated patients with moderate or severe acute respiratory distress syndrome&quot;. <i>Intensive Care Med</i> 2017;43(5):724–725. <a href="https://doi.org/10.1007/s00134-017-4747-7" target="_blank" rel="noopener">doi:10.1007/s00134-017-4747-7</a></li>
+          <li><span class="kind">Letter</span> Stapel SN, <b>Elbers PW</b>, Straaten HM. VCO(2)-derived energy expenditure: do not throw the baby out with the bath water! <i>Crit Care</i> 2017;21(1):82. <a href="https://doi.org/10.1186/s13054-017-1668-3" target="_blank" rel="noopener">doi:10.1186/s13054-017-1668-3</a></li>
+          <li><span class="kind">Review</span> Malbrain MLNG, De Tavernier B, Haverals S, … <b>Elbers P</b>, et al. Executive summary on the use of ultrasound in the critically ill: consensus report from the 3rd Course on Acute Care Ultrasound (CACU). <i>Anaesthesiol Intensive Ther</i> 2017;49(5):393–411. <a href="https://doi.org/10.5603/AIT.a2017.0072" target="_blank" rel="noopener">doi:10.5603/AIT.a2017.0072</a></li>
+          <li>Ten Tusscher B, Gudden C, van Vliet S, … <b>Elbers PWG</b>. Focus on focus: lack of coherence between systemic and microvascular indices of oedema formation. <i>Anaesthesiol Intensive Ther</i> 2017;49(5):350–357. <a href="https://doi.org/10.5603/AIT.a2017.0062" target="_blank" rel="noopener">doi:10.5603/AIT.a2017.0062</a></li>
+          <li><span class="kind">Review</span> Ruigrok D, Symersky P, <b>Elbers PWG</b>, Kamminga S, Meijboom LJ, Bogaard HJ. [Chronic thromboembolic pulmonary hypertension: recognition, diagnosis and treatment]. <i>Ned Tijdschr Geneeskd</i> 2017;161:D1597. <a href="https://pubmed.ncbi.nlm.nih.gov/29027516/" target="_blank" rel="noopener">PubMed</a></li>
+          <li><b>Elbers PWG</b>, Girbes ARJ. [Healthcare professionals back in the driving seat]. <i>Ned Tijdschr Geneeskd</i> 2017;161:D1562. <a href="https://pubmed.ncbi.nlm.nih.gov/28635578/" target="_blank" rel="noopener">PubMed</a></li>
+          <li><b>Elbers PWG</b>, Kamp O, van der Sluijs JP, Lely R, Tuinman PR. [Should every doctor be allowed to use ultrasound? Dilemmas surrounding broad application of ultrasound in clinical practice]. <i>Ned Tijdschr Geneeskd</i> 2017;161:D1063. <a href="https://pubmed.ncbi.nlm.nih.gov/28488552/" target="_blank" rel="noopener">PubMed</a></li>
+        </ul>
+      </details>
+      <details>
+        <summary>2016 <span>3</span></summary>
+        <ul class="pubs">
+          <li><span class="kind">Review</span> Ten Hoorn S, <b>Elbers PW</b>, Girbes AR, Tuinman PR. Communicating with conscious and mechanically ventilated critically ill patients: a systematic review. <i>Crit Care</i> 2016;20(1):333. <a href="https://doi.org/10.1186/s13054-016-1483-2" target="_blank" rel="noopener">doi:10.1186/s13054-016-1483-2</a></li>
+          <li>Lemkes JS, Janssens GN, Straaten HM, … <b>Elbers PW</b>, et al. Coronary angiography after cardiac arrest: Rationale and design of the COACT trial. <i>Am Heart J</i> 2016;180:39–45. <a href="https://doi.org/10.1016/j.ahj.2016.06.025" target="_blank" rel="noopener">doi:10.1016/j.ahj.2016.06.025</a></li>
+          <li><span class="kind">Letter</span> Gatz RK, <b>Elbers P</b>. Surprisingly High Levels of Strong Ion Gap in Pediatric Burn Patients Study. <i>J Burn Care Res</i> 2016;37(3):e301. <a href="https://doi.org/10.1097/BCR.0000000000000227" target="_blank" rel="noopener">doi:10.1097/BCR.0000000000000227</a></li>
+        </ul>
+      </details>
+      <details>
+        <summary>2015 <span>10</span></summary>
+        <ul class="pubs">
+          <li>Stapel SN, de Grooth HJ, Alimohamad H, … <b>Elbers PW</b>, et al. Ventilator-derived carbon dioxide production to assess energy expenditure in critically ill patients: proof of concept. <i>Crit Care</i> 2015;19:370. <a href="https://doi.org/10.1186/s13054-015-1087-2" target="_blank" rel="noopener">doi:10.1186/s13054-015-1087-2</a></li>
+          <li><span class="kind">Letter</span> Touw HR, Tuinman PR, Gelissen HP, Lust E, <b>Elbers PW</b>. Response to the letter of Trovato et al. <i>Neth J Med</i> 2015;73(6):306. <a href="https://pubmed.ncbi.nlm.nih.gov/26228203/" target="_blank" rel="noopener">PubMed</a></li>
+          <li><span class="kind">Review</span> Touw HR, Tuinman PR, Gelissen HP, Lust E, <b>Elbers PW</b>. Lung ultrasound: routine practice for the next generation of internists. <i>Neth J Med</i> 2015;73(3):100–107. <a href="https://pubmed.ncbi.nlm.nih.gov/25852109/" target="_blank" rel="noopener">PubMed</a></li>
+          <li><span class="kind">Letter</span> Tuinman PR, Ten Hoorn S, Aalders YJ, <b>Elbers PW</b>, Girbes AR. The electrolarynx improves communication in a selected group of mechanically ventilated critically ill patients: a feasibility study. <i>Intensive Care Med</i> 2015;41(3):547–548. <a href="https://doi.org/10.1007/s00134-014-3591-2" target="_blank" rel="noopener">doi:10.1007/s00134-014-3591-2</a></li>
+          <li><span class="kind">Review</span> <b>Elbers P</b>, Rodrigus T, Nossent E, Malbrain ML, Vonk-Noordegraaf A. Fluid therapy in critically ill patients: perspectives from the right heart. <i>Anaesthesiol Intensive Ther</i> 2015;47 Spec No:s38–s43. <a href="https://doi.org/10.5603/AIT.a2015.0080" target="_blank" rel="noopener">doi:10.5603/AIT.a2015.0080</a></li>
+          <li><span class="kind">Editorial</span> Priebe HJ, Malbrain ML, <b>Elbers P</b>. The great fluid debate: methodology, physiology and appendicitis. <i>Anaesthesiol Intensive Ther</i> 2015;47(5):437–440. <a href="https://doi.org/10.5603/AIT.a2015.0067" target="_blank" rel="noopener">doi:10.5603/AIT.a2015.0067</a></li>
+          <li><span class="kind">Editorial</span> <b>Elbers PW</b>, Van Regenmortel N, Gatz R. Over ten thousand cases and counting: acidbase.org is serving the critical care community. <i>Anaesthesiol Intensive Ther</i> 2015;47(5):441–448. <a href="https://doi.org/10.5603/AIT.a2015.0060" target="_blank" rel="noopener">doi:10.5603/AIT.a2015.0060</a></li>
+          <li><span class="kind">Review</span> <b>Elbers PW</b>, Girbes A, Malbrain ML, Bosman R. Right dose, right now: using big data to optimize antibiotic dosing in the critically ill. <i>Anaesthesiol Intensive Ther</i> 2015;47(5):457–463. <a href="https://doi.org/10.5603/AIT.a2015.0061" target="_blank" rel="noopener">doi:10.5603/AIT.a2015.0061</a></li>
+          <li>Meinders AJ, Nieuwenhuis L, Ince C, Bos WJ, <b>Elbers PW</b>. Haemodialysis Impairs the Human Microcirculation Independent from Macrohemodynamic Parameters. <i>Blood Purif</i> 2015;40(1):38–44. <a href="https://doi.org/10.1159/000380902" target="_blank" rel="noopener">doi:10.1159/000380902</a></li>
+          <li><span class="kind">Review</span> Hoefeijzers MP, ter Horst LH, Koning N, Vonk AB, Boer C, <b>Elbers PW</b>. The pulsatile perfusion debate in cardiac surgery: answers from the microcirculation? <i>J Cardiothorac Vasc Anesth</i> 2015;29(3):761–767. <a href="https://doi.org/10.1053/j.jvca.2014.07.025" target="_blank" rel="noopener">doi:10.1053/j.jvca.2014.07.025</a></li>
+        </ul>
+      </details>
+      <details>
+        <summary>2014 <span>3</span></summary>
+        <ul class="pubs">
+          <li>de Wolf SP, Deunk J, Cornet AD, <b>Elbers PW</b>. Case Report: Bilateral reexpansion pulmonary edema following treatment of a unilateral hemothorax. <i>F1000Res</i> 2014;3:318. <a href="https://doi.org/10.12688/f1000research.6000.1" target="_blank" rel="noopener">doi:10.12688/f1000research.6000.1</a></li>
+          <li><span class="kind">Review</span> Lichtenstein D, van Hooland S, <b>Elbers P</b>, Malbrain ML. Ten good reasons to practice ultrasound in critical care. <i>Anaesthesiol Intensive Ther</i> 2014;46(5):323–335. <a href="https://doi.org/10.5603/AIT.2014.0056" target="_blank" rel="noopener">doi:10.5603/AIT.2014.0056</a></li>
+          <li><span class="kind">Letter</span> Girbes AR, <b>Elbers PW</b>. Speech in an orally intubated patient. <i>N Engl J Med</i> 2014;370(12):1172–1173. <a href="https://doi.org/10.1056/NEJMc1313379" target="_blank" rel="noopener">doi:10.1056/NEJMc1313379</a></li>
+        </ul>
+      </details>
+      <details>
+        <summary>2013 <span>3</span></summary>
+        <ul class="pubs">
+          <li><span class="kind">Editorial</span> Oudemans-van Straaten HM, <b>Elbers PW</b>. How to explain and exploit the beneficial effects of high-volume hemofiltration on hemodynamics and strong ion gap. <i>Intensive Care Med</i> 2013;39(6):1140–1142. <a href="https://doi.org/10.1007/s00134-013-2820-4" target="_blank" rel="noopener">doi:10.1007/s00134-013-2820-4</a></li>
+          <li><span class="kind">Letter</span> <b>Elbers P</b>, Gatz R, Anstey C. Chloride-restrictive fluid administration and incidence of acute kidney injury. <i>JAMA</i> 2013;309(6):542–543. <a href="https://doi.org/10.1001/jama.2012.171511" target="_blank" rel="noopener">doi:10.1001/jama.2012.171511</a></li>
+          <li><span class="kind">Review</span> Kooter AJ, Oudemans-van Straaten HM, <b>Elbers P</b>, Smulders YM. [Volume replacement therapy; what is the solution?]. <i>Ned Tijdschr Geneeskd</i> 2013;157(41):A6503. <a href="https://pubmed.ncbi.nlm.nih.gov/24103137/" target="_blank" rel="noopener">PubMed</a></li>
+        </ul>
+      </details>
+      <details>
+        <summary>2012 <span>4</span></summary>
+        <ul class="pubs">
+          <li><b>Elbers PW</b>, Prins WB, Plokker HW, van Dongen EP, van Iterson M, Ince C. Electrical cardioversion for atrial fibrillation improves microvascular flow independent of blood pressure changes. <i>J Cardiothorac Vasc Anesth</i> 2012;26(5):799–803. <a href="https://doi.org/10.1053/j.jvca.2012.04.016" target="_blank" rel="noopener">doi:10.1053/j.jvca.2012.04.016</a></li>
+          <li><span class="kind">Letter</span> <b>Elbers P</b>, Gatz R. Crystalloid resuscitation in hemorrhagic shock. <i>Resuscitation</i> 2012;83(8):e172; author reply e173. <a href="https://doi.org/10.1016/j.resuscitation.2012.03.037" target="_blank" rel="noopener">doi:10.1016/j.resuscitation.2012.03.037</a></li>
+          <li><span class="kind">Letter</span> Gatz R, <b>Elbers P</b>. Hypochloraemia and worse clinical outcome in critically ill patients. <i>ScientificWorldJournal</i> 2012;2012:234628. <a href="https://doi.org/10.1100/2012/234628" target="_blank" rel="noopener">doi:10.1100/2012/234628</a></li>
+          <li>Bethlehem C, Groenwold FM, Buter H, … <b>Elbers P</b>, et al. The impact of a pulmonary-artery-catheter-based protocol on fluid and catecholamine administration in early sepsis. <i>Crit Care Res Pract</i> 2012;2012:161879. <a href="https://doi.org/10.1155/2012/161879" target="_blank" rel="noopener">doi:10.1155/2012/161879</a></li>
+        </ul>
+      </details>
+      <details>
+        <summary>2011 <span>4</span></summary>
+        <ul class="pubs">
+          <li>Bezemer R, Dobbe JG, Bartels SA, … <b>Elbers PW</b>, et al. Rapid automatic assessment of microvascular density in sidestream dark field images. <i>Med Biol Eng Comput</i> 2011;49(11):1269–1278. <a href="https://doi.org/10.1007/s11517-011-0824-1" target="_blank" rel="noopener">doi:10.1007/s11517-011-0824-1</a></li>
+          <li><b>Elbers PW</b>, Wijbenga J, Solinger F, et al. Direct observation of the human microcirculation during cardiopulmonary bypass: effects of pulsatile perfusion. <i>J Cardiothorac Vasc Anesth</i> 2011;25(2):250–255. <a href="https://doi.org/10.1053/j.jvca.2010.06.014" target="_blank" rel="noopener">doi:10.1053/j.jvca.2010.06.014</a></li>
+          <li><span class="kind">Letter</span> Gatz R, <b>Elbers P</b>. Albumin is not a buffer in plasma. <i>Blood Transfus</i> 2011;9(1):107. <a href="https://doi.org/10.2450/2010.0015-10" target="_blank" rel="noopener">doi:10.2450/2010.0015-10</a></li>
+          <li><span class="kind">Letter</span> <b>Elbers PWG</b>. In reply to Dr Koning et al. <i>J Cardiothorac Vasc Anesth</i> 2011;25(4). <a href="https://doi.org/10.1053/j.jvca.2011.02.015" target="_blank" rel="noopener">doi:10.1053/j.jvca.2011.02.015</a></li>
+        </ul>
+      </details>
+      <details>
+        <summary>2010 <span>5</span></summary>
+        <ul class="pubs">
+          <li><span class="kind">Letter</span> Gatz RK, <b>Elbers PW</b>. In defense of the Stewart approach to acid-base analysis. <i>Kidney Int</i> 2010;78(7):711. <a href="https://doi.org/10.1038/ki.2010.245" target="_blank" rel="noopener">doi:10.1038/ki.2010.245</a></li>
+          <li><b>Elbers PW</b>, Ozdemir A, Heijmen RH, et al. Microvascular hemodynamics in human hypothermic circulatory arrest and selective antegrade cerebral perfusion. <i>Crit Care Med</i> 2010;38(7):1548–1553. <a href="https://doi.org/10.1097/CCM.0b013e3181e2a3f9" target="_blank" rel="noopener">doi:10.1097/CCM.0b013e3181e2a3f9</a></li>
+          <li>Kruyt ND, Biessels GJ, Vriesendorp TM, … <b>Elbers PW</b>, et al. Subjecting acute ischemic stroke patients to continuous tube feeding and an intensive computerized protocol establishes tight glycemic control. <i>Neurocrit Care</i> 2010;12(1):62–68. <a href="https://doi.org/10.1007/s12028-009-9230-z" target="_blank" rel="noopener">doi:10.1007/s12028-009-9230-z</a></li>
+          <li>Munsterman LD, <b>Elbers PW</b>, Ozdemir A, van Dongen EP, van Iterson M, Ince C. Withdrawing intra-aortic balloon pump support paradoxically improves microvascular flow. <i>Crit Care</i> 2010;14(4):R161. <a href="https://doi.org/10.1186/cc9242" target="_blank" rel="noopener">doi:10.1186/cc9242</a></li>
+          <li><span class="kind">Case report</span> <b>Elbers PW</b>, Craenen AJ, Driessen A, et al. Imaging the human microcirculation during cardiopulmonary resuscitation in a hypothermic victim of submersion trauma. <i>Resuscitation</i> 2010;81(1):123–125. <a href="https://doi.org/10.1016/j.resuscitation.2009.09.032" target="_blank" rel="noopener">doi:10.1016/j.resuscitation.2009.09.032</a></li>
+        </ul>
+      </details>
+      <details>
+        <summary>2009 <span>3</span></summary>
+        <ul class="pubs">
+          <li><span class="kind">Letter</span> <b>Elbers P</b>, Atasever B. Quality and consistency in microvascular research. <i>Br J Anaesth</i> 2009;102(6):886; author reply 886-7. <a href="https://doi.org/10.1093/bja/aep117" target="_blank" rel="noopener">doi:10.1093/bja/aep117</a></li>
+          <li><span class="kind">Case report</span> Meinders AJ, <b>Elbers P</b>. Images in clinical medicine. Leukocytosis and sublingual microvascular blood flow. <i>N Engl J Med</i> 2009;360(7):e9. <a href="https://doi.org/10.1056/NEJMicm066261" target="_blank" rel="noopener">doi:10.1056/NEJMicm066261</a></li>
+          <li><b>Elbers PW</b>, Ozdemir A, van Iterson M, van Dongen EP, Ince C. Microcirculatory imaging in cardiac anesthesia: ketanserin reduces blood pressure but not perfused capillary density. <i>J Cardiothorac Vasc Anesth</i> 2009;23(1):95–101. <a href="https://doi.org/10.1053/j.jvca.2008.09.013" target="_blank" rel="noopener">doi:10.1053/j.jvca.2008.09.013</a></li>
+        </ul>
+      </details>
+      <details>
+        <summary>2007 <span>1</span></summary>
+        <ul class="pubs">
+          <li><span class="kind">Letter</span> <b>Elbers PW</b>. Fast-track microcirculation analysis. <i>Crit Care</i> 2007;11(6):426. <a href="https://doi.org/10.1186/cc6182" target="_blank" rel="noopener">doi:10.1186/cc6182</a></li>
+        </ul>
+      </details>
+      <details>
+        <summary>2006 <span>2</span></summary>
+        <ul class="pubs">
+          <li><b>Elbers PW</b>, de Haan P, Vanicky I, Legemate D, Dzoljic M. Effect of temporary visceral ischemia on spinal cord ischemic damage in the rabbit. <i>Ann Thorac Surg</i> 2006;81(3):910–917. <a href="https://doi.org/10.1016/j.athoracsur.2005.09.019" target="_blank" rel="noopener">doi:10.1016/j.athoracsur.2005.09.019</a></li>
+          <li><span class="kind">Review</span> <b>Elbers PW</b>, Ince C. Mechanisms of critical illness--classifying microcirculatory flow abnormalities in distributive shock. <i>Crit Care</i> 2006;10(4):221. <a href="https://doi.org/10.1186/cc4969" target="_blank" rel="noopener">doi:10.1186/cc4969</a></li>
+        </ul>
+      </details>
+      </div>
+      <h3>Other work</h3>
+      <div>
+      <details id="preprints">
+        <summary>Preprints <span>9</span></summary>
+        <ul class="pubs">
+          <li>Moulin O, Francois-lavet V, <b>Elbers P</b>, Hoogendoorn M. Leveraging weights signals – Predicting and improving generalizability in reinforcement learning. <i>arXiv</i> 2025. <a href="https://arxiv.org/abs/2511.20234" target="_blank" rel="noopener">arXiv:2511.20234</a></li>
+          <li>Angelakis A, Mousa A, Heldeweg MLA, … <b>Elbers PWG</b>. ZACH-ViT: A Zero-Token Vision Transformer with ShuffleStrides Data Augmentation for Robust Lung Ultrasound Classification. <i>arXiv</i> 2025. <a href="https://arxiv.org/abs/2510.17650" target="_blank" rel="noopener">arXiv:2510.17650</a></li>
+          <li>van de Water R, Schmidt H, <b>Elbers P</b>, Thoral P, Arnrich B, Rockenschaub P. Yet Another ICU Benchmark: A Flexible Multi-Center Framework for Clinical ML. <i>arXiv</i> 2023. <a href="https://arxiv.org/abs/2306.05109" target="_blank" rel="noopener">arXiv:2306.05109</a></li>
+          <li>Moulin O, Francois-Lavet V, <b>Elbers P</b>, Hoogendoorn M. Improving generalization to new environments and removing catastrophic forgetting in Reinforcement Learning by using an eco-system of agents. <i>arXiv</i> 2022. <a href="https://arxiv.org/abs/2204.06550" target="_blank" rel="noopener">arXiv:2204.06550</a></li>
+          <li>Zadorozhny K, Thoral P, <b>Elbers P</b>, Cinà G. Out-of-Distribution Detection for Medical Applications: Guidelines for Practical Evaluation. <i>arXiv</i> 2021. <a href="https://arxiv.org/abs/2109.14885" target="_blank" rel="noopener">arXiv:2109.14885</a></li>
+          <li>Izdebski A, Thoral PJ, Lalisang RCA, … <b>Elbers PWG</b>, et al. A pragmatic approach to estimating average treatment effects from EHR data: the effect of prone positioning on mechanically ventilated COVID-19 patients. <i>arXiv</i> 2021. <a href="https://arxiv.org/abs/2109.06707" target="_blank" rel="noopener">arXiv:2109.06707</a></li>
+          <li>Qian Z, Zame WR, Fleuren LM, <b>Elbers P</b>, van der Schaar M. Integrating Expert ODEs into Neural ODEs: Pharmacology and Disease Progression. <i>arXiv</i> 2021. <a href="https://arxiv.org/abs/2106.02875" target="_blank" rel="noopener">arXiv:2106.02875</a></li>
+          <li>Jordon J, Jarrett D, Yoon J, … <b>Elbers P</b>, et al. Hide-and-Seek Privacy Challenge. <i>arXiv</i> 2020. <a href="https://arxiv.org/abs/2007.12087" target="_blank" rel="noopener">arXiv:2007.12087</a></li>
+          <li>Ruhe D, Cinà G, Tonutti M, de Bruin D, <b>Elbers P</b>. Bayesian Modelling in Practice: Using Uncertainty to Improve Trustworthiness in Medical Applications. <i>arXiv</i> 2019. <a href="https://arxiv.org/abs/1906.08619" target="_blank" rel="noopener">arXiv:1906.08619</a></li>
+        </ul>
+      </details>
+      <details id="chapters">
+        <summary>Book chapters <span>2</span></summary>
+        <ul class="pubs">
+          <li>de Grooth HJ, Schraverus P, <b>Elbers PWG</b>. Laboratory tests: blood gases, anion gap, and strong ion gap. In: <i>Critical Care Nephrology, third edition</i>. 2017:374–378.</li>
+          <li><b>Elbers PWG</b>, van Bochove VA, Tuinman PR, Gatz R. Acid–base. In: <i>Surgical Intensive Care Medicine, third edition</i>. 2016:109–118.</li>
+        </ul>
+      </details>
+      <details id="study-groups">
+        <summary>As a member of a study group <span>35</span></summary>
+        <ul class="pubs">
+          <li>Filippini DFL, Khyali J, Janssen M, et al. With Paul Elbers as a member of the study group. Tocilizumab Efficacy Across Inflammatory Subphenotypes in COVID-19-Related Acute Respiratory Distress Syndrome. <i>Crit Care Explor</i> 2026;8(3):e1392. <a href="https://doi.org/10.1097/CCE.0000000000001392" target="_blank" rel="noopener">doi:10.1097/CCE.0000000000001392</a></li>
+          <li>Spoormans EM, Thevathasan T, van Royen N, et al. With Paul Elbers as a member of the study group. One-Year Outcomes of Coronary Angiography After Out-of-Hospital Cardiac Arrest Without ST Elevation: An Individual Patient Data Meta-Analysis. <i>JAMA Cardiol</i> 2025;10(8):779–786. <a href="https://doi.org/10.1001/jamacardio.2025.1194" target="_blank" rel="noopener">doi:10.1001/jamacardio.2025.1194</a></li>
+          <li>Boers LS, van Someren Gréve F, van Hattem JM, et al. With Paul Elbers as a member of the study group. Pulmonary herpes simplex virus and cytomegalovirus in patients with acute respiratory distress syndrome related to COVID-19. <i>Intensive Care Med</i> 2024;50(8):1251–1264. <a href="https://doi.org/10.1007/s00134-024-07529-x" target="_blank" rel="noopener">doi:10.1007/s00134-024-07529-x</a></li>
+          <li>Marchal A, Cirulli ET, Neveux I, et al. With Paul Elbers as a member of the study group. Lack of association between classical HLA genes and asymptomatic SARS-CoV-2 infection. <i>HGG Adv</i> 2024;5(3):100300. <a href="https://doi.org/10.1016/j.xhgg.2024.100300" target="_blank" rel="noopener">doi:10.1016/j.xhgg.2024.100300</a></li>
+          <li>De Corte T, Kohler K, Cecconi M, et al. With Paul Elbers as a member of the study group. Characteristics of co-infection and secondary infection amongst critically ill COVID-19 patients in the first two waves of the pandemic. <i>Intensive Care Med</i> 2024;50(6):989–993. <a href="https://doi.org/10.1007/s00134-024-07444-1" target="_blank" rel="noopener">doi:10.1007/s00134-024-07444-1</a></li>
+          <li>Slim MA, Lim EHT, van Vught LA, et al. With Paul Elbers as a member of the study group. The effect of immunosuppressive therapies on the endothelial host response in critically ill COVID-19 patients. <i>Sci Rep</i> 2024;14(1):9113. <a href="https://doi.org/10.1038/s41598-024-59385-w" target="_blank" rel="noopener">doi:10.1038/s41598-024-59385-w</a></li>
+          <li>Michels EHA, Appelman B, de Brabander J, et al. With Paul Elbers as a member of the study group. Host Response Changes and Their Association with Mortality in COVID-19 Patients with Lymphopenia. <i>Am J Respir Crit Care Med</i> 2024;209(4):402–416. <a href="https://doi.org/10.1164/rccm.202305-0890OC" target="_blank" rel="noopener">doi:10.1164/rccm.202305-0890OC</a></li>
+          <li>Termorshuizen F, Dongelmans DA, Brinkman S, et al. With Paul Elbers as a member of the study group. Characteristics and outcome of COVID-19 patients admitted to the ICU: a nationwide cohort study on the comparison between the consecutive stages of the COVID-19 pandemic in the Netherlands, an update. <i>Ann Intensive Care</i> 2024;14(1):11. <a href="https://doi.org/10.1186/s13613-023-01238-2" target="_blank" rel="noopener">doi:10.1186/s13613-023-01238-2</a></li>
+          <li>Schut MC, Dongelmans DA, de Lange DW, et al. With Paul Elbers as a member of the study group. Development and evaluation of regression tree models for predicting in-hospital mortality of a national registry of COVID-19 patients over six pandemic surges. <i>BMC Med Inform Decis Mak</i> 2024;24(1):7. <a href="https://doi.org/10.1186/s12911-023-02401-2" target="_blank" rel="noopener">doi:10.1186/s12911-023-02401-2</a></li>
+          <li>Léopold V, Chouchane O, Butler JM, et al. With Paul Elbers as a member of the study group. Platelets of COVID-19 patients display mitochondrial dysfunction, oxidative stress, and energy metabolism failure compatible with cell death. <i>Res Pract Thromb Haemost</i> 2023;7(7):102213. <a href="https://doi.org/10.1016/j.rpth.2023.102213" target="_blank" rel="noopener">doi:10.1016/j.rpth.2023.102213</a></li>
+          <li>Vagliano I, Kingma MY, Dongelmans DA, et al. With Paul Elbers as a member of the study group. Automated identification of patient subgroups: A case-study on mortality of COVID-19 patients admitted to the ICU. <i>Comput Biol Med</i> 2023;163:107146. <a href="https://doi.org/10.1016/j.compbiomed.2023.107146" target="_blank" rel="noopener">doi:10.1016/j.compbiomed.2023.107146</a></li>
+          <li>de Brabander J, Boers LS, Kullberg RFJ, et al. With Paul Elbers as a member of the study group. Persistent alveolar inflammatory response in critically ill patients with COVID-19 is associated with mortality. <i>Thorax</i> 2023;78(9):912–921. <a href="https://doi.org/10.1136/thorax-2023-219989" target="_blank" rel="noopener">doi:10.1136/thorax-2023-219989</a></li>
+          <li>Hessels LM, Speksnijder E, Paternotte N, et al. With Paul Elbers as a member of the study group. Procalcitonin-Guided Antibiotic Prescription in Patients With COVID-19: A Multicenter Observational Cohort Study. <i>Chest</i> 2023;164(3):596–605. <a href="https://doi.org/10.1016/j.chest.2023.04.032" target="_blank" rel="noopener">doi:10.1016/j.chest.2023.04.032</a></li>
+          <li>Guo L, Appelman B, Mooij-Kalverda K, et al. With Paul Elbers as a member of the study group. Prolonged indoleamine 2,3-dioxygenase-2 activity and associated cellular stress in post-acute sequelae of SARS-CoV-2 infection. <i>EBioMedicine</i> 2023;94:104729. <a href="https://doi.org/10.1016/j.ebiom.2023.104729" target="_blank" rel="noopener">doi:10.1016/j.ebiom.2023.104729</a></li>
+          <li>Matuozzo D, Talouarn E, Marchal A, et al. With Paul Elbers as a member of the study group. Rare predicted loss-of-function variants of type I IFN immunity genes are associated with life-threatening COVID-19. <i>Genome Med</i> 2023;15(1):22. <a href="https://doi.org/10.1186/s13073-023-01173-8" target="_blank" rel="noopener">doi:10.1186/s13073-023-01173-8</a></li>
+          <li>den Uil CA, Termorshuizen F, Rietdijk WJR, et al. With Paul Elbers as a member of the study group. Age Moderates the Effect of Obesity on Mortality Risk in Critically Ill Patients With COVID-19: A Nationwide Observational Cohort Study. <i>Crit Care Med</i> 2023;51(4):484–491. <a href="https://doi.org/10.1097/CCM.0000000000005788" target="_blank" rel="noopener">doi:10.1097/CCM.0000000000005788</a></li>
+          <li>Lim EHT, Vlaar APJ, Bos LDJ, et al. With Paul Elbers as a member of the study group. Anti-C5a antibody vilobelimab treatment and the effect on biomarkers of inflammation and coagulation in patients with severe COVID-19: a substudy of the  phase 2 PANAMO trial. <i>Respir Res</i> 2022;23(1):375. <a href="https://doi.org/10.1186/s12931-022-02278-1" target="_blank" rel="noopener">doi:10.1186/s12931-022-02278-1</a></li>
+          <li>Wortel SA, Bakhshi-Raiez F, Termorshuizen F, et al. With Paul Elbers as a member of the study group. Comparison of patient characteristics and long-term mortality between transferred and non-transferred COVID-19 patients in Dutch intensive care units: A national cohort study. <i>Acta Anaesthesiol Scand</i> 2022;66(9):1107–1115. <a href="https://doi.org/10.1111/aas.14129" target="_blank" rel="noopener">doi:10.1111/aas.14129</a></li>
+          <li>Kullberg RFJ, de Brabander J, Boers LS, et al. With Paul Elbers as a member of the study group. Lung Microbiota of Critically Ill Patients with COVID-19 Are Associated with Nonresolving Acute Respiratory Distress Syndrome. <i>Am J Respir Crit Care Med</i> 2022;206(7):846–856. <a href="https://doi.org/10.1164/rccm.202202-0274OC" target="_blank" rel="noopener">doi:10.1164/rccm.202202-0274OC</a></li>
+          <li>Smeele PJ, Vermunt L, Blok S, et al. With Paul Elbers as a member of the study group. Neurofilament light increases over time in severe COVID-19 and is associated with delirium. <i>Brain Commun</i> 2022;4(4):fcac195. <a href="https://doi.org/10.1093/braincomms/fcac195" target="_blank" rel="noopener">doi:10.1093/braincomms/fcac195</a></li>
+          <li>de Brabander J, Michels EHA, van Linge CCA, et al. With Paul Elbers as a member of the study group. Association between dexamethasone treatment and the host response in COVID-19 patients admitted to the general ward. <i>Respir Res</i> 2022;23(1):145. <a href="https://doi.org/10.1186/s12931-022-02060-3" target="_blank" rel="noopener">doi:10.1186/s12931-022-02060-3</a></li>
+          <li>Brinkman S, Termorshuizen F, Dongelmans DA, et al. With Paul Elbers as a member of the study group. Comparison of outcome and characteristics between 6343 COVID-19 patients and 2256 other community-acquired viral pneumonia patients admitted to Dutch ICUs. <i>J Crit Care</i> 2022;68:76–82. <a href="https://doi.org/10.1016/j.jcrc.2021.12.007" target="_blank" rel="noopener">doi:10.1016/j.jcrc.2021.12.007</a></li>
+          <li>Appelman B, Oppelaar JJ, Broeders L, et al. With Paul Elbers as a member of the study group. Mortality and readmission rates among hospitalized COVID-19 patients with varying stages of chronic kidney disease: a multicenter retrospective cohort. <i>Sci Rep</i> 2022;12(1):2258. <a href="https://doi.org/10.1038/s41598-022-06276-7" target="_blank" rel="noopener">doi:10.1038/s41598-022-06276-7</a></li>
+          <li>Dongelmans DA, Termorshuizen F, Brinkman S, et al. With Paul Elbers as a member of the study group. Characteristics and outcome of COVID-19 patients admitted to the ICU: a nationwide cohort study on the comparison between the first and the consecutive upsurges of the second wave of the COVID-19 pandemic in the Netherlands. <i>Ann Intensive Care</i> 2022;12(1):5. <a href="https://doi.org/10.1186/s13613-021-00978-3" target="_blank" rel="noopener">doi:10.1186/s13613-021-00978-3</a></li>
+          <li> With Paul Elbers as a member of the study group. Mapping the human genetic architecture of COVID-19. <i>Nature</i> 2021;600(7889):472–477. <a href="https://doi.org/10.1038/s41586-021-03767-x" target="_blank" rel="noopener">doi:10.1038/s41586-021-03767-x</a></li>
+          <li>Asano T, Boisson B, Onodi F, et al. With Paul Elbers as a member of the study group. X-linked recessive TLR7 deficiency in ~1% of men under 60 years old with life-threatening COVID-19. <i>Sci Immunol</i> 2021;6(62). <a href="https://doi.org/10.1126/sciimmunol.abl4348" target="_blank" rel="noopener">doi:10.1126/sciimmunol.abl4348</a></li>
+          <li>Bastard P, Gervais A, Le Voyer T, et al. With Paul Elbers as a member of the study group. Autoantibodies neutralizing type I IFNs are present in ~4% of uninfected individuals over 70 years old and account for ~20% of COVID-19 deaths. <i>Sci Immunol</i> 2021;6(62). <a href="https://doi.org/10.1126/sciimmunol.abl4340" target="_blank" rel="noopener">doi:10.1126/sciimmunol.abl4340</a></li>
+          <li>Zonneveld R, Jurriaans S, van Gool T, et al. With Paul Elbers as a member of the study group. Head-to-head validation of six immunoassays for SARS-CoV-2 in hospitalized patients. <i>J Clin Virol</i> 2021;139:104821. <a href="https://doi.org/10.1016/j.jcv.2021.104821" target="_blank" rel="noopener">doi:10.1016/j.jcv.2021.104821</a></li>
+          <li>Koning R, Bastard P, Casanova JL, et al. With Paul Elbers as a member of the study group. Autoantibodies against type I interferons are associated with multi-organ failure in COVID-19 patients. <i>Intensive Care Med</i> 2021;47(6):704–706. <a href="https://doi.org/10.1007/s00134-021-06392-4" target="_blank" rel="noopener">doi:10.1007/s00134-021-06392-4</a></li>
+          <li>de Bruin S, Bos LD, van Roon MA, et al. With Paul Elbers as a member of the study group. Clinical features and prognostic factors in Covid-19: A prospective cohort study. <i>EBioMedicine</i> 2021;67:103378. <a href="https://doi.org/10.1016/j.ebiom.2021.103378" target="_blank" rel="noopener">doi:10.1016/j.ebiom.2021.103378</a></li>
+          <li>Schinkel M, Appelman B, Butler J, et al. With Paul Elbers as a member of the study group. Association of clinical sub-phenotypes and clinical deterioration in COVID-19: further cluster analyses. <i>Intensive Care Med</i> 2021;47(4):482–484. <a href="https://doi.org/10.1007/s00134-021-06363-9" target="_blank" rel="noopener">doi:10.1007/s00134-021-06363-9</a></li>
+          <li>Larsen MD, de Graaf EL, Sonneveld ME, et al. With Paul Elbers as a member of the study group. Afucosylated IgG characterizes enveloped viral responses and correlates with COVID-19 severity. <i>Science</i> 2021;371(6532). <a href="https://doi.org/10.1126/science.abc8378" target="_blank" rel="noopener">doi:10.1126/science.abc8378</a></li>
+          <li>Vogelzang EH, Loeff FC, Derksen NIL, et al. With Paul Elbers as a member of the study group. Development of a SARS-CoV-2 Total Antibody Assay and the Dynamics of Antibody Response over Time in Hospitalized and Nonhospitalized Patients with COVID-19. <i>J Immunol</i> 2020;205(12):3491–3499. <a href="https://doi.org/10.4049/jimmunol.2000767" target="_blank" rel="noopener">doi:10.4049/jimmunol.2000767</a></li>
+          <li>Bastard P, Rosen LB, Zhang Q, et al. With Paul Elbers as a member of the study group. Autoantibodies against type I IFNs in patients with life-threatening COVID-19. <i>Science</i> 2020;370(6515). <a href="https://doi.org/10.1126/science.abd4585" target="_blank" rel="noopener">doi:10.1126/science.abd4585</a></li>
+          <li>Zhang Q, Bastard P, Liu Z, et al. With Paul Elbers as a member of the study group. Inborn errors of type I IFN immunity in patients with life-threatening COVID-19. <i>Science</i> 2020;370(6515). <a href="https://doi.org/10.1126/science.abd4570" target="_blank" rel="noopener">doi:10.1126/science.abd4570</a></li>
+        </ul>
+      </details>
+      </div>
+    </div>
+  </section>
+
+</div>
+</main>
+
+<footer id="contact">
+  <div class="page">
+    <h2>Contact</h2>
+    <div class="body">
+      <dl class="contact">
+        <dt>Email</dt><dd><a href="mailto:p.elbers@amsterdamumc.nl">p.elbers@amsterdamumc.nl</a></dd>
+        <dt>Address</dt><dd>Department of Intensive Care Medicine, Amsterdam UMC, Amsterdam, the Netherlands</dd>
+      </dl>
+      <p class="small">This page is kept up to date with the help of AI. The publications are collected from PubMed and arXiv; nothing changes here before Paul Elbers has checked it. Publications last collected on 25 October 2026.</p>
+    </div>
+  </div>
+</footer>
+</body>
+</html>

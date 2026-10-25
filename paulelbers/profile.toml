@@ -1,0 +1,127 @@
+# The CV page of Paul Elbers, /paulelbers/: everything written by hand.
+#
+# The publications are collected into publications.json by
+#   python3 tools/cv.py collect
+# After changing this file or that one, rebuild the page with
+#   python3 tools/cv.py build
+# and propose the change as a pull request. Nothing here goes live before
+# Paul Elbers has merged it.
+#
+# In text, [words](address) makes a link. Links to other sites open in a new
+# tab by themselves.
+
+name = "Paul Elbers"
+letters = "MD, PhD, EDIC"
+short = "Intensivist, Amsterdam UMC"
+photo = "pe-cv.jpg"   # in images/
+description = "Paul Elbers is an intensivist and associate professor of intensive care medicine at Amsterdam UMC, founding director of the Center for Critical Care Computational Intelligence and co-founder of AmsterdamUMCdb. Positions, roles and publications."
+lead = "Intensivist and associate professor of intensive care medicine at [Amsterdam UMC](https://www.amsterdamumc.org/en/research/researchers/paul-elbers-1.htm). Founding director of the [Center for Critical Care Computational Intelligence](../c4i/) and co-founder of [AmsterdamUMCdb](../#amsterdamumcdb)."
+email = "p.elbers@amsterdamumc.nl"
+address = "Department of Intensive Care Medicine, Amsterdam UMC, Amsterdam, the Netherlands"
+
+about = [
+  "Paul Elbers works where intensive care medicine meets data science. His aim is to use the data of every previous intensive care patient to improve the care of every future one: sharing intensive care data, building models with artificial intelligence, bringing them to the bedside as decision support, and testing in clinical trials whether patients are better off.",
+  "He co-founded [AmsterdamUMCdb](../#amsterdamumcdb), the first freely available, highly granular intensive care database from within the European Union, and leads the [Center for Critical Care Computational Intelligence](../c4i/) (C4I) at Amsterdam UMC. During the COVID-19 pandemic the center coordinated the [Dutch Data Warehouse](https://doi.org/10.1186/s13054-021-03733-z), which brought together the full health records of critically ill COVID-19 patients from hospitals across the Netherlands. He also initiated [ICUdata](https://www.icudata.nl/), a foundation that combines the data of Dutch intensive care units.",
+  "His current work focuses on reinforcement learning at the bedside: algorithms that learn the best treatment from data, combined with [randomization when needed](https://doi.org/10.1007/s00134-026-08576-2), so that they keep learning while patients are protected.",
+]
+
+# Profiles elsewhere, shown under the name. "Google Scholar" is also linked
+# from the publications.
+links = [
+  { name = "Amsterdam UMC", url = "https://www.amsterdamumc.org/en/research/researchers/paul-elbers-1.htm" },
+  { name = "Pure", url = "https://pure.amsterdamumc.nl/en/persons/paul-elbers/" },
+  { name = "ORCID", url = "https://orcid.org/0000-0003-0447-6893" },
+  { name = "Google Scholar", url = "https://scholar.google.com/citations?user=jPPoHuAAAAAJ" },
+  { name = "PubMed", url = "https://pubmed.ncbi.nlm.nih.gov/?term=Elbers+p&filter=years.1994-3000&sort=date" },
+  { name = "LinkedIn", url = "https://www.linkedin.com/in/paulelbersmdphd/" },
+]
+
+# Google Scholar cannot be read by a program: Paul Elbers gives this number.
+h_index = { value = 51, source = "Google Scholar", checked = "2026-10" }
+
+# title, where, when ("when" may be left out)
+positions = [
+  { title = "Intensivist", where = "Department of Intensive Care Medicine, Amsterdam UMC" },
+  { title = "Associate professor of intensive care medicine", where = "Amsterdam UMC" },
+  { title = "Founding director", where = "[Center for Critical Care Computational Intelligence (C4I)](../c4i/), Amsterdam UMC" },
+  { title = "Co-founder and administrator", where = "[AmsterdamUMCdb](../#amsterdamumcdb), the freely available intensive care database of Amsterdam UMC" },
+]
+
+# All unpaid.
+roles = [
+  { title = "Research Committee", where = "European Society of Intensive Care Medicine (ESICM)" },
+  { title = "Science and Innovation Committee", where = "Dutch Society of Intensive Care (NVIC)" },
+  { title = "ICUdata", where = "Foundation that combines the data of Dutch intensive care units" },
+  { title = "Lage Landen foundation" },
+  { title = "International Fluid Academy" },
+  { title = "AcidBase.org", where = "Online decision support for acid–base disorders" },
+]
+
+education = [
+  { title = "PhD", where = "University of Amsterdam. Thesis: Focus on flow. Imaging the human microcirculation in perioperative and intensive care medicine. Promotor: Prof. dr. ir. C. Ince", when = "2010" },
+  { title = "European Diploma in Intensive Care (EDIC)", where = "European Society of Intensive Care Medicine" },
+]
+
+grants = [
+  { title = "IrelandICUdb", where = "Optimizing outcomes from weaning from invasive mechanical ventilation in Ireland: a federated, FAIR-aligned ICU database for benchmarking and policy translation. Health Research Board, Ireland", when = "2025–2029" },
+]
+
+# Shown first under Publications, in this order. Each must be in the list.
+selected = [
+  "10.1007/s00134-026-08576-2",
+  "10.1177/17511437261479649",
+  "10.1097/CCM.0000000000007129",
+  "10.1016/j.jointm.2025.07.002",
+  "10.1016/j.jcrc.2025.155205",
+  "10.1186/s13054-025-05532-2",
+  "10.1097/CCM.0000000000006100",
+  "10.1186/s40635-024-00614-x",
+  "10.1186/s13054-022-04098-7",
+  "10.1186/s13054-021-03733-z",
+  "10.1097/CCE.0000000000000529",
+  "10.1097/CCM.0000000000004916",
+  "10.1007/s00134-019-05872-y",
+]
+
+# Ids from publications.json that should not be shown.
+hide = []
+
+# Titles that ORCID or OpenAlex list, judged not worth listing here
+# (conference abstracts and the like). "collect" stops mentioning them.
+not_listed = [
+  "Microvascular effects of pulsatile versus nonpulsatile perfusion during cardiopulmonary bypass",
+  "Acidbase.org: online decision support in complex acid-base disorders using the Stewart approach",
+]
+
+# Work that PubMed and arXiv do not have. Found through ORCID.
+[[extra]]
+id = "chapter:2017-critical-care-nephrology"
+kind = "Book chapter"
+year = 2017
+sort = "2017"
+authors = ["de Grooth HJ", "Schraverus P", "Elbers PWG"]
+title = "Laboratory tests: blood gases, anion gap, and strong ion gap"
+venue = "Critical Care Nephrology, third edition"
+pages = "374–378"
+
+[[extra]]
+id = "chapter:2016-surgical-intensive-care-medicine"
+kind = "Book chapter"
+year = 2016
+sort = "2016"
+authors = ["Elbers PWG", "van Bochove VA", "Tuinman PR", "Gatz R"]
+title = "Acid–base"
+venue = "Surgical Intensive Care Medicine, third edition"
+pages = "109–118"
+
+[[extra]]
+id = "doi:10.1053/j.jvca.2011.02.015"
+kind = "Letter"
+year = 2011
+sort = "2011"
+authors = ["Elbers PWG"]
+title = "In reply to Dr Koning et al"
+venue = "J Cardiothorac Vasc Anesth"
+volume = "25"
+issue = "4"
+doi = "10.1053/j.jvca.2011.02.015"

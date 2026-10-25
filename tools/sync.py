@@ -1,6 +1,8 @@
 """Copies the stylesheet and the hidden symbols of the front page into the
 C4I page, so that both pages look the same.
 
+It also builds the CV page again, which takes the same stylesheet.
+
 Run it after changing the styles, the emblem or the three crosses in
 index.html:  python3 tools/sync.py
 """
@@ -21,6 +23,10 @@ def main() -> None:
         assert n == 1, f"c4i/index.html has no part that matches {pattern}"
     path.write_text(page, encoding="utf-8")
     print("c4i/index.html now has the stylesheet and the symbols of index.html.")
+    # The CV page takes the stylesheet when it is built.
+    import cv
+    (ROOT / "paulelbers" / "index.html").write_text(cv.build(), encoding="utf-8")
+    print("paulelbers/index.html is built again with it.")
 
 
 if __name__ == "__main__":
