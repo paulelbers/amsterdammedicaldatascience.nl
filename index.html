@@ -179,12 +179,19 @@ footer .page { display: grid; grid-template-columns: var(--margin-col) minmax(0,
 }
 @media (max-width: 760px) {
   section, footer .page, .credo { grid-template-columns: minmax(0, 1fr); gap: 14px; }
-  .bar { position: static; }
+  /* The menu is one line that swipes sideways, so the bar stays low enough to keep at the top */
+  .bar .page { row-gap: 4px; padding-bottom: 0; }
+  .bar nav { flex-wrap: nowrap; overflow-x: auto; white-space: nowrap; scrollbar-width: none;
+    width: calc(100% + 2 * var(--gutter)); margin-inline: calc(-1 * var(--gutter)); padding: 0 var(--gutter) 8px;
+    -webkit-mask-image: linear-gradient(to right, #000 calc(100% - 32px), transparent);
+    mask-image: linear-gradient(to right, #000 calc(100% - 32px), transparent); }
+  .bar nav::-webkit-scrollbar { display: none; }
+  .bar nav a { flex: 0 0 auto; }
   .opening-top { grid-template-columns: minmax(0, 1fr); }
   .emblem { width: 118px; order: -1; }
   .wordmark svg { display: none; }
-  .bar nav { gap: 2px 16px; }
-  section, .band, footer { scroll-margin-top: 12px; }
+  .bar nav { gap: 2px 18px; }
+  section, .band, footer, .body h3 { scroll-margin-top: 92px; }
   .credo .crosses { width: 84px; height: 24px; margin-top: 0; }
   .band .page { grid-template-columns: minmax(0, 1fr); }
   .band .crosses { width: 150px; order: -1; }
