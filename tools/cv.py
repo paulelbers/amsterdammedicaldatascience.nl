@@ -292,6 +292,8 @@ def citation(work: dict, label: bool = True) -> str:
         where = f'In: <i>{html.escape(work["venue"])}</i>. {work["year"]}{pages}.'
     elif work["kind"] == "Book":
         where = f'{html.escape(work["venue"])}, {work["year"]}.'
+        if work.get("isbn"):
+            where += f' ISBN {html.escape(work["isbn"])}.'
     else:
         where = f'<i>{html.escape(work["venue"])}</i> {work["year"]}'
         if work.get("volume"):
@@ -409,6 +411,23 @@ def build() -> str:
         for key, title, content in sections)
 
     name, letters = profile["name"], profile["letters"]
+    # For search engines: who this page is about, and the same person elsewhere.
+    # Data only; nothing runs.
+    person = {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": name,
+        "honorificSuffix": letters,
+        "jobTitle": "Intensivist and associate professor of intensive care medicine",
+        "worksFor": {"@type": "Organization", "name": "Amsterdam UMC", "url": "https://www.amsterdamumc.org/"},
+        "alumniOf": {"@type": "CollegeOrUniversity", "name": "University of Amsterdam"},
+        "url": "https://amsterdammedicaldatascience.nl/paulelbers/",
+        "image": f"https://amsterdammedicaldatascience.nl/images/{profile['photo']}",
+        "email": f"mailto:{profile['email']}",
+        "knowsAbout": profile.get("keywords", []),
+        "sameAs": [l["url"] for l in profile["links"] if l["name"] != "PubMed"],
+    }
+    structured = json.dumps(person, ensure_ascii=False, indent=1).replace("</", "<\\/")
     return f"""<!doctype html>
 <html lang="en">
 <head>
@@ -425,6 +444,9 @@ def build() -> str:
 <meta property="og:url" content="https://amsterdammedicaldatascience.nl/paulelbers/">
 <meta property="og:image" content="https://amsterdammedicaldatascience.nl/images/{profile["photo"]}">
 <meta name="twitter:card" content="summary">
+<script type="application/ld+json">
+{structured}
+</script>
 {icon}
 {style}
 <style>

@@ -36,6 +36,9 @@ links = [
   { name = "LinkedIn", url = "https://www.linkedin.com/in/paulelbersmdphd/" },
 ]
 
+# What search engines may connect him with.
+keywords = ["intensive care medicine", "critical care", "data science", "artificial intelligence", "machine learning", "reinforcement learning", "AmsterdamUMCdb", "acid-base"]
+
 # Google Scholar cannot be read by a program: Paul Elbers gives this number.
 h_index = { value = 54, source = "Google Scholar", checked = "2026-10" }  # all years; 51 since 2021
 
@@ -57,7 +60,6 @@ earlier = [
 
 # Boards, committees, editorial boards. All unpaid.
 roles = [
-  { title = "Chair, Data Science Section", where = "European Society of Intensive Care Medicine (ESICM)" },
   { title = "Editorial boards", where = "Intensive Care Medicine Experimental; Critical Care" },
   { title = "Organizer", where = "ESICM Critical Care Datathon (eight editions); World Summit on Reinforcement Learning for Health" },
   { title = "Member, Science and Innovation Committee; chair, Innovation Agenda Task Force", where = "Dutch Society of Intensive Care (NVIC)" },
@@ -70,6 +72,7 @@ roles = [
 ]
 
 former_roles = [
+  { title = "Chair, Data Science Section", where = "European Society of Intensive Care Medicine (ESICM)" },
   { title = "Vice-chair", where = "ESICM/SCCM Joint Data Science Task Force" },
   { title = "Member, Examination Committee; director of an EDIC part 2 examination center", where = "European Society of Intensive Care Medicine" },
 ]
@@ -103,13 +106,9 @@ teaching = [
   { title = "Daily teaching and supervision", where = "Fellows, residents, nurses and students in intensive care" },
   { title = "Ultrasound curricula", where = "Initiator of the ICARUS, CACU and UltraNurse certifications" },
   { title = "Courses", where = "Clinical data science, microcirculation, acid–base, pharmacokinetics and extracorporeal circulation" },
+  { title = "Practical AI literacy for intensive care and acute care clinicians", where = "[ISICEM](https://www.isicem.org/), Brussels; pre-symposium course, chair with Azra Bihorac", when = "2026" },
+  { title = "Summer School of Clinical Acid-Base and Homeostasis", where = "Charles University, Prague; faculty", when = "2019, 2023" },
   { title = "PhD committees", where = "In the Netherlands and abroad, among them at Imperial College London" },
-]
-
-lectures = [
-  { title = "Right Dose, Right Now", where = "ESICM LIVES, Paris, President's Research Release", when = "2022" },
-  { title = "AI against sepsis", where = "Tecnosepsis, Mallorca, keynote", when = "2021" },
-  { title = "Invited lectures", where = "ISICEM Brussels, ESICM LIVES Munich, ESICM Innovation, Mayo Clinic Grand Rounds", when = "2024–2026" },
 ]
 
 # Shown first under Publications, in this order. Each must be in the list.
@@ -174,6 +173,17 @@ sort = "2022"
 pages = "137–153"
 
 # Work that PubMed and arXiv do not have. Found through ORCID and Google Scholar.
+[[extra]]
+id = "book:2026-stewarts-textbook-3"
+kind = "Book"
+year = 2026
+sort = "2026"
+authors = ["Duška F", "Kellum JA", "Elbers PWG"]
+editors = true
+title = "Stewart's textbook of acid-base. Fully revised third edition"
+venue = "AcidBase.org"
+isbn = "978-1-304-33385-8"
+
 [[extra]]
 id = "book:2009-stewarts-textbook"
 kind = "Book"
