@@ -7,7 +7,9 @@ behind it. A second page is about the Center for Critical Care Computational
 Intelligence (C4I), the research group behind the database.
 
 Each page is one file. There are no scripts, and nothing is loaded from
-another site: no fonts, no trackers, no cookies.
+another site: no fonts, no trackers, no cookies. The CV page carries a block
+of structured data for search engines (`application/ld+json`); it is data,
+nothing runs.
 
 ## What is where
 
@@ -31,6 +33,8 @@ tools/sync.py     copies the styles and symbols of the front page into the
 tools/cv.py       collects the publications for the CV page and builds it
 tools/check.py    looks for missing files and broken links on the page, and
                   checks that the two drawings are what the scripts draw
+sitemap.xml       the pages, for search engines; add a page here when it is new
+robots.txt        tells search engines where the sitemap is
 .nojekyll         tells GitHub to publish the files exactly as they are
 ```
 

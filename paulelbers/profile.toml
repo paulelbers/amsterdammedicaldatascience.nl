@@ -36,6 +36,9 @@ links = [
   { name = "LinkedIn", url = "https://www.linkedin.com/in/paulelbersmdphd/" },
 ]
 
+# What search engines may connect him with.
+keywords = ["intensive care medicine", "critical care", "data science", "artificial intelligence", "machine learning", "reinforcement learning", "AmsterdamUMCdb", "acid-base"]
+
 # Google Scholar cannot be read by a program: Paul Elbers gives this number.
 h_index = { value = 54, source = "Google Scholar", checked = "2026-10" }  # all years; 51 since 2021
 
@@ -104,12 +107,6 @@ teaching = [
   { title = "Ultrasound curricula", where = "Initiator of the ICARUS, CACU and UltraNurse certifications" },
   { title = "Courses", where = "Clinical data science, microcirculation, acid–base, pharmacokinetics and extracorporeal circulation" },
   { title = "PhD committees", where = "In the Netherlands and abroad, among them at Imperial College London" },
-]
-
-lectures = [
-  { title = "Right Dose, Right Now", where = "ESICM LIVES, Paris, President's Research Release", when = "2022" },
-  { title = "AI against sepsis", where = "Tecnosepsis, Mallorca, keynote", when = "2021" },
-  { title = "Invited lectures", where = "ISICEM Brussels, ESICM LIVES Munich, ESICM Innovation, Mayo Clinic Grand Rounds", when = "2024–2026" },
 ]
 
 # Shown first under Publications, in this order. Each must be in the list.
