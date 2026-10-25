@@ -37,7 +37,7 @@ links = [
 ]
 
 # Google Scholar cannot be read by a program: Paul Elbers gives this number.
-h_index = { value = 51, source = "Google Scholar", checked = "2026-10" }
+h_index = { value = 54, source = "Google Scholar", checked = "2026-10" }  # all years; 51 since 2021
 
 # title, where, when ("when" may be left out)
 positions = [
@@ -93,7 +93,107 @@ not_listed = [
   "Acidbase.org: online decision support in complex acid-base disorders using the Stewart approach",
 ]
 
-# Work that PubMed and arXiv do not have. Found through ORCID.
+# Preprints from arXiv that were published later. They are shown as
+# published, with their arXiv link. Found through Google Scholar.
+[[published]]
+id = "arxiv:2306.05109"
+kind = "Conference paper"
+venue = "International Conference on Learning Representations (ICLR)"
+year = 2024
+sort = "2024"
+
+[[published]]
+id = "arxiv:2106.02875"
+kind = "Conference paper"
+venue = "Advances in Neural Information Processing Systems 34 (NeurIPS)"
+year = 2021
+sort = "2021"
+pages = "11364–11383"
+
+[[published]]
+id = "arxiv:2007.12087"
+kind = "Conference paper"
+title = "Hide-and-seek privacy challenge: synthetic data generation vs. patient re-identification"
+venue = "NeurIPS 2020 Competition and Demonstration Track, Proceedings of Machine Learning Research 133"
+year = 2021
+sort = "2021"
+pages = "206–215"
+
+[[published]]
+id = "arxiv:2109.14885"
+kind = "Book chapter"
+venue = "Multimodal AI in Healthcare: A Paradigm Shift in Health Intelligence"
+year = 2022
+sort = "2022"
+pages = "137–153"
+
+# Work that PubMed and arXiv do not have. Found through ORCID and Google Scholar.
+[[extra]]
+id = "book:2009-stewarts-textbook"
+kind = "Book"
+year = 2009
+sort = "2009"
+authors = ["Kellum JA", "Elbers PWG"]
+editors = true
+title = "Stewart's textbook of acid-base"
+venue = "AcidBase.org, Amsterdam"
+
+[[extra]]
+id = "chapter:2009-body-fluids"
+kind = "Book chapter"
+year = 2009
+sort = "2009"
+authors = ["Stewart PA", "Kellum JA", "Elbers PWG"]
+title = "Body fluids"
+venue = "Stewart's textbook of acid-base"
+pages = "111–132"
+
+[[extra]]
+id = "chapter:2009-perioperative-period"
+kind = "Book chapter"
+year = 2009
+sort = "2009"
+authors = ["Elbers PWG"]
+title = "The perioperative period"
+venue = "Stewart's textbook of acid-base"
+
+[[extra]]
+id = "chapter:2007-microcirculation-sepsis"
+kind = "Book chapter"
+year = 2007
+sort = "2007"
+authors = ["Elbers PWG", "Ince C"]
+title = "The microcirculation is a vulnerable organ in sepsis"
+venue = "Mechanisms of Sepsis-Induced Organ Dysfunction and Recovery"
+pages = "249–262"
+
+[[extra]]
+id = "chapter:2024-acid-base-fluid-therapy"
+kind = "Book chapter"
+year = 2024
+sort = "2024"
+authors = ["Van Regenmortel N", "Rosseels W", "Elbers PWG"]
+title = "Acid–base issues in fluid therapy"
+venue = "Hemodynamic Monitoring and Fluid Therapy during Surgery"
+
+[[extra]]
+id = "conference:2023-forked-agents"
+kind = "Conference paper"
+year = 2023
+sort = "2023"
+authors = ["Moulin O", "Francois-Lavet V", "Elbers P", "Hoogendoorn M"]
+title = "Improving generalization in reinforcement learning through forked agents"
+venue = "International Conference on Industrial, Engineering and Other Applications of Applied Intelligent Systems (IEA/AIE)"
+
+[[extra]]
+id = "conference:2019-transferring-models"
+kind = "Conference paper"
+year = 2019
+sort = "2019"
+authors = ["Curth A", "Thoral P", "van den Wildenberg W", "Bijlstra P", "de Bruin D", "Elbers P", "et al"]
+title = "Transferring clinical prediction models across hospitals and electronic health record systems"
+venue = "Joint European Conference on Machine Learning and Knowledge Discovery in Databases (ECML PKDD)"
+
 [[extra]]
 id = "chapter:2017-critical-care-nephrology"
 kind = "Book chapter"
