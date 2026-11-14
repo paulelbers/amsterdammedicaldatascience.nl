@@ -46,9 +46,12 @@ agreements on top of it.
 
 ## People
 
-- The faces on the front page are the current people of C4I. Someone who has
-  obtained their PhD moves to the alumni on the C4I page, with "PhD <year>"
-  and a link to the thesis, and leaves the front page.
+- The faces on the front page are the current people of C4I. Someone who
+  leaves moves to the alumni on the C4I page and off the front page.
+- Alumni are former PhD candidates, postdocs and staff, in order of the year
+  they left. A PhD graduate shows "PhD <year>" and a link to the thesis;
+  others their role and years ("Postdoc, 2020–2021"). Without a photo, their
+  initials.
 - Paul Elbers and Patrick Thoral founded AmsterdamUMCdb; Laurens Biesheuvel
   created the Van Gogh version.
 - About PhD candidates, publish only names, links Paul gave or that are
