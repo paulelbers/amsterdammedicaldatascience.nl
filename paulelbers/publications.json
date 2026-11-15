@@ -1,10 +1,10 @@
 {
- "collected": "2026-10-25",
+ "collected": "2026-11-14",
  "query": {
   "pubmed": "Elbers p AND 1994:3000[dp]",
   "arxiv": "au:\"Paul Elbers\""
  },
- "pubmed_records": 249,
+ "pubmed_records": 250,
  "works": [
   {
    "id": "pmid:42888143",
@@ -187,6 +187,38 @@
    "pages": "",
    "doi": "10.1177/17511437261479649",
    "pmid": "42668746"
+  },
+  {
+   "id": "pmid:42995620",
+   "kind": "Article",
+   "year": 2026,
+   "sort": "2026-08-19",
+   "authors": [
+    "Kokoefer A",
+    "Deribe AG",
+    "Zimmermann G",
+    "Hirlaender S",
+    "Wernly B",
+    "Rezar R",
+    "Cozowicz C",
+    "Jung C",
+    "Rockenschaub P",
+    "van den Brand J",
+    "Beil M",
+    "Elbers P",
+    "Kimberger O",
+    "van Genderen ME",
+    "Giemsa M",
+    "Rodemund N"
+   ],
+   "consortium": false,
+   "title": "Structural imbalances in open-access critical care research: a bibliometric analysis of abstracts from ICU database studies, 2018-2025.",
+   "venue": "Crit Care",
+   "volume": "30",
+   "issue": "1",
+   "pages": "",
+   "doi": "10.1186/s13054-026-06274-5",
+   "pmid": "42995620"
   },
   {
    "id": "pmid:42600978",
