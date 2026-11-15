@@ -42,7 +42,7 @@ links = [
 keywords = ["intensive care medicine", "critical care", "data science", "artificial intelligence", "machine learning", "reinforcement learning", "AmsterdamUMCdb", "acid-base"]
 
 # Google Scholar cannot be read by a program: Paul Elbers gives this number.
-h_index = { value = 54, source = "Google Scholar", checked = "2026-10" }  # all years; 51 since 2021
+h_index = { value = 55, source = "Google Scholar", checked = "2026-11" }  # all years; 51 since 2021
 
 # title, where, when ("when" may be left out)
 positions = [
