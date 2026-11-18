@@ -14,10 +14,16 @@ Two files feed the page:
                                   know but the page does not, for a person to
                                   judge; it never adds those by itself.
     python3 tools/cv.py build     writes paulelbers/index.html from the two
-                                  files and the stylesheet of the front page
+                                  files and the stylesheet of the front page,
+                                  and paulelbers/short.html, the short CV of
+                                  two A4 pages
+    python3 tools/cv.py pdf       prints short.html to
+                                  paulelbers/paul-elbers-cv.pdf (needs
+                                  Playwright with Chromium)
 
-tools/check.py fails when paulelbers/index.html is not what "build" makes, so
-the page cannot be edited by hand and drift away from its sources.
+tools/check.py fails when index.html or short.html is not what "build" makes,
+so the pages cannot be edited by hand and drift away from their sources. Run
+"pdf" after every "build" that changed short.html.
 """
 from __future__ import annotations
 
@@ -40,6 +46,9 @@ FOLDER = ROOT / "paulelbers"
 PROFILE = FOLDER / "profile.toml"
 PUBLICATIONS = FOLDER / "publications.json"
 PAGE = FOLDER / "index.html"
+SHORT = FOLDER / "short.html"
+PDF = FOLDER / "paul-elbers-cv.pdf"
+SITE = "https://amsterdammedicaldatascience.nl/paulelbers/"
 
 ORCID = "0000-0003-0447-6893"
 # Every PubMed hit for "Elbers P" from 1994 on is his (he confirmed this);
@@ -344,7 +353,8 @@ def month(iso: str) -> str:
     return datetime.date.fromisoformat(iso + "-01" if len(iso) == 7 else iso).strftime("%B %Y")
 
 
-def build() -> str:
+def load() -> tuple[dict, dict, list[dict]]:
+    """profile.toml, publications.json, and every work to show, newest first."""
     profile = tomllib.loads(PROFILE.read_text(encoding="utf-8"))
     collected = json.loads(PUBLICATIONS.read_text(encoding="utf-8"))
     hidden = set(profile.get("hide", []))
@@ -354,6 +364,19 @@ def build() -> str:
     works = [dict(w, **{k: v for k, v in later.get(w["id"], {}).items() if k != "id"})
              for w in collected["works"] + extra if w["id"] not in hidden]
     works.sort(key=lambda w: (w["year"], w.get("sort", "")), reverse=True)
+    return profile, collected, works
+
+
+def selected_works(profile: dict, works: list[dict]) -> list[dict]:
+    by_doi = {w.get("doi", "").lower(): w for w in works if w.get("doi")}
+    missing = [d for d in profile["selected"] if d.lower() not in by_doi]
+    if missing:
+        sys.exit(f"profile.toml selects papers that are not in the list: {', '.join(missing)}")
+    return [by_doi[d.lower()] for d in profile["selected"]]
+
+
+def build() -> str:
+    profile, collected, works = load()
 
     front = (ROOT / "index.html").read_text(encoding="utf-8")
     style = re.search(r"<style>.*?</style>", front, re.S).group(0)
@@ -364,11 +387,7 @@ def build() -> str:
     corrections = collected.get("pubmed_records", len(in_pubmed)) - len(in_pubmed)
     h = profile["h_index"]
 
-    by_doi = {w.get("doi", "").lower(): w for w in works if w.get("doi")}
-    selected = [by_doi[d.lower()] for d in profile["selected"] if d.lower() in by_doi]
-    missing = [d for d in profile["selected"] if d.lower() not in by_doi]
-    if missing:
-        sys.exit(f"profile.toml selects papers that are not in the list: {', '.join(missing)}")
+    selected = selected_works(profile, works)
 
     # Every paper, also those that name him as a member of a study group
     named = [w for w in works if w["kind"] not in ("Preprint", "Book chapter", "Book", "Conference paper")]
@@ -527,7 +546,7 @@ summary:focus-visible {{ outline: 3px solid var(--accent); outline-offset: 3px; 
       <div>
         <h1>{name}<span class="letters">{letters}</span></h1>
         <p class="lead">{inline(profile["lead"])}</p>
-        <p class="profiles">Also on {profiles}.</p>
+        <p class="profiles">Also on {profiles}. A short CV of two pages: <a href="paul-elbers-cv.pdf">PDF</a>.</p>
         <p class="experiment"><span class="state soon">Experiment</span> {inline(profile["experiment"])} <a href="#about-this-page">How it works</a></p>
       </div>
     </div>
@@ -579,13 +598,160 @@ summary:focus-visible {{ outline: 3px solid var(--accent); outline-offset: 3px; 
 """
 
 
+# ------------------------------------------------------------ the short CV
+
+def plain(text: str) -> str:
+    """Like inline(), for print: links become absolute and open nothing new."""
+    def link(match: re.Match) -> str:
+        return f'<a href="{urllib.parse.urljoin(SITE, match.group(2))}">{match.group(1)}</a>'
+    return re.sub(r"\[([^\]]+)\]\(([^)\s]+)\)", link, html.escape(text, quote=False))
+
+
+def short_rows(items: list[dict]) -> str:
+    out = []
+    for item in sorted(items, key=newest_first):
+        where = plain(item.get("short", item.get("where", "")))
+        out.append(f'<li><span class="what"><b>{plain(item["title"])}</b>{f". {where}" if where else ""}</span>'
+                   f'<span class="when">{html.escape(item.get("when", ""))}</span></li>')
+    return '<ul class="rows">' + "".join(out) + "</ul>"
+
+
+def short_citation(work: dict) -> str:
+    names = work["authors"]
+    me = next((i for i, n in enumerate(names) if MINE.match(n)), None)
+    shown = [f"<b>{html.escape(n)}</b>" if MINE.match(n) else html.escape(n) for n in names]
+    if len(names) <= 3:
+        who = ", ".join(shown)
+    elif me is not None and me >= 3:
+        who = ", ".join(shown[:2]) + ", …, " + shown[me] + (", et al." if me < len(names) - 1 else "")
+    else:
+        who = ", ".join(shown[:3]) + ", et al."
+    title = html.escape(work["title"].rstrip("."))
+    stop = "" if title[-1:] in "?!" else "."
+    if work.get("doi"):  # the title links to the paper; no room for the DOI itself
+        title = f'<a href="https://doi.org/{html.escape(work["doi"])}">{title}</a>'
+    where = f'<i>{html.escape(work["venue"])}</i> {work["year"]}'
+    return f"{who.rstrip('.')}. {title}{stop} {where}."
+
+
+def short() -> str:
+    """The short CV: two A4 pages, printed to PDF by "pdf"."""
+    profile, collected, works = load()
+    cut = profile.get("print", {})
+    h = profile["h_index"]
+    in_pubmed = [w for w in works if w.get("pmid")]
+    figures = [(str(len(in_pubmed)), "papers in PubMed"),
+               (str(h["value"]), f'h-index, {h["source"]}, {month(h["checked"])}')]
+    figures += [(f["value"], f["label"]) for f in cut.get("figures", [])]
+    figure_html = "".join(f"<div><b>{html.escape(v)}</b><span>{html.escape(l)}</span></div>" for v, l in figures)
+    papers = selected_works(profile, works)[: cut.get("publications", 10)]
+    when = datetime.date.fromisoformat(collected["collected"]).strftime("%-d %B %Y")
+
+    def section(title: str, body: str) -> str:
+        return f'<section><h2>{title}</h2>{body}</section>' if body else ""
+
+    def part(key: str, heading: str = "") -> str:
+        if not profile.get(key):
+            return ""
+        return (f"<h3>{heading}</h3>" if heading else "") + short_rows(profile[key])
+
+    body = "".join([
+        section("Positions", part("positions") + part("earlier", "Earlier")),
+        section("Education", part("education") + part("prizes", "Prizes")),
+        section("Roles", part("roles") + part("former_roles", "Earlier")),
+        section("Grants", part("grants")),
+        section("Teaching", part("teaching")),
+        section("Selected publications",
+                "<ol class=\"pubs\">" + "".join(f"<li>{short_citation(w)}</li>" for w in papers) + "</ol>"),
+    ])
+    name, letters = profile["name"], profile["letters"]
+    return f"""<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>{name}, {letters}: curriculum vitae</title>
+<meta name="robots" content="noindex">
+<style>
+@page {{ size: A4; margin: 15mm 17mm 16mm; }}
+:root {{ --ink: #13232E; --muted: #566873; --line: #D5DEE3; --brand: #F57625;
+  --display: "TeX Gyre Pagella", "Palatino Linotype", Palatino, "Book Antiqua", Georgia, serif;
+  --body: Inter, "Helvetica Neue", Arial, sans-serif; }}
+* {{ box-sizing: border-box; }}
+html {{ -webkit-print-color-adjust: exact; print-color-adjust: exact; }}
+body {{ margin: 0; color: var(--ink); background: #fff; font: 8.6pt/1.38 var(--body); }}
+a {{ color: inherit; text-decoration: none; }}
+header {{ display: flex; justify-content: space-between; align-items: flex-end; gap: 8mm;
+  padding-bottom: 4mm; border-bottom: 1.4pt solid var(--brand); }}
+h1 {{ font: 600 23pt/1.05 var(--display); margin: 0; letter-spacing: -.01em; }}
+h1 span {{ font: 600 9pt var(--body); letter-spacing: .08em; color: var(--muted); margin-left: 3mm; }}
+.title {{ margin: 2mm 0 0; font-size: 10pt; }}
+.contact {{ text-align: right; color: var(--muted); font-size: 8.4pt; line-height: 1.55; white-space: nowrap; }}
+.summary {{ margin: 3.5mm 0 0; font-size: 9.2pt; line-height: 1.45; }}
+.figures {{ display: grid; grid-template-columns: repeat({len(figures)}, 1fr); margin: 4mm 0 1mm; border-top: .5pt solid var(--line); border-bottom: .5pt solid var(--line); }}
+.figures div {{ padding: 2.2mm 3mm 2.2mm 0; }}
+.figures div + div {{ padding-left: 3mm; border-left: .5pt solid var(--line); }}
+.figures b {{ display: block; font: 600 15pt/1.1 var(--display); }}
+.figures span {{ color: var(--muted); font-size: 7.6pt; }}
+section {{ margin-top: 3.4mm; }}
+h2 {{ font: 600 11.5pt var(--display); margin: 0 0 1.4mm; padding-bottom: 1mm; border-bottom: .5pt solid var(--line); break-after: avoid; }}
+h3 {{ font: 600 7.6pt var(--body); text-transform: uppercase; letter-spacing: .08em; color: var(--muted); margin: 2mm 0 .6mm; break-after: avoid; }}
+.rows {{ list-style: none; margin: 0; padding: 0; }}
+.rows li {{ display: grid; grid-template-columns: 1fr 19mm; gap: 3mm; padding: .35mm 0; break-inside: avoid; }}
+.rows b {{ font-weight: 600; }}
+.rows .when {{ text-align: right; color: var(--muted); font-variant-numeric: tabular-nums; }}
+.pubs {{ margin: 0; padding-left: 5mm; }}
+.pubs li {{ padding: .35mm 0; break-inside: avoid; }}
+.pubs a {{ color: inherit; }}
+.note {{ margin: 1.5mm 0 0; color: var(--muted); font-size: 8pt; }}
+</style>
+</head>
+<body>
+<header>
+  <div>
+    <h1>{name}<span>{letters}</span></h1>
+    <p class="title">{html.escape(cut.get("title", profile["short"]))}</p>
+  </div>
+  <div class="contact">
+    <a href="mailto:{profile["email"]}">{profile["email"]}</a><br>
+    <a href="{SITE}">{SITE.removeprefix("https://").rstrip("/")}</a><br>
+    ORCID <a href="https://orcid.org/{ORCID}">{ORCID}</a>
+  </div>
+</header>
+<p class="summary">{plain(cut.get("summary", profile["about"][0]))}</p>
+<div class="figures">{figure_html}</div>
+{body}
+<p class="note">Short CV, {when}. The full CV, with all publications, books and chapters, is kept current at <a href="{SITE}">{SITE.removeprefix("https://")}</a></p>
+</body>
+</html>
+"""
+
+
+def pdf() -> None:
+    from playwright.sync_api import sync_playwright  # only needed here
+    with sync_playwright() as play:
+        browser = play.chromium.launch()
+        page = browser.new_page()
+        page.goto(SHORT.resolve().as_uri())
+        page.pdf(path=str(PDF), format="A4", prefer_css_page_size=True, print_background=True,
+                 display_header_footer=True, header_template="<span></span>",
+                 footer_template='<div style="width:100%;font:7pt Inter,Arial,sans-serif;color:#566873;'
+                                 'padding:0 17mm;display:flex;justify-content:space-between">'
+                                 '<span>Paul Elbers · curriculum vitae</span>'
+                                 '<span><span class="pageNumber"></span> / <span class="totalPages"></span></span></div>')
+        browser.close()
+    print(f"{PDF.relative_to(ROOT)} is printed.")
+
+
 def main() -> None:
     command = sys.argv[1] if len(sys.argv) > 1 else ""
     if command == "collect":
         collect()
     elif command == "build":
         PAGE.write_text(build(), encoding="utf-8")
-        print("paulelbers/index.html is built.")
+        SHORT.write_text(short(), encoding="utf-8")
+        print("paulelbers/index.html and paulelbers/short.html are built.")
+    elif command == "pdf":
+        pdf()
     else:
         sys.exit(__doc__)
 

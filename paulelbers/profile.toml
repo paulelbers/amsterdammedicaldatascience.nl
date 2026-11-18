@@ -62,7 +62,8 @@ earlier = [
 
 # Boards, committees, editorial boards. All unpaid.
 roles = [
-  { title = "Editorial boards", where = "Intensive Care Medicine Experimental; Critical Care" },
+  { title = "Editorial boards", where = "Critical Care; JAMA AI" },
+  { title = "Advisory board", where = "Intensive Care Medicine Experimental" },
   { title = "Organizer", where = "ESICM Critical Care Datathon (eight editions); World Summit on Reinforcement Learning for Health" },
   { title = "Conference committee", where = "[Intensive Care Innovation 2026](https://www.esicm.org/events/intensive-care-innovation-forum2026/), ESICM, Amsterdam", when = "2026" },
   { title = "Member, Science and Innovation Committee; chair, Innovation Agenda Task Force", where = "Dutch Society of Intensive Care (NVIC)" },
@@ -81,7 +82,7 @@ former_roles = [
 ]
 
 education = [
-  { title = "PhD", where = "University of Amsterdam. Thesis: Focus on flow. Imaging the human microcirculation in perioperative and intensive care medicine. Promotor: Prof. dr. ir. C. Ince", when = "2010" },
+  { title = "PhD", where = "University of Amsterdam. Thesis: Focus on flow. Imaging the human microcirculation in perioperative and intensive care medicine. Promotor: Prof. dr. ir. C. Ince", short = "University of Amsterdam. Thesis: Focus on flow. Imaging the human microcirculation in perioperative and intensive care medicine", when = "2010" },
   { title = "Medical degree, cum laude", where = "University of Amsterdam (AMC)", when = "2003" },
   { title = "European Diploma in Intensive Care (EDIC)", where = "European Society of Intensive Care Medicine" },
   { title = "University Teaching Qualification (BKO)", when = "2022" },
@@ -97,7 +98,7 @@ grants = [
   { title = "ITEA4: synthetic data", where = "Consortium €16.4 million, of which Amsterdam UMC €960,000", when = "2026" },
   { title = "EIT, with Strive Health and Humanitas Milan", where = "Consortium €1.7 million, of which Amsterdam UMC €425,000", when = "2026" },
   { title = "GGG, existing data", where = "€343,000", when = "2026" },
-  { title = "IrelandICUdb", where = "Optimizing outcomes from weaning from invasive mechanical ventilation in Ireland: a federated, FAIR-aligned ICU database for benchmarking and policy translation. Health Research Board, Ireland", when = "2025–2029" },
+  { title = "IrelandICUdb", where = "Optimizing outcomes from weaning from invasive mechanical ventilation in Ireland: a federated, FAIR-aligned ICU database for benchmarking and policy translation. Health Research Board, Ireland", short = "Federated ICU database for benchmarking weaning from mechanical ventilation. Health Research Board, Ireland", when = "2025–2029" },
   { title = "ICUdata", where = "Zorgverzekeraars Nederland, €2.0 million, principal applicant", when = "2021" },
   { title = "Samenwerken met Data", where = "ZonMw, €354,000, principal applicant", when = "2020" },
   { title = "Innovation Fund", where = "AMC, €350,000", when = "2019" },
@@ -143,6 +144,17 @@ not_listed = [
 
 # Preprints from arXiv that were published later. They are shown as
 # published, with their arXiv link. Found through Google Scholar.
+# The short CV (paulelbers/short.html and paul-elbers-cv.pdf): two A4 pages.
+# Rows above may carry a "short" text that replaces "where" there.
+[print]
+title = "Intensivist and associate professor of intensive care medicine, Amsterdam UMC"
+summary = "Intensivist with a background in cardiac anesthesia, working where intensive care medicine meets data science: sharing intensive care data, building models with artificial intelligence, bringing them to the bedside as decision support, and testing in clinical trials whether patients are better off. Co-founder of [AmsterdamUMCdb](../#amsterdamumcdb), the first freely available intensive care database from within the European Union, and founding director of the [Center for Critical Care Computational Intelligence](../c4i/) at Amsterdam UMC. Current focus: reinforcement learning at the bedside, with randomization when needed."
+publications = 10
+figures = [
+  { value = "15+", label = "PhD candidates supervised" },
+  { value = "€5M+", label = "research funding since 2016" },
+]
+
 [[published]]
 id = "arxiv:2306.05109"
 kind = "Conference paper"

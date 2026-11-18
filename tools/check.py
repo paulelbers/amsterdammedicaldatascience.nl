@@ -6,7 +6,8 @@
 - the drawings on the pages are what the scripts in tools/ draw;
 - the C4I page has the same stylesheet and the same symbols as the front
   page, so the two cannot drift apart;
-- the CV page is exactly what tools/cv.py builds from its two files.
+- the CV page and the short CV are exactly what tools/cv.py builds from
+  their two files.
 
 Run it from the top of the repository:  python3 tools/check.py
 """
@@ -104,6 +105,8 @@ def main() -> int:
     import cv
     if cv.build() != (ROOT / "paulelbers" / "index.html").read_text(encoding="utf-8"):
         found.append("paulelbers/index.html: differs from what tools/cv.py builds; run python3 tools/cv.py build")
+    if cv.short() != (ROOT / "paulelbers" / "short.html").read_text(encoding="utf-8"):
+        found.append("paulelbers/short.html: differs from what tools/cv.py builds; run python3 tools/cv.py build, then pdf")
     for problem in found:
         print(problem)
     print("Nothing wrong found." if not found else f"{len(found)} problem(s).")
