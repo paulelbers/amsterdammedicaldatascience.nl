@@ -18,7 +18,8 @@ index.html        the front page: text, styles, the emblem and the opening drawi
 c4i/index.html    the page of the Center for Critical Care Computational
                   Intelligence, at /c4i/
 paulelbers/       the CV page of Paul Elbers, at /paulelbers/ (see below):
-                  index.html is built from profile.toml and publications.json
+                  index.html and short.html are built from profile.toml and
+                  publications.json; paul-elbers-cv.pdf is short.html printed
 404.html          shown for an address that does not exist
 images/           logos and portraits
                   amdslogonew.png, the full AMDS logo, is the picture shown
@@ -84,6 +85,8 @@ scheduled AI task, always through a pull request that Paul Elbers merges.
 | `paulelbers/profile.toml` | bio, positions, boards and committees, education, grants, the h-index, the selected papers, works the sources miss | by hand |
 | `paulelbers/publications.json` | every paper in PubMed and arXiv | `python3 tools/cv.py collect` only |
 | `paulelbers/index.html` | the page | `python3 tools/cv.py build` only |
+| `paulelbers/short.html` | the short CV of two A4 pages, from the same two files (`[print]` in `profile.toml` sets its summary and length) | `python3 tools/cv.py build` only |
+| `paulelbers/paul-elbers-cv.pdf` | the short CV as PDF, linked from the page | `python3 tools/cv.py pdf` only |
 
 To bring the page up to date:
 
@@ -98,7 +101,9 @@ To bring the page up to date:
    prizes, in public sources such as society and Amsterdam UMC pages and
    news. Propose them in `profile.toml`, each with the address where it was
    found, in the pull request.
-4. `python3 tools/cv.py build`, then `python3 tools/check.py`.
+4. `python3 tools/cv.py build`, then `python3 tools/cv.py pdf` (needs
+   Playwright with Chromium), then `python3 tools/check.py`. Open the PDF and
+   check that it is still two pages.
 5. Propose it as one pull request that lists every change and its source.
    When nothing changed, propose nothing.
 
