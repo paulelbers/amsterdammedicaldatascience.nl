@@ -98,6 +98,7 @@ grants = [
   { title = "ITEA4: synthetic data", where = "Consortium €16.4 million, of which Amsterdam UMC €960,000", when = "2026" },
   { title = "EIT, with Strive Health and Humanitas Milan", where = "Consortium €1.7 million, of which Amsterdam UMC €425,000", when = "2026" },
   { title = "GGG, existing data", where = "€343,000", when = "2026" },
+  { title = "INDICATE: federated European infrastructure for intensive care data", where = "European Commission, Digital Europe. Consortium €10 million, coordinated by Erasmus MC; Amsterdam UMC €153,000 (budget €306,000, funded at 50%)", short = "European Commission, Digital Europe; consortium coordinated by Erasmus MC; Amsterdam UMC €153,000" },
   { title = "IrelandICUdb", where = "Optimizing outcomes from weaning from invasive mechanical ventilation in Ireland: a federated, FAIR-aligned ICU database for benchmarking and policy translation. Health Research Board, Ireland", short = "Federated ICU database for benchmarking weaning from mechanical ventilation. Health Research Board, Ireland", when = "2025–2029" },
   { title = "ICUdata", where = "Zorgverzekeraars Nederland, €2.0 million, principal applicant", when = "2021" },
   { title = "Samenwerken met Data", where = "ZonMw, €354,000, principal applicant", when = "2020" },
